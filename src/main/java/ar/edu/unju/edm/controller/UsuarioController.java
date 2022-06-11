@@ -18,7 +18,7 @@ import ar.edu.unju.edm.service.IUsuarioService;
 @Controller
 public class UsuarioController {
 
-	private static final Log GRUPO1=LogFactory.getLog(UsuarioController.class);
+	private static final Log EMILIO=LogFactory.getLog(UsuarioController.class);//constante con mayuscula
 
 	@Autowired
 	Usuario nuevoUsuario;
@@ -28,7 +28,7 @@ public class UsuarioController {
 	
 	@GetMapping("/otroUsuario")//entra
 	public ModelAndView addUser() {
-		ModelAndView vista = new ModelAndView("cargarUsuario");
+		ModelAndView vista = new ModelAndView("cargarUsuario");//pasa nombre de la lista a pasar
 		//vista.addObject("nuevoUsuario");
 		vista.addObject("usuario", nuevoUsuario);
 		vista.addObject("editMode", false);
@@ -36,10 +36,12 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/guardarusuario")
-	public String saveUser(@Valid @ModelAttribute("usuario") Usuario usuarioparaguardar, BindingResult resultado, Model model) { 
+	public String saveUser(@Valid @ModelAttribute("usuario") Usuario usuarioparaguardar, BindingResult resultado, Model model) { //del modelo viene 1 atributo llamado usuario y lo agarra le indica el tipo y un nombre 
+	
+		EMILIO.info("Ingresando al metodo guardar. Usuario: "+usuarioparaguardar.getFechaNacimiento());
 		
 		if(resultado.hasErrors()) {
-			GRUPO1.fatal("Error de Validacion");
+			EMILIO.fatal("Error de Validacion");
 			model.addAttribute("usuario",usuarioparaguardar);
 			return "cargarUsuario";
 		}
@@ -74,8 +76,6 @@ public class UsuarioController {
 		}
 		return "redirect:/listadoUsuario";
 	}
-	
-	
 	
 	@GetMapping("/editarUsuario/{dni}")
 	//public ModelAndView ObtenerFormularioEditarUsuario(Model model, @PathVariable(name="dni")Long dni) throws Exception {
