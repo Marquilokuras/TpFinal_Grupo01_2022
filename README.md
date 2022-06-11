@@ -1,11 +1,11 @@
-# Tp03_Grupo01_2022
+# TpFinal_Grupo01_2022
 
 Integrantes:
 
-Agustina Maraz
+*Agustina Maraz
 
-Marcos Quinteros
+*Marcos Quinteros
 
-Emilio Soruco
+*Emilio Soruco
 
-Emilia Valeriano
+*Emilia Valeriano
