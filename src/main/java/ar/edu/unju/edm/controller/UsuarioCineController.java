@@ -10,63 +10,61 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ar.edu.unju.edm.model.UsuarioCurso;
-import ar.edu.unju.edm.service.ICursoService;
-import ar.edu.unju.edm.service.IUsuarioCursoService;
+import ar.edu.unju.edm.model.UsuarioCine;
+import ar.edu.unju.edm.service.ICineService;
+import ar.edu.unju.edm.service.IUsuarioCineService;
 import ar.edu.unju.edm.service.IUsuarioService;
 
 @Controller
-public class UsuarioCursoController {
+public class UsuarioCineController {
 
-	private static final Log EMILIO=LogFactory.getLog(UsuarioCursoController.class);
+	private static final Log EMILIO=LogFactory.getLog(UsuarioCineController.class);
 
 	@Autowired
-	UsuarioCurso nuevoUsuarioCurso;
+	UsuarioCine nuevoUsuarioCine;
 	
 	@Autowired
 	IUsuarioService usuarioService;
 	
 	@Autowired
-	ICursoService cursosService;
+	ICineService cineService;
 	
 	@Autowired
-	IUsuarioCursoService usuarioCursoService;
+	IUsuarioCineService usuarioCineService;
 	
 	@GetMapping("/inscripcion")
 	public ModelAndView addInscripcion() {
 		ModelAndView vista = new ModelAndView("cargarInscripcion");
-		vista.addObject("usuarioCurso", usuarioCursoService.nuevoUsuarioCurso());
+		vista.addObject("usuarioCine", usuarioCineService.nuevoUsuarioCine());
 		vista.addObject("usuarios", usuarioService.mostrarUsuarios());
-		vista.addObject("cursos", cursosService.mostrarCursos());
+		//vista.addObject("cines", cineService.mostrarCine());
 		vista.addObject("editMode", false);
 		return vista;
 	}
 	
 	@PostMapping("/guardarInscripcion")
-	public ModelAndView saveInscripcion(@Valid @ModelAttribute("usuarioCurso") UsuarioCurso inscripcionparaguardar, BindingResult resultado) {  
+	public ModelAndView saveInscripcion(@Valid @ModelAttribute("usuarioCine") UsuarioCine inscripcionparaguardar, BindingResult resultado) {  
 		ModelAndView vista = new ModelAndView();
 		if(resultado.hasErrors()) {
 			EMILIO.fatal("Error de Validacion");
-			vista.addObject("usuarioCurso",inscripcionparaguardar);
+			vista.addObject("usuarioCine",inscripcionparaguardar);
 			vista.addObject("editMode",false);
 			vista.setViewName("cargarInscripcion");
 			return vista;
 		}try { 
-			usuarioCursoService.guardarUsuarioCurso(inscripcionparaguardar);
+			usuarioCineService.guardarUsuarioCine(inscripcionparaguardar);
 		}catch(Exception error){ //si no sale por aqui
 			vista.addObject("formUsuarioErrorMessage", error.getMessage());
-			vista.addObject("usuarioCurso",inscripcionparaguardar);
+			vista.addObject("usuarioCine",inscripcionparaguardar);
 			vista.addObject("editMode",false);
 			vista.setViewName("cargarInscripcion");
 			return vista;
 		}
 		vista.addObject("formUsuarioErrorMessage", "Usuario Guardado Correctamente");
-		vista.addObject("usuarioCurso", usuarioCursoService.nuevoUsuarioCurso());
+		vista.addObject("usuarioCine", usuarioCineService.nuevoUsuarioCine());
 		vista.addObject("editMode",false);
 		vista.setViewName("cargarInscripcion");
 		return vista;
 	}
-	
-	
 	
 }
