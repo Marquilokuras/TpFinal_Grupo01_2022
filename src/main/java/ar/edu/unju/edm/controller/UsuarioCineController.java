@@ -37,7 +37,7 @@ public class UsuarioCineController {
 		ModelAndView vista = new ModelAndView("cargarInscripcion");
 		vista.addObject("usuarioCine", usuarioCineService.nuevoUsuarioCine());
 		vista.addObject("usuarios", usuarioService.mostrarUsuarios());
-		vista.addObject("cines", cineService.mostrarCine());
+		//vista.addObject("cines", cineService.mostrarCine());
 		vista.addObject("editMode", false);
 		return vista;
 	}
