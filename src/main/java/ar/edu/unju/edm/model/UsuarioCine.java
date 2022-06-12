@@ -14,29 +14,29 @@ import org.springframework.stereotype.Component;
 
 @Component					//mapeo del modelo relacional hibernate
 @Entity
-public class UsuarioCurso {
+public class UsuarioCine {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idUsuarioCurso;
+	private Integer idUsuarioCine;
 	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
 	@JoinColumn(name="dni")//parte comun de dos conjuntos
 	private Usuario usuario;
 	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
-	@JoinColumn(name="idCurso")//parte comun de dos conjuntos
-	private Curso curso;
+	@JoinColumn(name="idCine")//parte comun de dos conjuntos
+	private Cine cine;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaDeInscripcion;
 	
-	public UsuarioCurso() {
+	public UsuarioCine() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getIdUsuarioCurso() {
-		return idUsuarioCurso;
+	public Integer getIdUsuarioCine() {
+		return idUsuarioCine;
 	}
 
-	public void setIdUsuarioCurso(Integer idUsuarioCurso) {
-		this.idUsuarioCurso = idUsuarioCurso;
+	public void setIdUsuarioCine(Integer idUsuarioCine) {
+		this.idUsuarioCine = idUsuarioCine;
 	}
 
 	public Usuario getUsuario() {
@@ -47,12 +47,12 @@ public class UsuarioCurso {
 		this.usuario = usuario;
 	}
 
-	public Curso getCurso() {
-		return curso;
+	public Cine getCine() {
+		return cine;
 	}
 
-	public void setCurso(Curso curso) {
-		this.curso = curso;
+	public void setCine(Cine cine) {
+		this.cine = cine;
 	}
 
 	public LocalDate getFechaDeInscripcion() {
