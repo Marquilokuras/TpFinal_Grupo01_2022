@@ -23,7 +23,7 @@ public class UsuarioCine {
 	private Usuario usuario;
 	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
 	@JoinColumn(name="idCine")//parte comun de dos conjuntos
-	private Cine cine;
+	private Pelicula cine;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaDeInscripcion;
 	
@@ -47,11 +47,11 @@ public class UsuarioCine {
 		this.usuario = usuario;
 	}
 
-	public Cine getCine() {
+	public Pelicula getCine() {
 		return cine;
 	}
 
-	public void setCine(Cine cine) {
+	public void setCine(Pelicula cine) {
 		this.cine = cine;
 	}
 

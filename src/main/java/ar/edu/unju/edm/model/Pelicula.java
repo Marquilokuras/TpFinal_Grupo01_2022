@@ -16,19 +16,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-public class Cine {
+public class Pelicula {
 	@NotEmpty
-	private String nombreCine;
-	@Column(name="descripcionCine")
+	private String nombrePelicula;
+	@Column(name="descripcionPelicula")
 	@NotEmpty
-	private String descripcionCine;
+	private String descripcionPelicula;
 	@NotNull
 	@Min(value=0,message="El duracion en horas debe ser mayor que 0")
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
-	private Integer duracionCine;
+	private Integer duracionPelicula;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idCine;
+	private Long idPelicula;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaEstreno;
 	@NotNull
@@ -42,42 +42,42 @@ public class Cine {
 	@Min(value=1,message="El valoracion debe ser mayor que 1")
 	@Max(value=5,message="El valoracion debe ser menor que 5")
 	private Integer valoracion;
-	private Boolean estadoCurso;
+	private Boolean estadoPelicula;
 	
-	public Cine() {
+	public Pelicula() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getNombreCine() {
-		return nombreCine;
+	public String getNombrePelicula() {
+		return nombrePelicula;
 	}
 
-	public void setNombreCine(String nombreCine) {
-		this.nombreCine = nombreCine;
+	public void setNombrePelicula(String nombrePelicula) {
+		this.nombrePelicula = nombrePelicula;
 	}
 
-	public String getDescripcionCine() {
-		return descripcionCine;
+	public String getDescripcionPelicula() {
+		return descripcionPelicula;
 	}
 
-	public void setDescripcionCine(String descripcionCine) {
-		this.descripcionCine = descripcionCine;
+	public void setDescripcionPelicula(String descripcionPelicula) {
+		this.descripcionPelicula = descripcionPelicula;
 	}
 
-	public Integer getDuracionCine() {
-		return duracionCine;
+	public Integer getDuracionPelicula() {
+		return duracionPelicula;
 	}
 
-	public void setDuracionCine(Integer duracionCine) {
-		this.duracionCine = duracionCine;
+	public void setDuracionPelicula(Integer duracionPelicula) {
+		this.duracionPelicula = duracionPelicula;
 	}
 
-	public Long getIdCine() {
-		return idCine;
+	public Long getIdPelicula() {
+		return idPelicula;
 	}
 
-	public void setIdCine(Long idCine) {
-		this.idCine = idCine;
+	public void setIdPelicula(Long idPelicula) {
+		this.idPelicula = idPelicula;
 	}
 
 	public LocalDate getFechaEstreno() {
@@ -112,11 +112,11 @@ public class Cine {
 		this.valoracion = valoracion;
 	}
 
-	public Boolean getEstadoCurso() {
-		return estadoCurso;
+	public Boolean getEstadoPelicula() {
+		return estadoPelicula;
 	}
 
-	public void setEstadoCurso(Boolean estadoCurso) {
-		this.estadoCurso = estadoCurso;
+	public void setEstadoCurso(Boolean estadoPelicula) {
+		this.estadoPelicula = estadoPelicula;
 	}
 }
