@@ -15,8 +15,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
-@Entity
+@Entity //sirve para conectar con PeliculaRepository
 public class Pelicula {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long idPelicula;
 	@NotEmpty
 	private String nombrePelicula;
 	@Column(name="descripcionPelicula")
@@ -26,9 +29,6 @@ public class Pelicula {
 	@Min(value=0,message="El duracion en horas debe ser mayor que 0")
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
 	private Integer duracionPelicula;
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idPelicula;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaEstreno;
 	@NotNull
