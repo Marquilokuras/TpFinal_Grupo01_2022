@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Formulario Pelicula</title>
+<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css">
+<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div class="container">
+		<div th:insert="/layouts/header :: header"></div>
+      <form th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post">
+	      
+	      <!--  <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{idPelicula}"> -->
+	      
+	      
+	      
+	      <div class="mb-3">
+	      
+	          <label for="idPelicula" class="form-label" th:if="${editMode==false}">Digite ID de la Pelicula</label>
+	          <input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}" th:if="${editMode==false}" placeholder="Ingrese ID de la pelicula">
+	          <div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}" th:errors="*{idPelicula}"></div>
+	          
+        	</div>
+	      
+       	  <div class="mb-3">
+	          
+	          <label for="nombre" class="form-label">Nombre de la Pelicula</label> 
+	          <input type="text" class="form-control" id="nombre" th:field="*{nombrePelicula}" placeholder="Ingrese nombre de la pelicula">
+	          
+	          <label for="descripcion" class="form-label">Descripcion</label>
+	          <input type="text" class="form-control" id="descripcion" th:field="*{descripcionPelicula}" placeholder="Ingrese sintesis de la pelicula">
+	          
+		</div>
+		
+
+        <div class="mb-3">
+        
+          <label for="fechaEstreno" class="form-label">Fecha de Estreno</label>
+          <input type="date" class="form-control" id="fechaEstreno" th:field="*{fechaEstreno}" placeholder="Ingrese fecha de estreno">
+           <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaEstreno')}" th:errors="*{fechaEstreno}"></div>
+           
+        </div>
+	
+			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
+		  	<a class="btn btn-light" th:href="@{/}">Volver</a>
+		  	
+		  	
+		</form>
+	</div>
+</body>
+</html>

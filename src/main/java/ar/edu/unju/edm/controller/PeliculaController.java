@@ -31,13 +31,13 @@ public class PeliculaController {
 	public ModelAndView addUser() {
 		ModelAndView vista = new ModelAndView("cargarPelicula");
 	
-		vista.addObject("usuario", peliculaService);
+		vista.addObject("pelicula", nuevaPelicula);
 		vista.addObject("editMode", false);
 		return vista;
 	}
 	
 	@PostMapping("/guardarPelicula")
-	public String saveMovie(@Valid @ModelAttribute("Pelicula")Pelicula peliculaparaguardar, BindingResult resultado, Model model) {
+	public String saveMovie(@Valid @ModelAttribute("pelicula")Pelicula peliculaparaguardar, BindingResult resultado, Model model) {
 		AGUSTINA.info("Ingresando al metodo GUARDAR PELICULA");
 		
 		if(resultado.hasErrors()) {
@@ -51,7 +51,7 @@ public class PeliculaController {
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
-			model.addAttribute("pelicula", peliculaparaguardar);
+			model.addAttribute("pelicula", nuevaPelicula);
 			return "cargarPelicula";
 		}
 		
