@@ -1,11 +1,13 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -20,28 +22,42 @@ public class Pelicula {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idPelicula;
+	
 	@NotEmpty
 	private String nombrePelicula;
+	
 	@Column(name="descripcionPelicula")
 	@NotEmpty
 	private String descripcionPelicula;
+	
 	@NotNull
 	@Min(value=0,message="El duracion en horas debe ser mayor que 0")
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
 	private Integer duracionPelicula;
+	
+	@NotEmpty
+	private String generoPelicula;
+	
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaEstreno;
-	@NotNull
-	@Min(value=1,message="El duracion debe ser mayor que 1")
-	@Max(value=99999,message="El duracion debe ser menor que 99999")
-	private Integer cupo;
-	@NotNull
-	@Min(value=1,message="El duracion debe ser mayor que 1")
-	@Max(value=99999,message="El duracion debe ser menor que 99999")
-	private Double costo;
-	@Min(value=1,message="El valoracion debe ser mayor que 1")
-	@Max(value=5,message="El valoracion debe ser menor que 5")
-	private Integer valoracion;
+	
+	private LocalTime horario1;
+	
+	private LocalTime horario2;
+	
+	private LocalTime horario3;
+	
+	//portada
+	@Lob
+	private String imagen;
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	private Boolean estadoPelicula;
 	
 	public Pelicula() {
@@ -88,35 +104,45 @@ public class Pelicula {
 		this.fechaEstreno = fechaEstreno;
 	}
 
-	public Integer getCupo() {
-		return cupo;
+	public String getGeneroPelicula() {
+		return generoPelicula;
 	}
 
-	public void setCupo(Integer cupo) {
-		this.cupo = cupo;
+	public void setGeneroPelicula(String generoPelicula) {
+		this.generoPelicula = generoPelicula;
 	}
 
-	public Double getCosto() {
-		return costo;
+	public LocalTime getHorario1() {
+		return horario1;
 	}
 
-	public void setCosto(Double costo) {
-		this.costo = costo;
+	public void setHorario1(LocalTime horario1) {
+		this.horario1 = horario1;
 	}
 
-	public Integer getValoracion() {
-		return valoracion;
+	public LocalTime getHorario2() {
+		return horario2;
 	}
 
-	public void setValoracion(Integer valoracion) {
-		this.valoracion = valoracion;
+	public void setHorario2(LocalTime horario2) {
+		this.horario2 = horario2;
+	}
+
+	public LocalTime getHorario3() {
+		return horario3;
+	}
+
+	public void setHorario3(LocalTime horario3) {
+		this.horario3 = horario3;
 	}
 
 	public Boolean getEstadoPelicula() {
 		return estadoPelicula;
 	}
 
-	public void setEstadoCurso(Boolean estadoPelicula) {
+	public void setEstadoPelicula(Boolean estadoPelicula) {
 		this.estadoPelicula = estadoPelicula;
 	}
+
+	
 }

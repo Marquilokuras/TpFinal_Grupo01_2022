@@ -1,5 +1,7 @@
 package ar.edu.unju.edm.controller;
 
+import java.util.Base64;
+
 import javax.validation.Valid;
 
 import org.apache.commons.logging.Log;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.edm.model.Pelicula;
@@ -31,13 +35,13 @@ public class PeliculaController {
 	public ModelAndView addUser() {
 		ModelAndView vista = new ModelAndView("cargarPelicula");
 	
-		vista.addObject("usuario", peliculaService);
+		vista.addObject("pelicula", nuevaPelicula);
 		vista.addObject("editMode", false);
 		return vista;
 	}
 	
-	@PostMapping("/guardarPelicula")
-	public String saveMovie(@Valid @ModelAttribute("Pelicula")Pelicula peliculaparaguardar, BindingResult resultado, Model model) {
+	@PostMapping(value="/guardarPelicula", consumes = "multipart/form-data")
+	public String saveMovie(@Valid @ModelAttribute("pelicula")Pelicula peliculaparaguardar, BindingResult resultado, @RequestParam("file") MultipartFile file, Model model) {
 		AGUSTINA.info("Ingresando al metodo GUARDAR PELICULA");
 		
 		if(resultado.hasErrors()) {
@@ -48,10 +52,14 @@ public class PeliculaController {
 		}
 		
 		try {
+			byte[] content = file.getBytes();
+			String base64 = Base64.getEncoder().encodeToString(content);
+			peliculaparaguardar.setImagen(base64);
+			//peliculaparaguardar.setEstadoPelicula(true);
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
-			model.addAttribute("pelicula", peliculaparaguardar);
+			model.addAttribute("pelicula", nuevaPelicula);
 			return "cargarPelicula";
 		}
 		
