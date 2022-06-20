@@ -3,11 +3,11 @@
 body{
 	background:url("/img/nuevofondo2.jpg");
 	background-repeat: no-repeat;
-	background-size: 500% 500%;
+	
 }
 
 .navbar {
-	background-color: rgb(49, 47, 47);
+	background-color: rgb(179, 25, 120);
 }
 
 label{

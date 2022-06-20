@@ -25,45 +25,44 @@
         </div>
         
 			<div class="mb-3">
-				<label for="nombreCurso" class="form-label">Nombre del curso</label> <input
+				<label for="nombreCurso" class="form-label">Nombre de Pelicula</label> <input
 					type="text" class="form-control" id="nombreCurso" th:field="*{nombreCurso}"
 					placeholder="Ingrese curso"> <label for="docente"
-					class="form-label">Docente que lo dicta</label> <input type="text"
+					class="form-label">Actores</label> <input type="text"
 					class="form-control" id="docente" th:field="*{docente}"
 					placeholder="Ingrese docente">
 			</div>
 			
 			<div class="mb-3">
-				<label for="descripcion" class="form-label">Descripcion del Curso</label> 
+				<label for="descripcion" class="form-label">Descripcion de la Pelicula</label> 
 				<input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" placeholder="Realice una descricion detallada del curso">
 			</div>
 			
 			<div class="mb-3">
-				<label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+				<label for="fechaInicio" class="form-label">Fecha de Estreno</label>
 				<input type="date" class="form-control" id="fechaInicio" th:field="*{fechaInicio}" placeholder="Ingrese Fecha de Inicio">
 			</div>
 			
 			<div class="mb-3">
-				<label for="fechaFinal" class="form-label">Fecha de Finalización</label>
-				<input type="date" class="form-control" id="fechaFinal"
+				<label for="fechaFinal" class="form-label">Fecha en Cartelera</label>
+				<input type="date" class="form-control" id="fechaFinal"q
 					th:field="*{fechaFinal}" placeholder="Ingrese Fecha de Finalización">
 			</div>
 			
 			<div class="mb-3">
-          <label for="cupo" class="form-label">Cupo</label>
-          <input type="number" class="form-control"
-            id="costo" th:field="*{cupo}" placeholder="Ingrese el cupo del curso">
- 
-        </div>
-			
-			<div class="mb-3">
-          <label for="costo" class="form-label">Costo/Precio</label>
-          <input type="number" class="form-control" id="costo" th:field="*{costo}" placeholder="Ingrese el precio del curso">
- 
-        </div>
-
+          		<label for="cupo" class="form-label">Sala</label>
+          		<input type="number" class="form-control"
+            	id="costo" th:field="*{cupo}" placeholder="Ingrese la sala donde se reproducira la pelicula">
+            </div>
+            
+            <div class="mb-3">
+         	 	<label for="cupo" class="form-label">Calidad</label>
+          	 	<input type="number" class="form-control"
+            	 id="costo" th:field="*{cupo}" placeholder="Ingrese la calidad de la pelicula de la pelicula">
+            </div>
+            
 			<button type="submit" class="btn btn-primary"
-				th:text="${editMode}? 'Modificar' : 'Registrar' ">Registrar Curso</button>
+				th:text="${editMode}? 'Modificar' : 'Registrar' ">Registrar Pelicula</button>
 		</form>
 	</div>
 </body>
