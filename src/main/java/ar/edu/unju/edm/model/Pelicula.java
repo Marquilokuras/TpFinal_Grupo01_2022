@@ -23,6 +23,7 @@ public class Pelicula {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idPelicula;
 	
+	
 	@NotEmpty
 	private String nombrePelicula;
 	
