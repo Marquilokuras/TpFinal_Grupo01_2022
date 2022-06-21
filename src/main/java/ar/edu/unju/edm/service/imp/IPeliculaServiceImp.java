@@ -24,7 +24,7 @@ public class IPeliculaServiceImp implements IPeliculaService{
 	@Override
 	public void guardarPelicula(@Valid Pelicula peliculaparaguardar) {
 		// TODO Auto-generated method stub
-		peliculaparaguardar.setEstadoPelicula(true);
+		
 		peliculaRepository.save(peliculaparaguardar);
 	}
 

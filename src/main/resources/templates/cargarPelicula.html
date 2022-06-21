@@ -12,7 +12,16 @@
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
-      <form th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post">
+      <!-- <div class="alert alert-success alert-dismissible fade show row"
+      	role="alert" th:if="${cargarPeliculErrorMessage}">
+      	<label th:text="${cargarPeliculErrorMessage}"></label>
+      	<button type="button" class="btn-close" data-bs-dismiss="alert"
+      	aria-lable="Close"></button>
+      </div>
+    </div>
+    <div class="row"> -->
+      <form th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
+      	enctype="multipart/form-data" >
 	      
 	      <!--  <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{idPelicula}"> -->
 	      
@@ -42,14 +51,23 @@
           <label for="fechaEstreno" class="form-label">Fecha de Estreno</label>
           <input type="date" class="form-control" id="fechaEstreno" th:field="*{fechaEstreno}" placeholder="Ingrese fecha de estreno">
            <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaEstreno')}" th:errors="*{fechaEstreno}"></div>
-           
+       
+       <div class="form-group row">
+       	<label for ="file" class="col-sm-4 col-form-label"> Subir
+       	 Imagen</label>
+       	 <div class="col-sm-10">
+       	 	<input type="file" name="file" class="form-control-file" id="file"
+       	 	accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
+       	 	onchange="loadFile(event)"> <img id="output" 
+       	 	style="padding-top: 2px; width: 146px;" />
+       	 </div>
+       </div>    
         </div>
 	
 			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
 		  	<a class="btn btn-light" th:href="@{/}">Volver</a>
 		  	
-		  	
+		</div>
 		</form>
-	</div>
 </body>
 </html>
