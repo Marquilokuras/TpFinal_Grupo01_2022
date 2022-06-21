@@ -34,6 +34,9 @@ public class Pelicula {
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
 	private Integer duracionPelicula;
 	
+	
+	
+	
 	@NotEmpty
 	private String generoPelicula;
 	
