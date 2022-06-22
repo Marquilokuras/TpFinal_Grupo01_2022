@@ -88,7 +88,7 @@ public class PeliculaController {
 			}
 	
 		
-		//modificar  ppelicula
+		//modificar  pelicula
 	@RequestMapping("/editPelicula/{idPelicula}")
 	public ModelAndView editMovie(Model model,@PathVariable (name="idPelicula") Long idPelicula)throws Exception {	
 		Pelicula peliculaEncontrada = new Pelicula();
