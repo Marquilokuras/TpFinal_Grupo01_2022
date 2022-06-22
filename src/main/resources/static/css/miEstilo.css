@@ -1,18 +1,23 @@
 @charset "ISO-8859-1";
 
+*{
+	margin:0;
+	padding:0;
+}
+
 body{
-	background:url("/img/nuevofondo2.jpg");
+	/*background:url("/img/nuevofondo2.jpg");
 	background-repeat: no-repeat;
-	background-size: 500% 500%;
+	background-size: 500% 500%;*/
 }
 
 .navbar {
-	background-color: rgb(49, 47, 47);
+	background-color: rgb(255, 128, 64);
 }
 
 label{
 	font-size:25px;
-	color:yellow;
+	color:rgb(255, 128, 192);
 	display: flex;
 }
 
