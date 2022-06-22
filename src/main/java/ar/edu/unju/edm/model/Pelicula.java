@@ -37,7 +37,8 @@ public class Pelicula {
 	@NotEmpty
 	private String generoPelicula;
 	
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	//@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaEstreno;
 	
 	private LocalTime horario1;

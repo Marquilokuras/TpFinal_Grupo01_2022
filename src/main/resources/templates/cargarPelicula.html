@@ -12,11 +12,18 @@
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
+		
+		
       <form th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post">
 	      
-	      <!--  <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{idPelicula}"> -->
+	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{idPelicula}">
 	      
+	      <div class="alert alert-success dismissible fade show row " role="alert" th:if="${formPeliculaErrorMessage}">
+	      	<label th:text="${formPeliculaErrorMessage}"></label>
+	      	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	      </div>
 	      
+	      <div class="fondo">
 	      
 	      <div class="mb-3">
 	      
@@ -45,9 +52,10 @@
            
         </div>
 	
-			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
+			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span> </button>
 		  	<a class="btn btn-light" th:href="@{/}">Volver</a>
 		  	
+		   </div>
 		  	
 		</form>
 	</div>

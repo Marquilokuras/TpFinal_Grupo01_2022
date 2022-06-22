@@ -1,9 +1,9 @@
 @charset "ISO-8859-1";
 
 body{
-	background:url("/img/nuevofondo2.jpg");
+	background:url("/img/palomitas.jpg");
 	background-repeat: no-repeat;
-	background-size: 500% 500%;
+	background-size: 100%;
 }
 
 .navbar {
@@ -69,3 +69,9 @@ h3 {
 }
 
 /* footer */
+
+
+.fondo {
+	background-color: rgba(13, 19, 37, 0.2);
+	margin-top:90px;
+}

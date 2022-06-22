@@ -41,7 +41,7 @@ public class PeliculaController {
 		AGUSTINA.info("Ingresando al metodo GUARDAR PELICULA");
 		
 		if(resultado.hasErrors()) {
-			AGUSTINA.fatal("Error en el meotodo GUARDAR PELICULA");
+			AGUSTINA.fatal("Error en el metodo GUARDAR PELICULA");
 			
 			model.addAttribute("pelicula", peliculaparaguardar);
 			return "cargarPelicula";
@@ -51,12 +51,12 @@ public class PeliculaController {
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
-			model.addAttribute("pelicula", nuevaPelicula);
+			model.addAttribute("pelicula", peliculaparaguardar);
 			return "cargarPelicula";
 		}
 		
 		model.addAttribute("formPeliculaErrorMessage", "Pelicula Guardada Correctamente");
-		model.addAttribute("pelicula", peliculaparaguardar);
+		model.addAttribute("pelicula", nuevaPelicula);
 		
 		return "cargarPelicula";
 	}
@@ -65,7 +65,9 @@ public class PeliculaController {
 	
 	@GetMapping("/editarPelicula/{idPelicula}")
 
-	public ModelAndView editMovie(Model model,@PathVariable (name="idPelicula") Long idPelicula)throws Exception {	
+	public ModelAndView editMovie(Model model,@PathVariable (name="idPelicula") Long idPelicula)throws Exception {
+		AGUSTINA.info("Ingresando al metodo EDITAR PELICULA");
+		
 		Pelicula peliculaEncontrada = new Pelicula();
 		
 		try {
@@ -88,6 +90,7 @@ public class PeliculaController {
 		vista.addObject("formPeliculaErrorMessage", "Pelicula Guardado Correctamente");
 		return vista;
 	}
+	
 	
 	
 	
