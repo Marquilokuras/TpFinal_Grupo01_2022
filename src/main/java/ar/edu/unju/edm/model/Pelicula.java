@@ -7,24 +7,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity //sirve para conectar con PeliculaRepository
+@Table (name = "LISTAPELICULAS")
 public class Pelicula {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column (name= "idPelicula", nullable = true)
 	private Long idPelicula;
 	
-	@NotEmpty
+	
+	@Size(min=3, max=100, message="EL nombre debe tener 2 caracteres minimo, maximo 15")
+	@NotEmpty(message="El nombre no puede estar vacio")
+	@NotBlank(message="El nombre no puede ser espacios en blanco")
 	private String nombrePelicula;
 	
+	@NotBlank(message="La descripcion no puede ser espacios en blanco")
 	@Column(name="descripcionPelicula")
 	@NotEmpty
 	private String descripcionPelicula;
@@ -33,12 +43,14 @@ public class Pelicula {
 	@Min(value=0,message="El duracion en horas debe ser mayor que 0")
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
 	private Integer duracionPelicula;
-	
+  
 	@NotEmpty
 	private String generoPelicula;
 	
-	//@DateTimeFormat(pattern = "dd-MM-yyyy")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+
+	@Column (name = "fechaestreno")
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+
 	private LocalDate fechaEstreno;
 	
 	private LocalTime horario1;
@@ -48,8 +60,22 @@ public class Pelicula {
 	private LocalTime horario3;
 	
 	//portada
-	
+	@Lob
+	private String imagen;
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	private Boolean estadoPelicula;
+	
+	@Column (name = "actorespelicula")
+	private String actores;
+	
+	
 	
 	public Pelicula() {
 		// TODO Auto-generated constructor stub
@@ -135,5 +161,11 @@ public class Pelicula {
 		this.estadoPelicula = estadoPelicula;
 	}
 
+	public String getActores() {
+		return actores;
+	}
+	public void setActores(String actores) {
+		this.actores = actores;
+	}
 	
 }
