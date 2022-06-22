@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
 <meta charset="UTF-8">
 <title>Formulario Usuario</title>
@@ -12,9 +11,10 @@
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
-      <form th:object="${usuario}" th:action="${editMode}? @{/editarUsuario} : @{/guardarusuario}" method="post">
+		
+      <form th:object="${usuario}" th:action="${editMode}? @{/editarUsuario} : @{/guardarUsuario}" method="post">
 	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{contrasena}">
-	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{estado}">
+	      <!--<input type="hidden" class="form-control" th:if="${editMode}" th:field="*{estado}">-->
 	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{dni}">
        	  <div class="mb-3">
 	          <label for="nombre" class="form-label">Nombre</label> <input

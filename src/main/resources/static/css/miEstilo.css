@@ -1,18 +1,31 @@
 @charset "ISO-8859-1";
 
+*{
+	margin:0;
+	padding:0;
+}
+
 body{
+<<<<<<< HEAD
 	background:url("/img/palomitas.jpg");
+=======
+	/*background:url("/img/nuevofondo2.jpg");
+>>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 	background-repeat: no-repeat;
+<<<<<<< HEAD
 	background-size: 100%;
+=======
+	background-size: 500% 500%;*/
+>>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 }
 
 .navbar {
-	background-color: rgb(49, 47, 47);
+	background-color: rgb(255, 128, 64);
 }
 
 label{
 	font-size:25px;
-	color:yellow;
+	color:rgb(255, 128, 192);
 	display: flex;
 }
 
