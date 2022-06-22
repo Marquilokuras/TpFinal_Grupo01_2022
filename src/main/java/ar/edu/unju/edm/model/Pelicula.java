@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -42,10 +43,7 @@ public class Pelicula {
 	@Min(value=0,message="El duracion en horas debe ser mayor que 0")
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
 	private Integer duracionPelicula;
-	
-	
-	
-	
+  
 	@NotEmpty
 	private String generoPelicula;
 	
@@ -60,7 +58,16 @@ public class Pelicula {
 	private LocalTime horario3;
 	
 	//portada
-	
+	@Lob
+	private String imagen;
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	private Boolean estadoPelicula;
 	
 	@Column (name = "actorespelicula")
