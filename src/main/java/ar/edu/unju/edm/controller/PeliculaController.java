@@ -69,8 +69,6 @@ public class PeliculaController {
 		return "cargarPelicula";
 	}
 	
-	
-	
 	@GetMapping("/editarPelicula/{idPelicula}")
 
 	public ModelAndView editMovie(Model model,@PathVariable (name="idPelicula") Long idPelicula)throws Exception {	
