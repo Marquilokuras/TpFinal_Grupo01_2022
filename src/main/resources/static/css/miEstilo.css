@@ -1,21 +1,24 @@
 @charset "ISO-8859-1";
 
-#menu_modulos {
-padding: 0;
+*{
+	margin:0;
+	padding:0;
 }
 
-#menu_modulos li {
-display: inline;
+body{
+	/*background:url("/img/nuevofondo2.jpg");
+	background-repeat: no-repeat;
+	background-size: 500% 500%;*/
 }
 
-#menu_modulos li a {
-font-family: Arial;
-font-size:11px;
-text-decoration: none;
-float:left;
-padding: 10px;
-background-color: #2175bc;
-color: #fff;
+.navbar {
+	background-color: rgb(255, 128, 64);
+}
+
+label{
+	font-size:25px;
+	color:rgb(255, 128, 192);
+	display: flex;
 }
 
 #menu_modulos li a:hover {

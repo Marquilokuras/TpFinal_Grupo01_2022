@@ -10,13 +10,16 @@
 </head>
 
 <body>
-	<div class="container">
+
+  <div class="container">
 		<div th:insert="/layouts/header :: header"></div>
 		<br>
+		<div class="alert-danger text-center" th:if="${formPeliculaErrorMessage}" th:text="${formPeliculaErrorMessage}">Name Error</div>
 		<table class="table table-bordered border-primary">
 			<thead class="table-dark">
 				<tr>
-					<th scope="col">Cursos</th>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre de Pelicula</th>
 					<th scope="col">Descripcion</th>
 					<th scope="col">Duracion</th>
 					<th scope="col">Genero</th>
@@ -24,12 +27,13 @@
 					<th scope="col">1er Horario</th> 
 					<th scope="col">2do Horario</th>
 					<th scope="col">3er Horario</th>
+          <th scope="col">Actores</th>
 					<th scope="col">Imagen</th>
 				</tr>
 			</thead>
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
-					<td colspan="10">No hay peliculas cargados</td>
+					<td colspan="10">No hay peliculas cargadas</td>
 				</tr>
 				<tr th:each="u:${listaPelicula}">
 					<td th:text="${u.idPelicula}"></td>
@@ -41,8 +45,9 @@
 					<td th:text="${u.horario1}"></td>
 					<td th:text="${u.horario2}"></td>
 					<td th:text="${u.horario3}"></td>
+          <td th:text="${u.actores}"></td>
 					<td><a class="btn btn-warning" th:href="@{'/editarPelicula/'+ ${u.idPelicula}}">Editar</a>
-					<a class="btn btn-danger" th:onclick="'javascript:confirmarEliminar(\''+${u.idPelicula}+'\');'"	>Eliminar</a></td>  
+					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${u.idPelicula}+'\');'"	>Eliminar</a></td>  
 				</tr>
 			</tbody>
 		</table>
@@ -54,13 +59,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Eliminar Pelicula</h2>
+        <h2 class="modal-title" id="exampleModalLabel">Elimminar Pelicula</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h3>¿Quiere eliminar la Pelicula?</h3>
+        <h3>¿Seguro quiere eliminar la Pelicula?</h3>
         <br>
-        <input type="text" id="identificadorDeCurso" class="form-control"></input>
+        <input type="text" id="identificadorDePelicula" class="form-control"></input>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
@@ -71,6 +76,29 @@
 </div>
 
 </body>
+
+<script type="text/javascript">
+		var exampleModal = document.getElementById('modalEliminar')
+		exampleModal.addEventListener('show.bs.modal', function(event) {
+			exampleModal.style.display="block"
+				// Button that triggered the modal
+			var button = event.relatedTarget
+			// Extract info from data-bs-* attributes
+			var recipient = button.getAttribute('data-bs-mail')
+			var recipient2 = button.getAttribute('data-bs-whatever')
+			// If necessary, you could initiate an AJAX request here
+			// and then do the updating in a callback.
+			//
+			// Update the modal's content.
+			var modalTitle = exampleModal.querySelector('.modal-title')
+			var modalBodyInput = exampleModal
+					.querySelector('.modal-body input')
+
+			modalTitle.textContent = 'Eliminar Pelicula ' + recipient
+			modalBodyInput.value = recipient2
+		})
+	</script>
+
 <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
 	 type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"
 	 ></script>
@@ -80,7 +108,7 @@
 <script type="text/javascript">
 	function confirmarEliminar(idPelicula){
 		$('#modalEliminar').modal('show');
-		$("#identificadorDeCurso").val(idPelicula);
+		$("#identificadorDePelicula").val(idPelicula);
 	}
 
 	function eliminarPelicula(){

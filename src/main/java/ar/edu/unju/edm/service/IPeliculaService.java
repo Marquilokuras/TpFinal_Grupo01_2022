@@ -11,5 +11,5 @@ public interface IPeliculaService {
 	public void modificarPelicula(Pelicula Pelicula);
 	public void eliminarPelicula(Long idPelicula) throws Exception;
 	public Pelicula buscarPelicula(Long idPelicula) throws Exception;
-	public List<Pelicula>mostrarPeliculas();
+	public List<Pelicula> listarPelicula(); 
 }
