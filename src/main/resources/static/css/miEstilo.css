@@ -1,28 +1,64 @@
 @charset "ISO-8859-1";
 
-#menu_modulos {
-padding: 0;
+body{
+	background:url("/img/nuevofondo2.jpg");
+	background-repeat: no-repeat;
+	background-size: 500% 500%;
 }
 
-#menu_modulos li {
-display: inline;
+.navbar {
+	background-color: rgb(49, 47, 47);
 }
 
-#menu_modulos li a {
-font-family: Arial;
-font-size:11px;
-text-decoration: none;
-float:left;
-padding: 10px;
-background-color: #2175bc;
-color: #fff;
+label{
+	font-size:25px;
+	color:yellow;
+	display: flex;
 }
 
-#menu_modulos li a:hover {
-background-color: #2586d7;
-margin-top:-2px;
-padding-bottom:12px;
+/* aviso y aside */
+
+.aviso {
+	background: #000;
+	color: #fff;
 }
+
+aside {
+    background-color: rgb(13, 19, 37);
+    background-image: repeating-linear-gradient(45deg,transparent,transparent 25px, rgba(3, 3, 3, 0.5) 25px,rgba(41, 21, 131, 0.5) 40px);
+}
+
+/* aviso y aside */
+
+/* CURSOS */
+
+.cursos {
+    background: url(/img/cursos.jpg);
+    background-size: 100%;
+}
+
+h3 {
+    color: rgb(40, 29, 143);
+    text-shadow: 0 5px 3px rgba(0,0,0,0.9);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.card-border {
+    border: solid 3px #000;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all ease-out 0.2s;
+}
+
+.card-border:hover {
+    transform: scale(1.05);
+}
+
+.card-text {
+	color: black;
+}
+
+/* CURSOS */
 
 /* footer */
 .footer {
