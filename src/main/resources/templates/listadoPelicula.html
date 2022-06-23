@@ -21,33 +21,32 @@
 					<th scope="col">ID</th>
 					<th scope="col">Nombre de Pelicula</th>
 					<th scope="col">Descripcion</th>
-					<th scope="col">Duracion</th>
-					<th scope="col">Genero</th>
 					<th scope="col">Fecha de Estreno</th>
-					<th scope="col">1er Horario</th> 
-					<th scope="col">2do Horario</th>
-					<th scope="col">3er Horario</th>
-          <th scope="col">Actores</th>
-					<th scope="col">Imagen</th>
-				</tr>
+
+					<!-- <th scope="col">Duracion</th>
+					<th scope="col">Genero</th>
+					<th scope="col">Horario</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Actores</th> 
+					<th scope="col">Imagen</th> -->
+			</tr>
 			</thead>
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
-					<td colspan="10">No hay peliculas cargadas</td>
+					<td colspan="4">No hay cursos cargados</td>
 				</tr>
-				<tr th:each="u:${listaPelicula}">
-					<td th:text="${u.idPelicula}"></td>
-					<td th:text="${u.nombrePelicula}"></td>
-					<td th:text="${u.descripcionPelicula}"></td>
-					<td th:text="${u.duracionPelicula}"></td>
-					<td th:text="${u.generoPelicula}"></td>
-					<td th:text="${u.fechaEstreno}"></td>
-					<td th:text="${u.horario1}"></td>
-					<td th:text="${u.horario2}"></td>
-					<td th:text="${u.horario3}"></td>
-          <td th:text="${u.actores}"></td>
-					<td><a class="btn btn-warning" th:href="@{'/editarPelicula/'+ ${u.idPelicula}}">Editar</a>
-					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${u.idPelicula}+'\');'"	>Eliminar</a></td>  
+				<tr th:each="m:${listaPelicula}">
+					<td th:text="${m.idPelicula}"></td>
+					<td th:text="${m.nombrePelicula}"></td>
+					<td th:text="${m.descripcionPelicula}"></td>
+					<td th:text="${m.fechaEstreno}"></td>
+					<!-- <td th:text="${movie.duracion}"></td>
+					<td th:text="${movie.genero}"></td>
+					<td th:text="${movie.horario}"></td>
+					<td th:text="${movie.estado}"></td>
+					<td th:text="${movie.actores}"></td> -->
+					<td><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
+					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
 				</tr>
 			</tbody>
 		</table>
