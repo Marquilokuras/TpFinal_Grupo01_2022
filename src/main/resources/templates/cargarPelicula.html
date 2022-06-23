@@ -12,11 +12,7 @@
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
-<<<<<<< HEAD
-		
-		
-      <form th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post">
-=======
+
       <!-- <div class="alert alert-success alert-dismissible fade show row"
       	role="alert" th:if="${cargarPeliculErrorMessage}">
       	<label th:text="${cargarPeliculErrorMessage}"></label>
@@ -27,21 +23,17 @@
     <div class="row"> -->
       <form th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
       	enctype="multipart/form-data" >
->>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
+
 	      
 	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{idPelicula}">
 	      
-	      <div class="alert alert-success dismissible fade show row " role="alert" th:if="${formPeliculaErrorMessage}">
-	      	<label th:text="${formPeliculaErrorMessage}"></label>
-	      	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-	      </div>
 	      
 	      <div class="fondo">
 	      
 	      <div class="mb-3">
 	      
-	          <label for="idPelicula" class="form-label" th:if="${editMode==false}">Digite ID de la Pelicula</label>
-	          <input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}" th:if="${editMode==false}" placeholder="Ingrese ID de la pelicula">
+	          <label for="idPelicula" class="form-label" >Digite ID de la Pelicula</label>
+	          <input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"  placeholder="Ingrese ID de la pelicula">
 	          <div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}" th:errors="*{idPelicula}"></div>
 	          
         	</div>
@@ -78,12 +70,12 @@
 			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span> </button>
 		  	<a class="btn btn-light" th:href="@{/}">Volver</a>
 		  	
-<<<<<<< HEAD
+
 		   </div>
 		  	
-=======
-		</div>
->>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
+
+
 		</form>
+		</div>
 </body>
 </html>

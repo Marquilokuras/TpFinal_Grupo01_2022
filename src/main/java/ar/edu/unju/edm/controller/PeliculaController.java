@@ -35,10 +35,11 @@ public class PeliculaController {
 	//cargar pelicula
 	@GetMapping("/otraPelicula")
 	public ModelAndView addMovie() {
-		AGUSTINA.info("ingresando al metodo: nuevapelicula");
+		AGUSTINA.info("ingresando al metodo: AÑADIR PELICULA");
 		ModelAndView vista = new ModelAndView("cargarPelicula");
 		vista.addObject("pelicula", nuevaPelicula);
 		vista.addObject("editMode", false);
+		AGUSTINA.info("saliendo al metodo: AÑADIR PELICULA");
 		return vista;
 	}
 	
@@ -51,7 +52,7 @@ public class PeliculaController {
 			AGUSTINA.fatal("Error en el metodo GUARDAR PELICULA");
 			
 			model.addAttribute("pelicula", peliculaparaguardar);
-			model.addAttribute("editMode", false);
+			//model.addAttribute("editMode", false);
 			return "cargarPelicula";
 		}
 		
@@ -59,20 +60,20 @@ public class PeliculaController {
 			byte[] content = file.getBytes();
 			String base64 = Base64.getEncoder().encodeToString(content);
 			peliculaparaguardar.setImagen(base64);
-			//peliculaparaguardar.setEstadoPelicula(true);
+			peliculaparaguardar.setDuracionPelicula(45);
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
-			model.addAttribute("pelicula", nuevaPelicula);
-			model.addAttribute("editMode", false);
-			AGUSTINA.error("saliendo del metodo: GUARDAR PELICULA");
+			model.addAttribute("pelicula", peliculaparaguardar);
+			//model.addAttribute("editMode", false);
+			AGUSTINA.error("No se pudo guardar la pelicula");
 			return "cargarPelicula";
 		}
 		
 		model.addAttribute("formPeliculaErrorMessage", "Pelicula Guardada Correctamente");
 		model.addAttribute("pelicula", nuevaPelicula);
 
-		model.addAttribute("editMode", false);
+		//model.addAttribute("editMode", false);
 		AGUSTINA.error("saliendo del metodo: GUARDAR PELICULA");
 		return "cargarPelicula";
 	}
@@ -80,7 +81,7 @@ public class PeliculaController {
 	// listar pelicula
 		@GetMapping({"/listarPelicula"})	
 		public ModelAndView listMovie() {
-			ModelAndView vista = new ModelAndView("ListaPelicula");
+			ModelAndView vista = new ModelAndView("ListarPelicula");
 			if(peliculaService.listarPelicula().size()!=0) {
 				vista.addObject("listapelicula", peliculaService.listarPelicula());
 				AGUSTINA.info("ingresando al metodo: listapeliculas "+peliculaService.listarPelicula().size());
