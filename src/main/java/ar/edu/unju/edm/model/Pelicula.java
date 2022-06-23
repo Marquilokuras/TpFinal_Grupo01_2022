@@ -12,16 +12,14 @@ import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
 import javax.persistence.Column;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity //sirve para conectar con PeliculaRepository
-@Table (name = "LISTAPELICULAS")
+@Table (name = "pelicula")
 public class Pelicula {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -53,6 +51,8 @@ public class Pelicula {
 
 	private LocalDate fechaEstreno;
 	
+	private Boolean estadoPelicula;
+	
 	private LocalTime horario1;
 	
 	private LocalTime horario2;
@@ -70,8 +70,6 @@ public class Pelicula {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-
-	private Boolean estadoPelicula;
 	
 	@Column (name = "actorespelicula")
 	private String actores;

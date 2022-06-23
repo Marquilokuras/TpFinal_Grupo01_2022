@@ -74,23 +74,19 @@ public class PeliculaController {
 		model.addAttribute("pelicula", nuevaPelicula);
 
 		//model.addAttribute("editMode", false);
-		AGUSTINA.error("saliendo del metodo: GUARDAR PELICULA");
+		AGUSTINA.info("saliendo del metodo: GUARDAR PELICULA");
 		return "cargarPelicula";
 	}
 	
 	// listar pelicula
-		@GetMapping({"/listarPelicula"})	
-		public ModelAndView listMovie() {
-			ModelAndView vista = new ModelAndView("ListarPelicula");
-			if(peliculaService.listarPelicula().size()!=0) {
-				vista.addObject("listapelicula", peliculaService.listarPelicula());
-				AGUSTINA.info("ingresando al metodo: listapeliculas "+peliculaService.listarPelicula().size());
-			}
-			return vista;
-			}
+	@GetMapping("/listadoPelicula")
+	public ModelAndView showMovie() {
+		ModelAndView vista = new ModelAndView("listadoPelicula");
+		vista.addObject("listaPelicula", peliculaService.listarPelicula());
+		return vista;
+	}
 	
 
-		
 		//modificar  ppelicula
 	@RequestMapping("/editPelicula/{idPelicula}")
 	public ModelAndView editMovie(Model model,@PathVariable (name="idPelicula") Long idPelicula)throws Exception {	
