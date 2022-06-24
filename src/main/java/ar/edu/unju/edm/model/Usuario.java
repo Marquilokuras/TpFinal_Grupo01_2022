@@ -28,6 +28,7 @@ public class Usuario {
 	@Min(value=1000000,message="El Dni debe ser mayor que millon")
 	@Max(value=99999999,message="El Dni debe ser menor que 9999999")
 	@Id
+	
 	private Long dni;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
