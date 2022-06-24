@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ar.edu.unju.edm.controller.UsuarioController;
 import ar.edu.unju.edm.model.Usuario;
@@ -27,7 +28,12 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	public void guardarUsuario(Usuario usuarioparaguardar) {
 		// TODO Auto-generated method stub
 		usuarioparaguardar.setEstado(true);
-	//	lista.getListado().add(usuarioparaguardar); 
+	
+		
+		String pw=usuarioparaguardar.getContrasena();
+		BCryptPasswordEncoder coder = new BCryptPasswordEncoder(4);
+		usuarioparaguardar.setContrasena(coder.encode(pw));
+		
 		usuarioRepository.save(usuarioparaguardar);
 	}
 
@@ -87,4 +93,6 @@ public class IUsuarioServiceImp implements IUsuarioService {
 		usuarioEncontrado=usuarioRepository.findById(dni).orElseThrow(()->new Exception("Usuario No Encontrado"));
 		return usuarioEncontrado;
 	}
+	
+	
 }
