@@ -28,6 +28,7 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	public void guardarUsuario(Usuario usuarioparaguardar) {
 		// TODO Auto-generated method stub
 		usuarioparaguardar.setEstado(true);
+		usuarioparaguardar.setTipo("CLIENTE");
 	
 		
 		String pw=usuarioparaguardar.getContrasena();
