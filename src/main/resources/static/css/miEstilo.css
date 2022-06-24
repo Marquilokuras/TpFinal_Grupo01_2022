@@ -12,9 +12,21 @@ body{
 
 }
 
+
 label{
 	font-size:25px;
 	color:yellow;
+}
+
+body{
+	background:url("/img/palomitas.jpg");
+	/*background:url("/img/nuevofondo2.jpg");
+	background-repeat: no-repeat;
+
+	background-size: 100%;
+
+	background-size: 500% 500%;*/
+
 }
 
 .navbar {
@@ -47,3 +59,9 @@ aside {
 }
 
 /* footer */
+
+
+.fondo {
+	background-color: rgba(13, 19, 37, 0.2);
+	margin-top:90px;
+}
