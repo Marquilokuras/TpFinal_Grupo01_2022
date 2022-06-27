@@ -10,4 +10,10 @@ public class PrincipalController {
 		
 		return "/index";
 	}	
+	
+	@GetMapping({"/login","/ingreso"})
+	public String getLogin(){
+		
+		return "/login";
+	}	
 }
