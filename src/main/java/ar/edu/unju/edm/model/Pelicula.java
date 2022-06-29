@@ -1,8 +1,7 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
-
+//import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +11,6 @@ import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-
 import javax.persistence.Column;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -25,7 +23,6 @@ public class Pelicula {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name= "idPelicula")
 	private Long idPelicula;
-	
 	
 	//@Size(min=3, max=100, message="EL nombre debe tener 2 caracteres minimo, maximo 15")
 	//@NotEmpty(message="El nombre no puede estar vacio")
@@ -45,7 +42,6 @@ public class Pelicula {
 	//@NotEmpty
 	//private String generoPelicula;
 	
-
 	@Column (name = "fechaestreno")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 
@@ -53,11 +49,11 @@ public class Pelicula {
 	
 	private Boolean estadoPelicula;
 	
-	private LocalTime horario1;
+	/*private LocalTime horario1;
 	
 	private LocalTime horario2;
 	
-	private LocalTime horario3;
+	private LocalTime horario3;*/
 	
 	//portada
 	@Lob
@@ -73,8 +69,6 @@ public class Pelicula {
 	
 	@Column (name = "actorespelicula")
 	private String actores;
-	
-	
 	
 	public Pelicula() {
 		// TODO Auto-generated constructor stub
