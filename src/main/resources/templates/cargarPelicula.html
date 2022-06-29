@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="row"> -->
-      <form th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
+      <form class="form" th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
       	enctype="multipart/form-data" >
 
 	      

@@ -12,7 +12,7 @@
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
 		
-      <form th:object="${usuario}" th:action="${editMode}? @{/editarUsuario} : @{/guardarUsuario}" method="post">
+      <form class="form" th:object="${usuario}" th:action="${editMode}? @{/editarUsuario} : @{/guardarUsuario}" method="post">
 	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{contrasena}">
 	      <!--<input type="hidden" class="form-control" th:if="${editMode}" th:field="*{estado}">-->
 	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{dni}">
