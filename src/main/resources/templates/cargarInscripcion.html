@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
-      <form th:object="${usuarioCurso}" th:action" @{/guardarInscripcion}" method="post">
+      <form class="form" th:object="${usuarioCurso}" th:action" @{/guardarInscripcion}" method="post">
        	  <div class="mb-3">
 	          <label for="alumno" class="form-label">Alumnos</label> 
 	          <select class="form-control" th:field="#{usuario.dni}">
