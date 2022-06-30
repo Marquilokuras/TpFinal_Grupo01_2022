@@ -25,7 +25,7 @@ public class UsuarioCine {
 	@JoinColumn(name="idCine")//parte comun de dos conjuntos
 	private Pelicula cine;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private LocalDate fechaDeInscripcion;
+	private LocalDate fechaDeCompra;
 	
 	public UsuarioCine() {
 		// TODO Auto-generated constructor stub
@@ -55,11 +55,11 @@ public class UsuarioCine {
 		this.cine = cine;
 	}
 
-	public LocalDate getFechaDeInscripcion() {
-		return fechaDeInscripcion;
+	public LocalDate getFechaDeCompran() {
+		return fechaDeCompra;
 	}
 
-	public void setFechaDeInscripcion(LocalDate fechaDeInscripcion) {
-		this.fechaDeInscripcion = fechaDeInscripcion;
+	public void setFechaDeompra (LocalDate fechaDeCompra) {
+		this.fechaDeCompra = fechaDeCompra;
 	}
 }

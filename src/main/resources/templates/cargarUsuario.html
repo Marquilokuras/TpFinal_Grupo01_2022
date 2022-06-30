@@ -16,6 +16,15 @@
 	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{contrasena}">
 	      <!--<input type="hidden" class="form-control" th:if="${editMode}" th:field="*{estado}">-->
 	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{dni}">
+       	  
+       	  
+       	  <div class="mb-3" th:if="${editMode==false}">
+          <label for="dni" class="form-label">DNI</label>
+        <input th:field="*{dni}" type="text" class="form-control" id="dni" required>
+          <div class="alert" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+        </div>
+       	  
+       	  
        	  <div class="mb-3">
 	          <label for="nombre" class="form-label">Nombre</label> <input
 	            type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese nombre completo">
@@ -24,26 +33,19 @@
 	            type="email" class="form-control" id="exampleInputEmail1"
 	            th:field="*{email}" placeholder="Ingrese email: ej@correo.com">
 			</div>
-			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label" th:if="${editMode==false}">Contraseña</label>
-				<input type="password" class="form-control"
-					id="exampleInputPassword1" 
-					th:field="*{contrasena}" th:if="${editMode==false}" 
-					placeholder="Ingrese contraseña">
+			
+			<div class="mb-3"th:if="${editMode == false}">
+				<label for="exampleInputPassword1" class="form-label">Contraseña</label>
+				<input th:field="*{contrasena}"type="password" 
+				class="form-control"id="exampleInputPassword1" required> 
 				<div class="alert alert-danger" th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}" ></div>
         	</div>
-        <div class="mb-3">
-          <label for="dni" class="form-label" th:if="${editMode==false}">DNI</label>
-          <input type="number" class="form-control"
-            id="dni" th:field="*{dni}" th:if="${editMode==false}" placeholder="Ingrese DNI" required>
-          <div class="alert alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
-        </div>
+
 
         <div class="mb-3">
           <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-          <input type="date" class="form-control"
-            id="fechaNacimiento" th:field="*{fechaNacimiento}" placeholder="Ingrese su fecha de nacimiento">
-           <!--  <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div> -->
+          <input th:field="*{fechaNacimiento}" type="date" class="form-control"  id="fechaNacimiento">
+           <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
         </div>
 	
 			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
