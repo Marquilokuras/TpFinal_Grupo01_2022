@@ -30,7 +30,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioController.class);
 	@Autowired
 	IPeliculaService peliculaservice;
 	
-	@GetMapping({"/inscripcion"})	
+	@GetMapping({"/cargarCompra"})	
 	public ModelAndView addCompra() {
 		EMILIA.info("ingresando al metodo: Nuevo usuario");
 		ModelAndView vista = new ModelAndView("cargarCompra");
