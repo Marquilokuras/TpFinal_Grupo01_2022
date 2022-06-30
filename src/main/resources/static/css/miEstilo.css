@@ -30,12 +30,12 @@ body{
 }
 
 .navbar {
-	background-color: rgb(255, 128, 64);
+	background-color: red;
 }
 
 label{
 	font-size:25px;
-	color:rgb(255, 128, 192);
+	color:black;
 	display: flex;
 }
 
