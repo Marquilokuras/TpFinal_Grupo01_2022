@@ -13,9 +13,10 @@ import ar.edu.unju.edm.service.imp.LoginService;
 
 @Configuration
 @EnableWebSecurity
-public class ConfiguracionWeb extends WebSecurityConfigurerAdapter{
+public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
+	
 	@Autowired
-	private Autenticacion autenticacion;
+	private Autenticación autenticacion;
 
 	String[] resources = new String[] { "/include/**", "/css/**", "/icons/**", "/img/**", "/js/**", "/layer/**",
 			"/webjars/**" };
@@ -39,25 +40,23 @@ public class ConfiguracionWeb extends WebSecurityConfigurerAdapter{
 			.logout()
 				.permitAll()
 				.logoutSuccessUrl("/login?logout");
-		
 	}
 
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
-	
 		return new BCryptPasswordEncoder(4);
 	}
 
 	@Autowired
 	LoginService userDetailsService;
-	
+
 	@Autowired
-	
-	protected void configuracionGlobal(AuthenticationManagerBuilder auth)
+	public void configuracionGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {
-		System.out.println("***inicio del usuario***");
+		System.out.println("***Inicio del Usuario***");
+
 		auth.userDetailsService(userDetailsService);
 	}
 }

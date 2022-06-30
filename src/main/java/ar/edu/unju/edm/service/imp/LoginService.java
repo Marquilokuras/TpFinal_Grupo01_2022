@@ -11,12 +11,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import ar.edu.unju.edm.model.Usuario;
 import ar.edu.unju.edm.repository.UsuarioRepository;
 
 @Service
-public class LoginService implements UserDetailsService {
+public class LoginService implements UserDetailsService{
+
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	
@@ -24,17 +24,16 @@ public class LoginService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String dni) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		
-		//buscar el usuario
-		Usuario usuarioEncontrado = usuarioRepository.findById(Long.parseLong(dni)).orElseThrow(()->new UsernameNotFoundException("Usuario invalido"));
+		//busqueda del usuario
+		Usuario usuarioEncontrado = usuarioRepository.findById(Long.parseLong(dni)).orElseThrow(()->new UsernameNotFoundException("Usuario Invalido"));
 		
 		//definir autorizaciones
-		
-		List <GrantedAuthority> tipos = new ArrayList<>(); 
+		List <GrantedAuthority> tipos = new ArrayList<>();
 		GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioEncontrado.getTipo());
 		tipos.add(grantedAuthority);
 		
-		//Definir el usuario en sesion
-		
+		//definir el usuario en sesion
+
 		UserDetails usuarioEnSesion = new User(dni,usuarioEncontrado.getContrasena(),tipos);
 		
 		return usuarioEnSesion;

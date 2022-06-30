@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<title>Listado</title>
-<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}"
-	rel="stylesheet" type="text/css">
-  <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">
+	<!-- Colocar icono en las pestañas -->
+	<meta http-equiv="X-UA-Compatible"content="IE=edge">
+	<meta name="viewport" content="width-device-width,initial-scale-1.0">
+	<link rel="shortcut icon"href="img/palomitas.png">
+	<title>Listado Peliculas</title>
+	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+	  <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -14,7 +17,7 @@
   <div class="container">
 		<div th:insert="/layouts/header :: header"></div>
 		<br>
-		<div class="alert-danger text-center" th:if="${formPeliculaErrorMessage}" th:text="${formPeliculaErrorMessage}">Name Error</div>
+		<div class="alert-primary text-center" th:if="${formPeliculaErrorMessage}" th:text="${formPeliculaErrorMessage}">Nombre Error</div>
 		<table class="table table-bordered border-primary">
 			<thead class="table-dark">
 				<tr>
@@ -22,18 +25,18 @@
 					<th scope="col">Nombre de Pelicula</th>
 					<th scope="col">Descripcion</th>
 					<th scope="col">Fecha de Estreno</th>
-
-					<!-- <th scope="col">Duracion</th>
+					<th scope="col">Imagen</th>
+					<th scope="col">Duracion</th>
 					<th scope="col">Genero</th>
 					<th scope="col">Horario</th>
 					<th scope="col">Estado</th>
-					<th scope="col">Actores</th> 
-					<th scope="col">Imagen</th> -->
+					<th scope="col">Actores</th>  
+					<th scope="col">Edicion</th> 
 			</tr>
 			</thead>
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
-					<td colspan="4">No hay cursos cargados</td>
+					<td colspan="6">No hay cursos cargados</td>
 				</tr>
 				<tr th:each="m:${listaPelicula}">
 					<td th:text="${m.idPelicula}"></td>
@@ -45,6 +48,7 @@
 					<td th:text="${movie.horario}"></td>
 					<td th:text="${movie.estado}"></td>
 					<td th:text="${movie.actores}"></td> -->
+					<td th:image ="${m.imagen}"></td>
 					<td><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
 					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
 				</tr>
@@ -58,7 +62,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Elimminar Pelicula</h2>
+        <h2 class="modal-title" id="exampleModalLabel">Eliminar Pelicula</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

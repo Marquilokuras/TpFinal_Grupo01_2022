@@ -2,8 +2,6 @@ package ar.edu.unju.edm.service.imp;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -29,12 +27,12 @@ public class IUsuarioServiceImp implements IUsuarioService {
 		// TODO Auto-generated method stub
 		usuarioparaguardar.setEstado(true);
 		usuarioparaguardar.setTipo("CLIENTE");
-	
-		
+
+	//	lista.getListado().add(usuarioparaguardar); 
 		String pw=usuarioparaguardar.getContrasena();
-		BCryptPasswordEncoder coder = new BCryptPasswordEncoder(4);
+		BCryptPasswordEncoder coder = new BCryptPasswordEncoder(4); //clase de codificadores para incriptar datos
 		usuarioparaguardar.setContrasena(coder.encode(pw));
-		
+
 		usuarioRepository.save(usuarioparaguardar);
 	}
 
