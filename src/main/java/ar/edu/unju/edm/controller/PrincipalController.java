@@ -17,9 +17,5 @@ public class PrincipalController {
 		return "login";
 	}	
 	
-	@GetMapping({"/login","/ingreso"})
-	public String getLogin(){
-		
-		return "/login";
-	}	
+	
 }
