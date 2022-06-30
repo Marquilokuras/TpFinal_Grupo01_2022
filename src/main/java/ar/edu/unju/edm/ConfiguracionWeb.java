@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import ar.edu.unju.edm.service.imp.LoginService;
 
 @Configuration
@@ -55,6 +56,7 @@ public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
 	public void configuracionGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {
 		System.out.println("***Inicio del Usuario***");
+
 		auth.userDetailsService(userDetailsService);
 	}
 }
