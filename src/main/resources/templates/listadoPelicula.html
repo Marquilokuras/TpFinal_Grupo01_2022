@@ -11,8 +11,7 @@
 
 <body>
 
-
-	<div class="container">
+  <div class="container">
 		<div th:insert="/layouts/header :: header"></div>
 		<br>
 		<div class="alert-danger text-center" th:if="${formPeliculaErrorMessage}" th:text="${formPeliculaErrorMessage}">Name Error</div>
@@ -23,15 +22,15 @@
 					<th scope="col">Nombre de Pelicula</th>
 					<th scope="col">Descripcion</th>
 					<th scope="col">Fecha de Estreno</th>
+
 					<!-- <th scope="col">Duracion</th>
 					<th scope="col">Genero</th>
 					<th scope="col">Horario</th>
 					<th scope="col">Estado</th>
-					<th scope="col">Actores</th> -->
-				</tr>
+					<th scope="col">Actores</th> 
+					<th scope="col">Imagen</th> -->
+			</tr>
 			</thead>
-			
-			
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
 					<td colspan="4">No hay cursos cargados</td>
@@ -48,7 +47,6 @@
 					<td th:text="${movie.actores}"></td> -->
 					<td><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
 					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
-
 				</tr>
 			</tbody>
 		</table>
@@ -66,17 +64,18 @@
       <div class="modal-body">
         <h3>¿Seguro quiere eliminar la Pelicula?</h3>
         <br>
-        <input type="text" id="identificadorDeCurso" class="form-control"></input>
+        <input type="text" id="identificadorDePelicula" class="form-control"></input>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-        <button type="button" class="btn btn-primary" th:onclick="eliminarCurso()">Eliminar</button>
+        <button type="button" class="btn btn-primary" th:onclick="eliminarPelicula()">Eliminar</button>
       </div>
     </div>
   </div>
 </div>
 
 </body>
+
 <script type="text/javascript">
 		var exampleModal = document.getElementById('modalEliminar')
 		exampleModal.addEventListener('show.bs.modal', function(event) {
@@ -98,6 +97,7 @@
 			modalBodyInput.value = recipient2
 		})
 	</script>
+
 <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
 	 type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"
 	 ></script>
@@ -107,12 +107,12 @@
 <script type="text/javascript">
 	function confirmarEliminar(idPelicula){
 		$('#modalEliminar').modal('show');
-		$("#identificadorDePelicula").val(id);
+		$("#identificadorDePelicula").val(idPelicula);
 	}
 
-	function eliminarCurso(){
+	function eliminarPelicula(){
 		var id=$("#identificadorDePelicula").val();
-		window.location="/eliminarPelicula/"+ id;
+		window.location="/eliminarPelicula/"+ idPelicula;
 	}fi
 
 </script>

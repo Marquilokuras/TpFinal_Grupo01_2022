@@ -7,7 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import ar.edu.unju.edm.controller.UsuarioController;
+//import ar.edu.unju.edm.controller.UsuarioController;
 import ar.edu.unju.edm.model.Usuario;
 import ar.edu.unju.edm.repository.UsuarioRepository;
 import ar.edu.unju.edm.service.IUsuarioService;
