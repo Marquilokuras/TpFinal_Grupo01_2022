@@ -2,6 +2,7 @@ package ar.edu.unju.edm.service.imp;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -32,6 +33,7 @@ public class LoginService implements UserDetailsService{
 		tipos.add(grantedAuthority);
 		
 		//definir el usuario en sesion
+
 		UserDetails usuarioEnSesion = new User(dni,usuarioEncontrado.getContrasena(),tipos);
 		
 		return usuarioEnSesion;

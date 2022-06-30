@@ -7,8 +7,8 @@ import ar.edu.unju.edm.model.Pelicula;
 
 @Service
 public interface IPeliculaService {
-	public void guardarPelicula(@Valid Pelicula Peliculaparaguardar);
-	public void modificarPelicula(Pelicula Pelicula);
+	public void guardarPelicula(@Valid Pelicula peliculaparaguardar);
+	public void modificarPelicula(Pelicula pelicula);
 	public void eliminarPelicula(Long idPelicula) throws Exception;
 	public Pelicula buscarPelicula(Long idPelicula) throws Exception;
 	public List<Pelicula> listadoPelicula(); 
