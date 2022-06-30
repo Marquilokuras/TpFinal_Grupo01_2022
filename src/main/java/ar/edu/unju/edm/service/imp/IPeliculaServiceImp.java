@@ -24,7 +24,7 @@ public class IPeliculaServiceImp implements IPeliculaService{
 	PeliculaRepository peliculaRepository;
 	
 	@Override
-	public void guardarPelicula(@Valid Pelicula peliculaparaguardar) {
+	public void guardarPelicula(Pelicula peliculaparaguardar) {
 		// TODO Auto-generated method stub
 		peliculaparaguardar.setEstadoPelicula(true);
 		peliculaRepository.save(peliculaparaguardar);
@@ -33,21 +33,27 @@ public class IPeliculaServiceImp implements IPeliculaService{
 	@Override
 	public void modificarPelicula(Pelicula pelicula) {
 		// TODO Auto-generated method stub
-		
+		pelicula.setEstadoPelicula(true);
+		  
+		peliculaRepository.save(pelicula);
 	}
 
 	@Override
 	public void eliminarPelicula(Long idPelicula) throws Exception {
 		// TODO Auto-generated method stub
-		
+		Pelicula auxiliar = new Pelicula();
+		auxiliar = buscarPelicula(idPelicula) ;
+		auxiliar.setEstadoPelicula(false);
+		peliculaRepository.save(auxiliar);
 	}
 
 	@Override
 	public Pelicula buscarPelicula(Long idPelicula) throws Exception {
 		// TODO Auto-generated method stub
 		Pelicula peliculaEncontrada = new Pelicula();
-		peliculaEncontrada = peliculaRepository.findById(idPelicula).orElseThrow(()->new Exception("Pelicula No Encontrada"));
-		return null;
+		
+		peliculaEncontrada=peliculaRepository.findById(idPelicula).orElseThrow(()->new Exception("Pelicula No Encontrado"));
+		return peliculaEncontrada;
 	}
 
 	@Override
@@ -55,9 +61,16 @@ public class IPeliculaServiceImp implements IPeliculaService{
 		// TODO Auto-generated method stub
 		
 		List<Pelicula> auxiliar = new ArrayList<>();
-		AGUSTINA.info("ingresando al metodo arraylist: listar peliculas");
+		List<Pelicula> auxiliar2 = new ArrayList<>();
+		
 		auxiliar=(List<Pelicula>) peliculaRepository.findAll();
-		return auxiliar;
+		for(int i=0;i<auxiliar.size();i++) {
+			if(auxiliar.get(i).getEstadoPelicula()==true) {
+				auxiliar2.add(auxiliar.get(i));
+			}
+		}
+		
+		return auxiliar2;
 	}
 
 	

@@ -1,8 +1,7 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
-
+//import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,53 +11,54 @@ import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity //sirve para conectar con PeliculaRepository
-@Table (name = "LISTAPELICULAS")
+@Table (name = "pelicula")
 public class Pelicula {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column (name= "idPelicula", nullable = true)
+	@Column (name= "idPelicula")
 	private Long idPelicula;
-	@NotEmpty
-	@Size(min=3, max=100, message="EL nombre debe tener 2 caracteres minimo, maximo 15")
-	@NotEmpty(message="El nombre no puede estar vacio")
+	
+	//@Size(min=3, max=100, message="EL nombre debe tener 2 caracteres minimo, maximo 15")
+	//@NotEmpty(message="El nombre no puede estar vacio")
 	@NotBlank(message="El nombre no puede ser espacios en blanco")
 	private String nombrePelicula;
 	
 	@NotBlank(message="La descripcion no puede ser espacios en blanco")
 	@Column(name="descripcionPelicula")
-	@NotEmpty
+	//@NotEmpty
 	private String descripcionPelicula;
 	
-	@NotNull
+	//@NotNull
 	@Min(value=0,message="El duracion en horas debe ser mayor que 0")
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
 	private Integer duracionPelicula;
   
-	@NotEmpty
-	private String generoPelicula;
+	//@NotEmpty
+	//private String generoPelicula;
 	
 	@Column (name = "fechaestreno")
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+
 	private LocalDate fechaEstreno;
 	
-	private LocalTime horario1;
+	private Boolean estadoPelicula;
+	
+	/*private LocalTime horario1;
 	
 	private LocalTime horario2;
 	
-	private LocalTime horario3;
+	private LocalTime horario3;*/
 	
 	//portada
 	@Lob
 	private String imagen;
+	
 	public String getImagen() {
 		return imagen;
 	}
@@ -66,13 +66,9 @@ public class Pelicula {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-
-	private Boolean estadoPelicula;
 	
 	@Column (name = "actorespelicula")
 	private String actores;
-	
-	
 	
 	public Pelicula() {
 		// TODO Auto-generated constructor stub
@@ -118,7 +114,7 @@ public class Pelicula {
 		this.fechaEstreno = fechaEstreno;
 	}
 
-	public String getGeneroPelicula() {
+	/*public String getGeneroPelicula() {
 		return generoPelicula;
 	}
 
@@ -148,7 +144,7 @@ public class Pelicula {
 
 	public void setHorario3(LocalTime horario3) {
 		this.horario3 = horario3;
-	}
+	}*/
 
 	public Boolean getEstadoPelicula() {
 		return estadoPelicula;
@@ -158,11 +154,11 @@ public class Pelicula {
 		this.estadoPelicula = estadoPelicula;
 	}
 
-	public String getActores() {
+	/*public String getActores() {
 		return actores;
 	}
 	public void setActores(String actores) {
 		this.actores = actores;
-	}
+	}*/
 	
 }
