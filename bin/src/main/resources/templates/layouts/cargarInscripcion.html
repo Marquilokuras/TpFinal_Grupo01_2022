@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Formulario Inscripcion</title>
+<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css">
+<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div class="container">
+		<div th:insert="/layouts/header :: header"></div>
+      <form th:object="${usuarioCurso}" th:action" @{/guardarInscripcion}" method="post">
+       	  <div class="mb-3">
+	          <label for="alumno" class="form-label">Alumnos</label> 
+	          <select class="form-control" th:field="#{usuario.dni}">
+	          	<option th:each="u:${usuarios}" th:value="${u.dni}" th:text="${u.apellido}"></option>
+	          </select>
+		  </div>
+			
+		  <div class="mb-3">
+		  	 <label for="curso" class="form-label">Cursos</label>
+			 <select class="form-control" th:field="#{curso.id}">
+	         	<option th:each="u:${cursos}" th:value="${c.id}" th:text="${c.nombre}"></option>
+	         </select>
+		 </div>
+			
+        <div class="mb-3">
+          <label for="fechaDeInscripcion" class="form-label">Fecha de Inscripcion</label>
+          <input type="date" class="form-control" id="fechaDeInscripcion" th:field="*{fechaDeInscripcion}" placeholder="Ingrese su fecha de inscripcion">
+        </div>
+	
+		  <button type="submit" class="btn btn-primary">Inscribir</button>
+		  <a class="btn btn-light" th:href="@{/}">Volver</a>
+		
+		</form>
+	</div>
+</body>
+</html>
