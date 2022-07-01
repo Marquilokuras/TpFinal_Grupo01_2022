@@ -36,7 +36,7 @@
 			</thead>
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
-					<td colspan="6">No hay cursos cargados</td>
+					<td colspan="11">No hay cursos cargados</td>
 				</tr>
 				<tr th:each="m:${listaPelicula}">
 					<td th:text="${m.idPelicula}"></td>
@@ -48,7 +48,7 @@
 					<td th:text="${movie.horario}"></td>
 					<td th:text="${movie.estado}"></td>
 					<td th:text="${movie.actores}"></td> -->
-					<td th:image ="${m.imagen}"></td>
+					<td><img th:src="${m.imagen}" alt=""></td><img>
 					<td><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
 					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
 				</tr>
