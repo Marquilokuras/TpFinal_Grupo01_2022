@@ -22,33 +22,22 @@
       	<button type="button" class="btn-close" data-bs-dismiss="alert"
       	aria-lable="Close"></button>
       </div>
-<<<<<<< HEAD
     </div>
     <div class="row" --  > -->
-      <form class="row g-3" th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
-=======
+
     </div>
     <div class="row"> -->
       <form class="form" th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
->>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
       	enctype="multipart/form-data" >
       	<div class="row">
 	      
 	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{idPelicula}">
-<<<<<<< HEAD
 
 	      <div class="col-md-6">	      
-=======
 	      
-	      
->>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 	      <div class="fondo">
-	      
-<<<<<<< HEAD
-=======
+	     
 	      <div class="mb-3">
-	      
->>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 	          <label for="idPelicula" class="form-label" >Digite ID de la Pelicula</label>
 	          <input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"  placeholder="Ingrese ID de la pelicula">
 	          <div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}" th:errors="*{idPelicula}"></div>
@@ -85,7 +74,7 @@
         </div>
 	
 			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span> </button>
-		  	<a class="btn btn-light" th:href="@{/}">Volver</a>
+		  	<a class="btn btn-light" th:href="@{/cargarPelicula}">Volver</a>
 		  	
 		   </div>
 		  	
