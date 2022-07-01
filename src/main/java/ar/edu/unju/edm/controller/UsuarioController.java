@@ -40,6 +40,8 @@ public class UsuarioController {
 	//guardar usuarios
 	@PostMapping("/guardarUsuario")
 	public String saveUser(@Valid @ModelAttribute("usuario") Usuario usuarioparaguardar, BindingResult resultado, Model model) { //del modelo viene 1 atributo llamado usuario y lo agarra le indica el tipo y un nombre 
+		System.out.println(resultado.getAllErrors());
+		
 		if(resultado.hasErrors()) {
 			EMILIO.fatal("Error de Validacion");
 			model.addAttribute("usuario",usuarioparaguardar);

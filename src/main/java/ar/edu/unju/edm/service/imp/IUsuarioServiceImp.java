@@ -27,10 +27,12 @@ public class IUsuarioServiceImp implements IUsuarioService {
 		// TODO Auto-generated method stub
 		usuarioparaguardar.setEstado(true);
 		usuarioparaguardar.setTipo("CLIENTE");
+
 	//	lista.getListado().add(usuarioparaguardar); 
 		String pw=usuarioparaguardar.getContrasena();
 		BCryptPasswordEncoder coder = new BCryptPasswordEncoder(4); //clase de codificadores para incriptar datos
 		usuarioparaguardar.setContrasena(coder.encode(pw));
+
 		usuarioRepository.save(usuarioparaguardar);
 	}
 
@@ -90,4 +92,6 @@ public class IUsuarioServiceImp implements IUsuarioService {
 		usuarioEncontrado=usuarioRepository.findById(dni).orElseThrow(()->new Exception("Usuario No Encontrado"));
 		return usuarioEncontrado;
 	}
+	
+	
 }
