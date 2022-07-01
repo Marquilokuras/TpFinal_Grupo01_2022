@@ -33,7 +33,9 @@ public class Usuario {
 	private LocalDate fechaNacimiento;
 	private String tipo;
 	
+
 	
+
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -102,4 +104,5 @@ public class Usuario {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+
 }

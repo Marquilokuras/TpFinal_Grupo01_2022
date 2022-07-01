@@ -1,7 +1,6 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
-//import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -49,16 +48,11 @@ public class Pelicula {
 	
 	@Column (name = "fechaestreno")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-
 	private LocalDate fechaEstreno;
 	
 	private Boolean estadoPelicula;
 	
-	/*private LocalTime horario1;
-	
-	private LocalTime horario2;
-	
-	private LocalTime horario3;*/
+//	private Long horario;
 	
 	//portada
 	@Lob
@@ -72,8 +66,8 @@ public class Pelicula {
 		this.imagen = imagen;
 	}
 	
-	@Column (name = "actorespelicula")
-	private String actores;
+	@Column (name = "actoresPelicula")
+	private String actoresPelicula;
 	
 	public Pelicula() {
 		// TODO Auto-generated constructor stub

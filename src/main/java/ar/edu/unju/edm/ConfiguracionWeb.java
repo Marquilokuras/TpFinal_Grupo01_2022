@@ -15,7 +15,7 @@ import ar.edu.unju.edm.service.imp.LoginService;
 public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private Autenticación autenticacion;
+	private Autenticacion autenticacion;
 
 	String[] resources = new String[] { "/include/**", "/css/**", "/icons/**", "/img/**", "/js/**", "/layer/**",
 			"/webjars/**" };
@@ -55,6 +55,7 @@ public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
 	public void configuracionGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {
 		System.out.println("***Inicio del Usuario***");
+
 		auth.userDetailsService(userDetailsService);
 	}
 }

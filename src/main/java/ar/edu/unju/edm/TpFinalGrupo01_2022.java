@@ -10,12 +10,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ar.edu.unju.edm.model.Usuario;
 import ar.edu.unju.edm.service.IUsuarioService;
 
+
 @SpringBootApplication
 public class TpFinalGrupo01_2022 implements CommandLineRunner{
 	
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(TpFinalGrupo01_2022.class, args);
 	}
+
 	@Autowired
 	Usuario usuario;
 	@Autowired
