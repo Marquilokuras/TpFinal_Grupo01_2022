@@ -28,7 +28,6 @@ public class PeliculaController {
 	@Autowired
 	Pelicula nuevaPelicula;
 	
-	
 	@Autowired
 	IPeliculaService peliculaService;
 	
@@ -93,7 +92,7 @@ public class PeliculaController {
 		peliculaEncontrada = peliculaService.buscarPelicula(idPelicula);		
 		ModelAndView modelView = new ModelAndView("cargarPelicula");
 		modelView.addObject("pelicula", peliculaEncontrada);
-		 AGUSTINA.error("saliendo del metodo: editMovie "+ peliculaEncontrada.getNombrePelicula());
+		 AGUSTINA.info("saliendo del metodo: editMovie "+ peliculaEncontrada.getNombrePelicula());
 		modelView.addObject("editMode", true);
 		return modelView;
 	}
