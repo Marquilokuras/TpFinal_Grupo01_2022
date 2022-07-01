@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Listado</title>
-<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}"
-	rel="stylesheet" type="text/css">
-  <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">
+	<!-- Colocar icono en las pestañas -->
+	<meta http-equiv="X-UA-Compatible"content="IE=edge">
+	<meta name="viewport" content="width-device-width,initial-scale-1.0">
+	<link rel="shortcut icon"href="img/palomitas.png">
+	<title>Listado de Usuario</title>
+	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
-		<div class="alert-danger text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">Nombre de Error</div>
+		<div class="alert-primary text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">Nombre de Error</div>
 		<br>
 		<table class="table table-bordered border-primary">
 			<thead class="table-dark">

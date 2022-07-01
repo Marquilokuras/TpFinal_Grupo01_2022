@@ -31,7 +31,10 @@ public class Usuario {
 	private Long dni;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
+	private String tipo;
 	
+	
+
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
@@ -91,5 +94,12 @@ public class Usuario {
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 }
