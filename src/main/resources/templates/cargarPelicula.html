@@ -33,13 +33,13 @@
 	      
 	      <div class="fondo">
 	      
-	    <!--  <div class="mb-3">
+	      <div class="mb-3">
 	      
 	          <label for="idPelicula" class="form-label" >Digite ID de la Pelicula</label>
 	          <input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"  placeholder="Ingrese ID de la pelicula">
 	          <div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}" th:errors="*{idPelicula}"></div>
 	          
-        	</div>-->
+        	</div>
 	      
        	  <div class="mb-3">
 	          
@@ -73,11 +73,8 @@
 			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span> </button>
 		  	<a class="btn btn-light" th:href="@{/}">Volver</a>
 		  	
-
 		   </div>
 		  	
-
-
 		</form>
 		</div>
 </body>

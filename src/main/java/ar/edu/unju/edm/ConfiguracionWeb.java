@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import ar.edu.unju.edm.service.imp.LoginService;
 
 @Configuration
@@ -16,7 +15,7 @@ import ar.edu.unju.edm.service.imp.LoginService;
 public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private Autenticación autenticacion;
+	private Autenticacion autenticacion;
 
 	String[] resources = new String[] { "/include/**", "/css/**", "/icons/**", "/img/**", "/js/**", "/layer/**",
 			"/webjars/**" };
