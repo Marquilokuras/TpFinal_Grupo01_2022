@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<!-- Colocar icono en las pestañas -->
-	<meta http-equiv="X-UA-Compatible"content="IE=edge">
-	<meta name="viewport" content="width-device-width,initial-scale-1.0">
-	<link rel="shortcut icon"href="img/palomitas.png">
-	<title>Formulario Usuario</title>
-	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
-	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<!-- Colocar icono en las pestañas -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width-device-width,initial-scale-1.0">
+<link rel="shortcut icon" href="img/palomitas.png">
+<title>Formulario Usuario</title>
+<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css">
+<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
-		
-      <form class="form" th:object="${usuario}" th:action="${editMode}? @{/editarUsuario} : @{/guardarUsuario}" method="post">
-	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{contrasena}">
-	      <!--<input type="hidden" class="form-control" th:if="${editMode}" th:field="*{estado}">-->
-	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{dni}">
-       	  <div class="mb-3">
-	          <label for="nombre" class="form-label">Nombre</label> <input
-	            type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese nombre completo">
-	          <label for="apellido" class="form-label">Apellido</label> <input type="text" class="form-control" id="apellido" th:field="*{apellido}" placeholder="Ingrese apellido"> <label
-	            for="exampleInputEmail1" class="form-label">Email</label> <input
-	            type="email" class="form-control" id="exampleInputEmail1"
-	            th:field="*{email}" placeholder="Ingrese email: ej@correo.com">
+
+		<form class="form" th:object="${usuario}"
+			th:action="${editMode}? @{/editarUsuario} : @{/guardarUsuario}"
+			method="post">
+			<input type="hidden" class="form-control" th:if="${editMode}"
+				th:field="*{contrasena}">
+			<!--<input type="hidden" class="form-control" th:if="${editMode}" th:field="*{estado}">-->
+			<input type="hidden" class="form-control" th:if="${editMode}"
+				th:field="*{dni}">
+
+			<div class="mb-3">
+				<label for="dni" class="form-label" th:if="${editMode==false}">DNI</label>
+				<input type="number" class="form-control" id="dni" th:field="*{dni}"
+					th:if="${editMode==false}" placeholder="Ingrese DNI" required>
+				<div class="alert alert-danger" th:if="${#fields.hasErrors('dni')}"
+					th:errors="*{dni}"></div>
+			</div>
+
+			<!-- Input Dropdown -->
+			
+			<div class="input-group mb-3">
+				<label class="input-group-text" for="inputGroupSelect01">Rol</label>
+				<select class="form-select" id="inputGroupSelect01">
+					<option selected>Escoge...</option>
+					<option value="1">Administrador</option>
+					<option value="2">Cliente</option>
+				</select>
+			</div>
+
+			<!-- Input Dropdown -->
+
+			<div class="mb-3">
+				<label for="nombre" class="form-label">Nombre</label> <input
+					type="text" class="form-control" id="nombre" th:field="*{nombre}"
+					placeholder="Ingrese nombre completo"> <label
+					for="apellido" class="form-label">Apellido</label> <input
+					type="text" class="form-control" id="apellido"
+					th:field="*{apellido}" placeholder="Ingrese apellido"> <label
+					for="exampleInputEmail1" class="form-label">Email</label> <input
+					type="email" class="form-control" id="exampleInputEmail1"
+					th:field="*{email}" placeholder="Ingrese email: ej@correo.com">
 			</div>
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label" th:if="${editMode==false}">Contraseña</label>
-				<input type="password" class="form-control"
-					id="exampleInputPassword1" 
-					th:field="*{contrasena}" th:if="${editMode==false}" 
+				<label for="exampleInputPassword1" class="form-label"
+					th:if="${editMode==false}">Contraseña</label> <input
+					type="password" class="form-control" id="exampleInputPassword1"
+					th:field="*{contrasena}" th:if="${editMode==false}"
 					placeholder="Ingrese contraseña">
 				<div class="alert alert-danger" th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}" ></div>
         	</div>
