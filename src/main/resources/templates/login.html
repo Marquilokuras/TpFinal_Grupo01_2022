@@ -16,22 +16,68 @@
 <body>
 	<div class="container">
 		<form class="form" th:action="@{/login}" method="post">
-		<h1>BIENVENIDO AL CINE</h1>
-		<h2>Ingrese Cuenta</h2>
-		  <div class="form-group">
-		    <label for="exampleInputEmail1" class="form-label">DNI</label>
-		    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="dni">
-		  </div>
-		  
-		  <div class="form-group">
-		    <label for="exampleInputPassword1" class="form-label">Password</label>
-		    <input type="password" class="form-control" id="exampleInputPassword1" name="contrasena">
-		  </div>
-		  
-		  <button type="submit" class="btn btn-primary">Ingresar</button>
+			<h1>BIENVENIDO AL CINE</h1>
+			<h2>Ingrese Cuenta</h2>
+	     	  <div class="form-group">
+			    <label for="exampleInputEmail1" class="form-label">DNI</label>
+				    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="dni">
+			 </div>
+				  
+			<div class="form-group">
+				<label for="exampleInputPassword1" class="form-label">Password</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" name="contrasena">
+			</div>
+				  
+		    <div class="form-group">
+				<h3>Crear Usuario</h3>
+				<a class="dropdown-item" th:href="@{/cargarUsuario}"> Usuario/Olvidaste la contraseña?</a >
+			</div>
+				  
+			<button type="submit" class="btn btn-primary">Ingresar</button>
 		</form>
 	</div>
-</body>
+	
+	<br>
+	
+	<div class="slide">
+			<div class="slide-inner">
+				<input class="slide-open" type="radio" id="slide-1" 
+			 	     name="slide" aria-hidden="true" hidden="" checked="checked">
+				<div class="slide-item">
+					<img src="img/sonic2.jpeg">
+				</div>
+				<input class="slide-open" type="radio" id="slide-2" 
+			 	     name="slide" aria-hidden="true" hidden="">
+				<div class="slide-item">
+					<img src="img/moonfall.jpeg">
+				</div>
+				<input class="slide-open" type="radio" id="slide-3" 
+			 	     name="slide" aria-hidden="true" hidden="">
+				<div class="slide-item">
+					<img src="img/jurassicworld.jpeg">
+				</div>
+				<label for="slide-3" class="slide-control prev control-1">‹</label>
+				<label for="slide-2" class="slide-control next control-1">›</label>
+				<label for="slide-1" class="slide-control prev control-2">‹</label>
+				<label for="slide-3" class="slide-control next control-2">›</label>
+				<label for="slide-2" class="slide-control prev control-3">‹</label>
+				<label for="slide-1" class="slide-control next control-3">›</label>
+				<ol class="slide-indicador">
+					<li>
+						<label for="slide-1" class="slide-circulo">•</label>
+					</li>
+					<li>
+						<label for="slide-2" class="slide-circulo">•</label>
+					</li>
+					<li>
+						<label for="slide-3" class="slide-circulo">•</label>
+					</li>
+
+				</ol>
+			</div>
+		</div>
+			
+	</body>
 
 
 </html>

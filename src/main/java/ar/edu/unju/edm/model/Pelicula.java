@@ -10,6 +10,8 @@ import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -22,6 +24,9 @@ public class Pelicula {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name= "idPelicula")
 	private Long idPelicula;
+	@NotEmpty
+	@Size(min=3, max=100, message="EL nombre debe tener 2 caracteres minimo, maximo 15")
+	@NotEmpty(message="El nombre no puede estar vacio")
 	
 	//@Size(min=3, max=100, message="EL nombre debe tener 2 caracteres minimo, maximo 15")
 	//@NotEmpty(message="El nombre no puede estar vacio")
