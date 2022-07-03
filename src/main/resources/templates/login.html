@@ -16,27 +16,30 @@
 <body>
 	<div class="container">
 		<form class="form" th:action="@{/login}" method="post">
-		<h1>BIENVENIDO AL CINE</h1>
-		<h2>Ingrese Cuenta</h2>
-		  <div class="form-group">
-		    <label for="exampleInputEmail1" class="form-label">DNI</label>
-		    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="dni">
-		  </div>
-		  
-		  <div class="form-group">
-		    <label for="exampleInputPassword1" class="form-label">Password</label>
-		    <input type="password" class="form-control" id="exampleInputPassword1" name="contrasena">
-		  </div>
-		  
-		  <div class="form-group">
-		  	<h3>Crear Usuario</h3>
-		  	<button onclick="/otroUsuario">Registrar Usuario/Olvidaste la contraseña?</button>
-		  </div>
-		  
-		  <button type="submit" class="btn btn-primary">Ingresar</button>
+			<h1>BIENVENIDO AL CINE</h1>
+			<h2>Ingrese Cuenta</h2>
+	     	  <div class="form-group">
+			    <label for="exampleInputEmail1" class="form-label">DNI</label>
+				    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="dni">
+			 </div>
+				  
+			<div class="form-group">
+				<label for="exampleInputPassword1" class="form-label">Password</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" name="contrasena">
+			</div>
+				  
+		    <div class="form-group">
+				<h3>Crear Usuario</h3>
+				<a class="dropdown-item" th:href="@{/cargarUsuario}"> Usuario/Olvidaste la contraseña?</a >
+			</div>
+				  
+			<button type="submit" class="btn btn-primary">Ingresar</button>
 		</form>
 	</div>
-</body>
+	
+	
+			
+	</body>
 
 
 </html>
