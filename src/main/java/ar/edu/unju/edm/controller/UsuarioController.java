@@ -81,9 +81,9 @@ public class UsuarioController {
 		try {
 			serviceUsuario.eliminarUsuario(dni);
 		}catch(Exception error){
-			EMILIO.error("Encontrando el usuario a eliminar");
+			EMILIO.error("Error en eliminar usuario");
 			model.addAttribute("formUsuarioErrorMessage", error.getMessage());
-			return "redirect:/otroUsuario";
+			return "redirect:/listadoUsuario";
 		}
 		return "redirect:/listadoUsuario";
 	}
@@ -123,13 +123,13 @@ public class UsuarioController {
 			vista.addObject("formUsuarioErrorMessage", error.getMessage());
 			vista.addObject("usuario", usuarioparamodificar);
 			vista.addObject("editMode",true);
-			EMILIO.error("saliendo del metodo: editarusuario");
+			EMILIO.error("saliendo del metodo: editar usuario");
 			return vista;
 		}
 		 EMILIO.error("DNI de usuarioparamod "+ usuarioparamodificar.getDni());
 		 EMILIO.error("Nombre de usuarioparamod "+ usuarioparamodificar.getNombre());
 		ModelAndView vista1 = new ModelAndView("listadoUsuario");		
-		vista1.addObject("listaUsuarios", serviceUsuario.mostrarUsuarios());	
+		vista1.addObject("listaUsuario", serviceUsuario.mostrarUsuarios());	
 		vista1.addObject("formUsuarioErrorMessage","Usuario modificado Correctamente");
 		
 		return vista1;

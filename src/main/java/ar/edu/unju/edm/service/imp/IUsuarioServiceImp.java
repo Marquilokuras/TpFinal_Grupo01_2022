@@ -67,16 +67,22 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	
 	@Override
 	public void modificarUsuario(Usuario usuario) {
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+usuario.getEmail());
+		
 		// TODO Auto-generated method stub
 		usuario.setEstado(true);
+		usuario.setGenero("femenino");
+		usuario.setTelefono(388505596);
 	  /*for(int i = 0; i < lista.getListado().size(); i++) {
 			if(lista.getListado().get(i).getDni().equals(usuario.getDni())) {
 				MARCOS.error("Encontrado");
 				lista.getListado().set(i, usuario);
 			}
 		}*/
+		
 		usuarioRepository.save(usuario);
 		
+		System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 	}
 
 	@Override

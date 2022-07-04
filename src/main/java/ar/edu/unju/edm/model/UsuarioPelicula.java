@@ -14,29 +14,32 @@ import org.springframework.stereotype.Component;
 
 @Component					//mapeo del modelo relacional hibernate
 @Entity
-public class UsuarioCine {
+public class UsuarioPelicula {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idUsuarioCine;
+	private Integer idUsuarioPelicula;
+	
 	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
 	@JoinColumn(name="dni")//parte comun de dos conjuntos
 	private Usuario usuario;
-	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
-	@JoinColumn(name="idCine")//parte comun de dos conjuntos
-	private Pelicula cine;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private LocalDate fechaDeInscripcion;
 	
-	public UsuarioCine() {
+	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
+	@JoinColumn(name="id")//parte comun de dos conjuntos
+	private Pelicula pelicula;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate fechaDeCompra;
+	
+	public UsuarioPelicula() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getIdUsuarioCine() {
-		return idUsuarioCine;
+	public Integer getIdUsuarioPelicula() {
+		return idUsuarioPelicula;
 	}
 
-	public void setIdUsuarioCine(Integer idUsuarioCine) {
-		this.idUsuarioCine = idUsuarioCine;
+	public void setIdUsuarioPelicula(Integer idUsuarioPelicula) {
+		this.idUsuarioPelicula = idUsuarioPelicula;
 	}
 
 	public Usuario getUsuario() {
@@ -47,19 +50,19 @@ public class UsuarioCine {
 		this.usuario = usuario;
 	}
 
-	public Pelicula getCine() {
-		return cine;
+	public Pelicula getPelicula() {
+		return pelicula;
 	}
 
-	public void setCine(Pelicula cine) {
-		this.cine = cine;
+	public void setPelicula(Pelicula pelicula) {
+		this.pelicula= pelicula;
 	}
 
-	public LocalDate getFechaDeInscripcion() {
-		return fechaDeInscripcion;
+	public LocalDate getFechaDeCompra() {
+		return fechaDeCompra;
 	}
 
-	public void setFechaDeInscripcion(LocalDate fechaDeInscripcion) {
-		this.fechaDeInscripcion = fechaDeInscripcion;
+	public void setFechaDeCompra (LocalDate fechaDeCompra) {
+		this.fechaDeCompra = fechaDeCompra;
 	}
 }

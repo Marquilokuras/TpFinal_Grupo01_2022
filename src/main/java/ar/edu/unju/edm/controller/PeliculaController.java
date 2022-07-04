@@ -59,7 +59,7 @@ public class PeliculaController {
 			byte[] content = file.getBytes();
 			String base64 = Base64.getEncoder().encodeToString(content);
 			peliculaparaguardar.setImagen(base64);
-			peliculaparaguardar.setDuracionPelicula(45);
+			//peliculaparaguardar.setDuracionPelicula(45);
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
@@ -81,7 +81,7 @@ public class PeliculaController {
 	@GetMapping("/listadoPelicula")
 	public ModelAndView showMovie() {
 		ModelAndView vista = new ModelAndView("listadoPelicula");
-		vista.addObject("listaPelicula", peliculaService.listarPelicula());
+		vista.addObject("listaPelicula", peliculaService.listadoPelicula());
 		return vista;
 	}
 	
@@ -119,7 +119,7 @@ public class PeliculaController {
 			return vista;
 		}
 			ModelAndView vista = new ModelAndView("listadoPelicula");
-			vista.addObject("listaPelicula", peliculaService.listarPelicula());	
+			vista.addObject("listaPelicula", peliculaService.listadoPelicula());	
 			vista.addObject("formPeliculaErrorMessage","Pelicula modificada Correctamente");
 		return vista;
 	}
@@ -132,15 +132,17 @@ public class PeliculaController {
 	// eliminar pelicula
 			@RequestMapping("/deleteMovie/{idPelicula}")
 			public String deleteMovie(@PathVariable(name="idPelicula") Long idPelicula, Model model) {
+				AGUSTINA.info("ingresando al metodo eliminar");
 				try {
+					AGUSTINA.info("ingresando al metodo eliminartryyyyyyyyyyy");
 					peliculaService.eliminarPelicula(idPelicula);
 				}catch(Exception error){
 					AGUSTINA.error("encontrando: eliminarpelicula");
 					model.addAttribute("formPeliculaErrorMessage", error.getMessage());
 					return "redirect:/otraPelicula";
 				}
-			
-			    return "redirect:/listarPelicula";
+				AGUSTINA.info("saliendo al metodo eliminar");
+			    return "redirect:/listadoPelicula";
 			}
 	}
 	

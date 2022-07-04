@@ -54,17 +54,7 @@ public class Pelicula {
 	
 	private Boolean estadoPelicula;
 	
-	@Column (name = "horario")
-	@DateTimeFormat(pattern = "HH-mm-ss")
 	private LocalTime horario;
-	
-	public LocalTime getHorario() {
-		return horario;
-	}
-
-	public void setHorario(LocalTime horario) {
-		this.horario = horario;
-	}
 
 	//portada
 	@Lob
@@ -128,12 +118,36 @@ public class Pelicula {
 	public String getGeneroPelicula() {
 		return generoPelicula;
 	}
-
 	public void setGeneroPelicula(String generoPelicula) {
 		this.generoPelicula = generoPelicula;
 	}
 	
-	
+	/*public LocalTime getHorario1() {
+		return horario1;
+	}
+	public void setHorario1(LocalTime horario1) {
+		this.horario1 = horario1;
+	}
+	public LocalTime getHorario2() {
+		return horario2;
+	}
+	public void setHorario2(LocalTime horario2) {
+		this.horario2 = horario2;
+	}
+	public LocalTime getHorario3() {
+		return horario3;
+	}
+	public void setHorario3(LocalTime horario3) {
+		this.horario3 = horario3;
+	}*/
+
+	public LocalTime getHorario() {
+		return horario;
+	}
+
+	public void setHorario(LocalTime horario) {
+		this.horario = horario;
+	}
 
 	public Boolean getEstadoPelicula() {
 		return estadoPelicula;
@@ -143,11 +157,12 @@ public class Pelicula {
 		this.estadoPelicula = estadoPelicula;
 	}
 
-	/*public String getActores() {
-		return actores;
+	public String getActoresPelicula() {
+		return actoresPelicula;
 	}
-	public void setActores(String actores) {
-		this.actores = actores;
-	}*/
+
+	public void setActoresPelicula(String actoresPelicula) {
+		this.actoresPelicula = actoresPelicula;
+	}
 	
 }

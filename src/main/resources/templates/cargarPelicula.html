@@ -4,103 +4,119 @@
 <head>
 	<meta charset="UTF-8">
 	<!-- Colocar icono en las pestañas -->
-	<meta http-equiv="X-UA-Compatible"content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
-	<link rel="shortcut icon"href="img/palomitas.png">
+	<link rel="shortcut icon" href="img/palomitas.png">
 	<title>Formulario Pelicula</title>
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-	<div class="container">
-		<div th:insert="/layouts/header :: header"></div>
-
-      <!-- <div class="alert alert-success alert-dismissible fade show row"
-      	role="alert" th:if="${cargarPeliculErrorMessage}">
-      	<label th:text="${cargarPeliculErrorMessage}"></label>
-      	<button type="button" class="btn-close" data-bs-dismiss="alert"
-      	aria-lable="Close"></button>
-      </div>
-    </div>
-    <div class="row" --  > -->
-
-    </div>
-    <div class="row">
-      <form class="form" th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
-      	enctype="multipart/form-data" >
-      	<div class="row">
-	      
-	      <input type="hidden" class="form-control" th:if="${editMode}" th:field="*{idPelicula}">
-
-	      <div class="col-md-6">	      
-	      
-	      <div class="fondo">
-	     
-	      <div class="mb-3">
-	          <label for="idPelicula" class="form-label" >Digite ID de la Pelicula</label>
-	          <input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"  placeholder="Ingrese ID de la pelicula">
-	          <div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}" th:errors="*{idPelicula}"></div>
-        	</div>
-	      
-       	  <div class="mb-3"> 
-	          <label for="nombre" class="form-label">Nombre de la Pelicula</label> 
-	          <input type="text" class="form-control" id="nombre" th:field="*{nombrePelicula}" placeholder="Ingrese nombre de la pelicula">
-	          
-	          <label for="descripcion" class="form-label">Descripcion</label>
-	          <input type="text" class="form-control" id="descripcion" th:field="*{descripcionPelicula}" placeholder="Ingrese sintesis de la pelicula">
-		  </div>
-		
-
-          <div class="mb-3">
-       		   <label for="fechaEstreno" class="form-label">Fecha de Estreno</label>
-               <input type="date" class="form-control" id="fechaEstreno" th:field="*{fechaEstreno}" placeholder="Ingrese fecha de estreno">
-               <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaEstreno')}" th:errors="*{fechaEstreno}"></div>
-          </div>
-        
-        
-	      <div class="form-group row">
-	       	<label for ="file" class="col-sm-4 col-form-label"> Subir Imagen</label>
-	       	 <div class="col-sm-10">
-	       	 	<input type="file" name="file" class="form-control-file" id="file"
-	       	 	accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
-	       	 	onchange="loadFile(event)"> <img id="output" 
-	       	 	style="padding-top: 2px; width: 146px;" />
-	       	 </div>
-	      </div> 
-       
-        
-	     <div class="mb-3">
-	       <label for="generoPelicula" class="form-label">Género</label>
-	       <input type="text" class="form-label" id="generoPelicula" th:field="*{generoPelicula}" placeholder="Ingrese genero de la pelicula">
-	       <!-- <select class="form-select" aria-label="Default select example">
-	  		 <option selected>Seleccione una opción</option>
-	  		 <option value="1">Terror</option>
-	  		 <option value="2">Drama</option>
-	  		 <option value="3">Acción</option>
-	  		 <option value="3">Comedia</option>
-	  		</select> -->
-	     </div>
-	     
-	     
-	     <div class="mb-3">
-	     	  <label for="duracionPelicula" class="form-label">Duración</label>
-	          <input type="text" class="form-control" id="duracionPelicula" th:field="*{duracionPelicula}" placeholder="Ingrese duración de la pelicula">
-	     </div>
+	<div th:insert="/layouts/header :: header"></div>
 	
+	
+	<div class="container">
 		
-		 <div class="mb-3">
-	     	  <label for="horario" class="form-label">Horario</label>
-	          <input type="time" class="form-control" id="horario" th:field="*{horario}" placeholder="Ingrese horario de la pelicula">
-	     	  <div class="alert alert-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
-	     </div>
-	     
-			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span> </button>
-		  	<a class="btn btn-light" th:href="@{/cargarPelicula}">Volver</a>
-		  	
-		   </div>
-		  	
-		</form>
+		<div class="modal-dialog text-center">
+
+			<div class="col-sm-8 main-section">
+				<div class="modal-content">
+					<h4>Registro de Pelicula</h4>
+					
+					
+					
+					<form class="form" th:object="${pelicula}"
+						th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
+						enctype="multipart/form-data">
+						<div class="row">
+
+							<input type="hidden" class="control" th:if="${editMode}" th:field="*{idPelicula}">
+
+							<div class="col">
+
+								<!--<div class="form-group">
+									<label for="idPelicula" class="form-label" th:if="${editMode==false}">Digite ID de la Pelicula</label>
+									<input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"
+										placeholder="Ingrese ID de la pelicula">
+									<div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}"
+										th:errors="*{idPelicula}"></div>
+								</div> -->
+
+								<div class="form-group">
+									<label for="nombre" class="form-label">Nombre de la Pelicula</label>
+									<input type="text" class="form-control" id="nombre" th:field="*{nombrePelicula}"
+										placeholder="Ingrese nombre de la pelicula">
+
+									<label for="descripcionID" class="form-label">Descripcion</label>
+									<input type="text" class="form-control" id="descripcionID"
+										th:field="*{descripcionPelicula}" placeholder="Ingrese sintesis de la pelicula">
+								</div>
+
+
+								<div class="form-group">
+									<label for="fechaEstreno" class="form-label">Fecha de Estreno</label>
+									<input type="date" class="form-control" id="fechaEstreno" th:field="*{fechaEstreno}"
+										placeholder="Ingrese fecha de estreno">
+									<div class="alert alert-danger" th:if="${#fields.hasErrors('fechaEstreno')}"
+										th:errors="*{fechaEstreno}"></div>
+
+									<div class="form-group">
+										<label for="file" class="form-label"> Subir
+											Imagen</label>
+										<div class="col-sm-10">
+											<input type="file" name="file" class="control-file" id="file"
+												accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
+												onchange="loadFile(event)"> <img id="output">
+										</div>
+									</div>
+								</div>
+								
+								
+						     	<div class="form-group">
+						     	  	<label for="duracionPelicula" class="form-label">Duración en min</label>
+						          	<input type="number" class="form-control" id="duracionPelicula" th:field="*{duracionPelicula}" placeholder="Ingrese duración de la pelicula">
+						     	</div>
+						     	
+						     	<div class="form-group">
+						     		<label for="generoPelicula" class="form-label">Género</label>
+						       		<input type="text" class="form-label" id="generoPelicula" th:field="*{generoPelicula}" placeholder="Ingrese genero de la pelicula">
+						       		<!--<select class="form-select" id="generoPelicula" th:field="*{generoPelicula}">
+						  		 		<option selected>Seleccione una opción</option>
+						  		 		<option th:value="1">Terror</option>
+						  		 		<option th:value="2">Drama</option>
+						  		 		<option th:value="3">Acción</option>
+						  		 		<option th:value="4">Comedia</option>
+						  			</select>-->
+						     	</div>
+						     	
+						     	
+						     	<div class="form-group">
+						     	  	<label for="horario" class="form-label">Horario</label>
+						          	<input type="time" class="form-control" id="horario" th:field="*{horario}" placeholder="Ingrese horario de la pelicula">
+						     	  	<div class="alert alert-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
+						     	</div>
+						     	
+						     	<div class="form-group">
+						     	  <label for="actoresPelicula" class="form-label">Actores</label>
+						          <input type="text" class="form-control" id="actoresPelicula" th:field="*{actoresPelicula}" placeholder="Ingrese actores de la pelicula">
+						     	</div>
+
+								<button type="submit" class="btn btn-primary"><span
+										th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span>
+								</button>
+								<a class="btn btn-light" th:href="@{/index}">Volver</a>
+
+							</div>
+						</div>
+					</form>
+					
+					
+					
+				</div>
+			</div>
 		</div>
+	</div>
 </body>
+
 </html>
