@@ -26,19 +26,14 @@
 					<th scope="col">Descripcion</th>
 					<th scope="col">Fecha de Estreno</th>
 					<th scope="col">Imagen</th>
-					<!--<th scope="col">Duracion</th>
-					<th scope="col">Genero</th>
-					<th scope="col">Horario</th>
-					<th scope="col">Estado</th>
-					<th scope="col">Actores</th>  
-					<th scope="col">Edicion</th> -->
+						<th scope="col"></th>
 			</tr>
 			</thead>
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
 					<td colspan="6">No hay cursos cargados</td>
 				</tr>
-				<tr th:each="m:${listaPelicula}">
+				<tr th:each="m : ${listaPelicula}">
 					<td th:text="${m.idPelicula}"></td>
 					<td th:text="${m.nombrePelicula}"></td>
 					<td th:text="${m.descripcionPelicula}"></td>
@@ -48,8 +43,8 @@
 					<td th:text="${movie.horario}"></td>
 					<td th:text="${movie.estado}"></td>
 					<td th:text="${movie.actores}"></td> -->
-					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt=""></td><img>
-					<td><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
+					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt="" class="imagen-listadoPelicula"></td>
+					<td colspan="3"><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
 					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
 				</tr>
 			</tbody>
