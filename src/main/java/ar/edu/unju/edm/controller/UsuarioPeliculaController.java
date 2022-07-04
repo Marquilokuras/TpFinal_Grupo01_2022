@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.edm.model.UsuarioCine;
+import ar.edu.unju.edm.model.UsuarioPelicula;
 import ar.edu.unju.edm.service.IPeliculaService;
-import ar.edu.unju.edm.service.IUsuarioCineService;
+import ar.edu.unju.edm.service.IUsuarioPeliculaService;
 import ar.edu.unju.edm.service.IUsuarioService;
 
 @Controller
-public class UsuarioCineController {
+public class UsuarioPeliculaController {
 private static final Log EMILIA = LogFactory.getLog(UsuarioController.class);
 
 	@Autowired 
-	IUsuarioCineService usuariocineservice;
+	IUsuarioPeliculaService usuariocineservice;
 	
 	@Autowired
 	IUsuarioService usuarioservice;
@@ -30,7 +30,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioController.class);
 	@Autowired
 	IPeliculaService peliculaservice;
 	
-	@GetMapping({"/cargarCompra"})	
+	@GetMapping({"/comprar"})	
 	public ModelAndView addCompra() {
 		EMILIA.info("ingresando al metodo: Nuevo usuario");
 		ModelAndView vista = new ModelAndView("cargarCompra");
@@ -41,7 +41,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioController.class);
 		return vista;
 	}
 	@PostMapping("/guardarCompra")
-	public ModelAndView saveCompra(@Valid @ModelAttribute ("usuariocine") UsuarioCine compraparaguardar, BindingResult result) {
+	public ModelAndView saveCompra(@Valid @ModelAttribute ("usuariocine") UsuarioPelicula compraparaguardar, BindingResult result) {
 		ModelAndView vista=new ModelAndView ();
 		if(result.hasErrors()) {
 			EMILIA.fatal("Error de validacion");

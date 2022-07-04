@@ -5,25 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unju.edm.model.UsuarioCine;
-import ar.edu.unju.edm.repository.UsuarioCineRepository;
-import ar.edu.unju.edm.service.IUsuarioCineService;
+import ar.edu.unju.edm.model.UsuarioPelicula;
+import ar.edu.unju.edm.repository.UsuarioPeliculaRepository;
+import ar.edu.unju.edm.service.IUsuarioPeliculaService;
 
 @Service
-public class IUsuarioCineImp implements IUsuarioCineService{
+public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 	@Autowired
-	UsuarioCine usuariocine;
+	UsuarioPelicula usuariocine;
 	@Autowired 
-	UsuarioCineRepository usuariocinerepository;
+	UsuarioPeliculaRepository usuariocinerepository;
 
 		@Override
-		public UsuarioCine nuevoUsuarioCine() {
+		public UsuarioPelicula nuevoUsuarioCine() {
 			// TODO Auto-generated method stub
 			return usuariocine;
 		}
 
 		@Override
-		public void guardarUsuarioCine(UsuarioCine usuariocine) {
+		public void guardarUsuarioCine(UsuarioPelicula usuariocine) {
 			// TODO Auto-generated method stub
 			usuariocinerepository.save (usuariocine);
 		}
@@ -35,19 +35,19 @@ public class IUsuarioCineImp implements IUsuarioCineService{
 		}
 
 		@Override
-		public void modificarUsuarioCine(UsuarioCine usuariocine) {
+		public void modificarUsuarioCine(UsuarioPelicula usuariocine) {
 			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
-		public List<UsuarioCine> listadoUsuariosCine() {
+		public List<UsuarioPelicula> listadoUsuariosCine() {
 			// TODO Auto-generated method stub
-			return (List<UsuarioCine>) usuariocinerepository.findAll();
+			return (List<UsuarioPelicula>) usuariocinerepository.findAll();
 		}
 
 		@Override
-		public UsuarioCine buscarUsuarioCine(Integer id) throws Exception {
+		public UsuarioPelicula buscarUsuarioCine(Integer id) throws Exception {
 			// TODO Auto-generated method stub
 			return usuariocinerepository.findById(id).orElseThrow(()-> new Exception("UsuarioCine no encontrado"));
 		}

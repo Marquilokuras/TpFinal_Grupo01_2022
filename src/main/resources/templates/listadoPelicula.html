@@ -26,11 +26,11 @@
 					<th scope="col">Descripcion</th>
 					<th scope="col">Fecha de Estreno</th>
 					<th scope="col">Imagen</th>
-					<th scope="col">Duracion</th>
+					<!--<th scope="col">Duracion</th>
 					<th scope="col">Genero</th>
 					<th scope="col">Horario</th>
 					<th scope="col">Estado</th>
-					<th scope="col">Actores</th>  
+					<th scope="col">Actores</th>  -->
 					<th scope="col">Edicion</th> 
 			</tr>
 			</thead>
@@ -48,7 +48,7 @@
 					<td th:text="${movie.horario}"></td>
 					<td th:text="${movie.estado}"></td>
 					<td th:text="${movie.actores}"></td> -->
-					<td th:image ="${m.imagen}"></td>
+					<td><img th:src="${m.imagen}" alt=""></td><img>
 					<td><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
 					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
 				</tr>

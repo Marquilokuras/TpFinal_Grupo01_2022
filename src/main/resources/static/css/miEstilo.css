@@ -35,14 +35,13 @@ body{
 
 label{
 	font-size:25px;
-	color:black;
-	display: flex;
+	color:rgb(0, 0, 0);
 }
 
 /* Formulario Centrado */
 .form {
  width: 100%;
- max-width: 600px;
+ max-width: 300px;
  margin: 0 auto;
  display: flex;
  flex-direction: column;
@@ -59,9 +58,10 @@ label{
 .form button {
  padding: 0.5em 1em;
  border: none;
- background: rgb(100, 200, 255);
+ background: rgb(100, 200, 200);
  cursor: pointer;
 }
+
 
 /* aviso y aside */
 

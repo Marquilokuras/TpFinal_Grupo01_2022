@@ -47,12 +47,13 @@
 
         <div class="mb-3">
           <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-          <input th:field="*{fechaNacimiento}" type="date" class="form-control"  id="fechaNacimiento">
-           <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
+
+          <input type="date" class="form-control"
+            id="fechaNacimiento" th:field="*{fechaNacimiento}" placeholder="Ingrese su fecha de nacimiento">
         </div>
 	
 			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
-		  <a class="btn btn-light" th:href="@{/}">Volver</a>
+		  <a class="btn btn-light" th:href="@{/cargarUsuario}">Volver</a>
 		</form>
 	</div>
 </body>

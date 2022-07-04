@@ -12,24 +12,24 @@
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
-      <form th:object="${usuarioPelicula}" th:action" @{/guardarCompra}" method="post">
-       	  <div class="mb-3">
-	          <label for="alumno" class="form-label">Usuarios</label> 
-	          <select class="form-control" th:field="#{usuario.dni}">
+      <form class="form" th:object="${usuariopelicula}" th:action" @{/guardarCompra}" method="post">
+       	 
+       	  <div class="mb-3" th:if="${editMode == false}">
+	          <label for="usuarioID" class="form-label">Usuarios</label> 
+	          <select class="form-control" >
 	          	<option th:each="u:${usuarios}" th:value="${u.dni}" th:text="${u.apellido}"></option>
 	          </select>
 		  </div>
-			
 		  <div class="mb-3">
 		  	 <label for="pelicula" class="form-label">Peliculas</label>
-			 <select class="form-control" th:field="#{pelicula.id}">
-	         	<option th:each="u:${peliculas}" th:value="${m.id}" th:text="${p.nombre}"></option>
+			 <select class="form-control" >
+	         	<option th:each="p:${peliculas}" th:value="${p.id}" th:text="${p.nombre}"></option>
 	         </select>
 		 </div>
 			
         <div class="mb-3">
           <label for="fechaDeCompra" class="form-label">Fecha de Compra</label>
-          <input type="date" class="form-control" id="fechaDeCompra" th:field="*{fechaDeCompra}" placeholder="Ingrese su fecha de inscripcion">
+          <input type="date" class="form-control" id="fechaDeCompra"  placeholder="Ingrese fecha de compra">
         </div>
 	
 		  <button type="submit" class="btn btn-primary">Comprar</button>
