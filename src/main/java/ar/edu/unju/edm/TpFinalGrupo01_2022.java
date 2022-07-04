@@ -10,12 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ar.edu.unju.edm.model.Usuario;
 import ar.edu.unju.edm.service.IUsuarioService;
 
-
-
 @SpringBootApplication
 
 public class TpFinalGrupo01_2022 implements CommandLineRunner {
-
 
 
 	public static void main(String[] args) {
@@ -41,4 +38,5 @@ public void run(String... args) throws Exception {
 	
 }
 
+	
 }

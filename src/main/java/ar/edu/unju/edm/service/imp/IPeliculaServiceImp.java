@@ -30,6 +30,8 @@ public class IPeliculaServiceImp implements IPeliculaService{
 	@Override
 	public void guardarPelicula(Pelicula peliculaparaguardar) {
 		// TODO Auto-generated method stub
+		System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+peliculaparaguardar.getNombrePelicula());
+		// TODO Auto-generated method stub
 		peliculaparaguardar.setEstadoPelicula(true);
 		peliculaRepository.save(peliculaparaguardar);
 	}

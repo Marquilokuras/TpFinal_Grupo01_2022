@@ -12,20 +12,21 @@ import ar.edu.unju.edm.service.IUsuarioPeliculaService;
 @Service
 public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 	@Autowired
-	UsuarioPelicula usuariocine;
+	UsuarioPelicula usuariopelicula;
+	
 	@Autowired 
-	UsuarioPeliculaRepository usuariocinerepository;
+	UsuarioPeliculaRepository usuariopelicularepository;
 
 		@Override
 		public UsuarioPelicula nuevoUsuarioCine() {
 			// TODO Auto-generated method stub
-			return usuariocine;
+			return usuariopelicula;
 		}
 
 		@Override
 		public void guardarUsuarioCine(UsuarioPelicula usuariocine) {
 			// TODO Auto-generated method stub
-			usuariocinerepository.save (usuariocine);
+			usuariopelicularepository.save (usuariocine);
 		}
 
 		@Override
@@ -43,13 +44,13 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 		@Override
 		public List<UsuarioPelicula> listadoUsuariosCine() {
 			// TODO Auto-generated method stub
-			return (List<UsuarioPelicula>) usuariocinerepository.findAll();
+			return (List<UsuarioPelicula>) usuariopelicularepository.findAll();
 		}
 
 		@Override
 		public UsuarioPelicula buscarUsuarioCine(Integer id) throws Exception {
 			// TODO Auto-generated method stub
-			return usuariocinerepository.findById(id).orElseThrow(()-> new Exception("UsuarioCine no encontrado"));
+			return usuariopelicularepository.findById(id).orElseThrow(()-> new Exception("UsuarioCine no encontrado"));
 		}
 
 }

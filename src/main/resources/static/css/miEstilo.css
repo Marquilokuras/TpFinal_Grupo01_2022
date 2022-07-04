@@ -1,47 +1,106 @@
 @charset "ISO-8859-1";
 
 body{
-	background:url("/img/nuevofondo2.jpg");
-	background-repeat: no-repeat;
-	background-size: 500% 500%;
+	background:url("/img/login.png");
 }
 
 *{
 	margin:0;
 	padding:0;
-
+	box-sizing: border-box;
 }
 
-
-label{
-	font-size:25px;
-	color:yellow;
+.main-section-xd{
+    margin:0 auto;
+    margin-top:15%;
+    padding: 0;
 }
 
-body{
-	background:url("/img/palomitas.jpg");
-	/*background:url("/img/nuevofondo2.jpg");
-	background-repeat: no-repeat;
+/*LOGIN*/
 
-	background-size: 100%;
 
-	background-size: 500% 500%;*/
-
+.main-section{
+    margin:0 auto;
+    margin-top:25%;
+    padding: 0;
 }
+
+.user-img{
+    margin-top: -50px;
+    margin-bottom: 35px;
+}
+
+.user-img img{
+    width: 100xp;
+    height: 100px;
+    box-shadow: 0px 0px 3px #848484;
+    border-radius: 50%;
+}
+
+.modal-content{
+    background-color: #3b4652;
+    opacity: .85;
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #847894;
+}
+
+.modal-content h4{
+	color:white;
+	text-decoration:double;
+}
+form-group input{
+    height: 42px;
+    font-size: 18px;
+    border:0;
+    padding-left: 54px;
+    border-radius: 5px;
+}
+
+.form-group::before{
+    font-family: "Font Awesome\ 5 Free";
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top:4px;
+}
+
+.form-group#user-group::before{
+    content: "\f007";
+}
+
+.form-group#contrasena-group::before{
+    content: "\f023";
+}
+
+button{
+    width: 60%;
+    margin: 5px 0 25px;
+}
+
+.forgot{
+    padding: 5px 0;
+}
+
+.forgot a{
+    color: white;
+}
+
+/*LOGIN TERMINA*/
+
+
 
 .navbar {
-	background-color: red;
+	background-color:rgb(128, 0, 64);
 }
-
 label{
 	font-size:25px;
-	color:rgb(0, 0, 0);
+	color:rgb(255, 255, 255);
 }
 
 /* Formulario Centrado */
 .form {
  width: 100%;
- max-width: 300px;
+ max-width: 500px;
  margin: 0 auto;
  display: flex;
  flex-direction: column;
@@ -84,8 +143,155 @@ aside {
 
 /* footer */
 
-
 .fondo {
 	background-color: rgba(13, 19, 37, 0.2);
 	margin-top:90px;
 }
+
+
+.text-error{
+	background-color: rgba(13, 19, 37, 0.2);
+	padding: 50px;
+	font-size:50px;
+	color:red;
+}
+
+.alerta {
+	padding: 50px;
+}
+
+.imagenError{
+	margin-top: 40px;
+	width: 40%;
+}
+
+/* CSS para el carrusel de imagenes del Login */
+.slide {
+				position: relative;
+				box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+				margin-top: 26px;
+				 width: 200px;
+				 margin: 0 auto;
+}
+
+			.slide-inner {
+				position: relative;
+				overflow: hidden;
+				width: 100%;
+				height: calc( 300px + 3em);
+			}
+
+			.slide-open:checked + .slide-item {
+				position: static;
+				opacity: 100;
+			}
+
+			.slide-item {
+				position: absolute;
+				opacity: 0;
+				-webkit-transition: opacity 0.6s ease-out;
+				transition: opacity 0.6s ease-out;
+			}
+
+			.slide-item img {
+				display: block;
+				height: auto;
+				max-width: 100%;
+			}
+
+			.slide-control {
+				background: rgba(0, 0, 0, 0.28);
+				border-radius: 50%;
+				color: #fff;
+				cursor: pointer;
+				display: none;
+				font-size: 40px;
+				height: 40px;
+				line-height: 35px;
+				position: absolute;
+				top: 50%;
+				-webkit-transform: translate(0, -50%);
+				cursor: pointer;
+				-ms-transform: translate(0, -50%);
+				transform: translate(0, -50%);
+				text-align: center;
+				width: 40px;
+				z-index: 10;
+			}
+
+			.slide-control.prev {
+				left: 2%;
+			}
+
+			.slide-control.next {
+				right: 2%;
+			}
+
+			.slide-control:hover {
+				background: rgba(0, 0, 0, 0.8);
+				color: #aaaaaa;
+			}
+
+			#slide-1:checked ~ .control-1,
+			#slide-2:checked ~ .control-2,
+			#slide-3:checked ~ .control-3 {
+				display: block;
+			}
+
+			.slide-indicador {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				bottom: 2%;
+				left: 0;
+				right: 0;
+				text-align: center;
+				z-index: 10;
+			}
+
+			.slide-indicador li {
+				display: inline-block;
+				margin: 0 5px;
+			}
+
+			.slide-circulo {
+				color: #828282;
+				cursor: pointer;
+				display: block;
+				font-size: 35px;
+			}
+
+			.slide-circulo:hover {
+				color: #aaaaaa;
+			}
+
+			#slide-1:checked ~ .control-1 ~ .slide-indicador 
+			 	li:nth-child(1) .slide-circulo,
+			#slide-2:checked ~ .control-2 ~ .slide-indicador 
+			 	 li:nth-child(2) .slide-circulo,
+			#slide-3:checked ~ .control-3 ~ .slide-indicador 
+			 	 li:nth-child(3) .slide-circulo
+			#slide-3:checked ~ .control-4 ~ .slide-indicador 
+			 	 li:nth-child(4) .slide-circulo
+			#slide-3:checked ~ .control-5 ~ .slide-indicador 
+			 	 li:nth-child(5) .slide-circulo
+			 #slide-3:checked ~ .control-6 ~ .slide-indicador 
+			 	 li:nth-child(6) .slide-circulo {
+				color: #428bca;
+			}
+
+			#titulo {
+				width: 100%;
+				position: absolute;
+				padding: 0px;
+				margin: 0px auto;
+				text-align: center;
+				font-size: 27px;
+				color: rgba(255, 255, 255, 1);
+				font-family: 'Open Sans', sans-serif;
+				z-index: 9999;
+				text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), 
+			 	    -1px 0px 2px rgba(255, 255, 255, 0);
+			}
+

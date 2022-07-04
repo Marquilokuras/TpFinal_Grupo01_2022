@@ -22,7 +22,7 @@ public class UsuarioPeliculaController {
 private static final Log EMILIA = LogFactory.getLog(UsuarioController.class);
 
 	@Autowired 
-	IUsuarioPeliculaService usuariocineservice;
+	IUsuarioPeliculaService usuariopeliculaservice;
 	
 	@Autowired
 	IUsuarioService usuarioservice;
@@ -30,38 +30,41 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioController.class);
 	@Autowired
 	IPeliculaService peliculaservice;
 	
-	@GetMapping({"/comprar"})	
+	@GetMapping({"/compra"})	
 	public ModelAndView addCompra() {
 		EMILIA.info("ingresando al metodo: Nuevo usuario");
 		ModelAndView vista = new ModelAndView("cargarCompra");
-		vista.addObject("usuariocine", usuariocineservice.nuevoUsuarioCine() );
+		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
 		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
 		vista.addObject("pelicula", peliculaservice.listadoPelicula() );
 		vista.addObject("editMode",false);
 		return vista;
 	}
+	
+	
 	@PostMapping("/guardarCompra")
-	public ModelAndView saveCompra(@Valid @ModelAttribute ("usuariocine") UsuarioPelicula compraparaguardar, BindingResult result) {
+	public ModelAndView saveCompra(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
 		ModelAndView vista=new ModelAndView ();
 		if(result.hasErrors()) {
 			EMILIA.fatal("Error de validacion");
-			vista.addObject("usuariocine", compraparaguardar);
+			vista.addObject("usuariopelicula", compraparaguardar);
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
 			return vista;
 		}
 			try {
-				usuariocineservice.guardarUsuarioCine(compraparaguardar);
+				usuariopeliculaservice.guardarUsuarioCine(compraparaguardar);
 			} catch(Exception e) {
 				vista.addObject("formUsuarioErrorMessage", e.getMessage());
-				vista.addObject("usuariocine", compraparaguardar);
+				vista.addObject("usuariopelicula", compraparaguardar);
+				EMILIA.error("saliendo del metodo: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 				vista.addObject("editMode", false);
 				vista.setViewName("cargarCompra");
 				return vista;
 			}
 		
 			vista.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");
-			vista.addObject("usuariocine", usuariocineservice.nuevoUsuarioCine());
+			vista.addObject("unUsuario", usuariopeliculaservice.nuevoUsuarioCine());
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
 			return vista;
