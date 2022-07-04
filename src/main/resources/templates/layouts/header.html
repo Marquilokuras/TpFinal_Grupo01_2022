@@ -15,6 +15,25 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"	aria-current="page" href="index">Principal</a></li>
+						<li class="nav-item"><a class="nav-link active" href="/otroUsuario">Registrar Usuario</a></li>
+						<li class="nav-item"><a class="nav-link active" href="/otraPelicula">Registrar Pelicula</a></li>
+						<li class="nav-item"><a class="nav-link active" href="/listadoUsuario">Usuarios Registrados</a></li>
+						<li class="nav-item"><a class="nav-link active" href="/listadoPelicula">Peliculas Registradas</a></li>
+						<li class="nav-item"><a class="nav-link active" href="/nuevaCompra">Comprar Entradas</a></li>
+				
+						<li class="nav-item"><a class="nav-link active" th:href="@{/logout}">Desconectar Usuario</a></li>
+
+
+
+					</ul>
+					
+					
+					<form class="d-flex" role="search">
+						<input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+						<button class="btn btn-outline-primary" type="submit">Buscar</button>
+					</form>
+<!--
 						<li class="nav-item"><a class="nav-link active" aria-current="page" href="index">Principal</a>
 						</li>
 
@@ -75,7 +94,8 @@
 							<form class="d-flex" role="search">
 								<input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
 								<button class="btn btn-outline-primary" type="submit">Buscar</button>
-							</form>
+							</form> -->
+
 				</div>
 			</div>
 		</nav>
