@@ -65,12 +65,6 @@
 					placeholder="Ingrese contraseña">
 				<div class="alert alert-danger" th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}" ></div>
         	</div>
-        <div class="mb-3">
-          <label for="dni" class="form-label" th:if="${editMode==false}">DNI</label>
-          <input type="number" class="form-control"
-            id="dni" th:field="*{dni}" th:if="${editMode==false}" placeholder="Ingrese DNI" required>
-          <div class="alert alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
-        </div>
 
         <div class="mb-3">
           <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
