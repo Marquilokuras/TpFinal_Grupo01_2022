@@ -26,7 +26,7 @@
     <div class="row" --  > -->
 
     </div>
-    <div class="row"> -->
+    <div class="row">
       <form class="form" th:object="${pelicula}" th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
       	enctype="multipart/form-data" >
       	<div class="row">
@@ -41,38 +41,60 @@
 	          <label for="idPelicula" class="form-label" >Digite ID de la Pelicula</label>
 	          <input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"  placeholder="Ingrese ID de la pelicula">
 	          <div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}" th:errors="*{idPelicula}"></div>
-	          
         	</div>
 	      
-       	  <div class="mb-3">
-	          
+       	  <div class="mb-3"> 
 	          <label for="nombre" class="form-label">Nombre de la Pelicula</label> 
 	          <input type="text" class="form-control" id="nombre" th:field="*{nombrePelicula}" placeholder="Ingrese nombre de la pelicula">
 	          
 	          <label for="descripcion" class="form-label">Descripcion</label>
 	          <input type="text" class="form-control" id="descripcion" th:field="*{descripcionPelicula}" placeholder="Ingrese sintesis de la pelicula">
-	          
-		</div>
+		  </div>
 		
 
-        <div class="mb-3">
+          <div class="mb-3">
+       		   <label for="fechaEstreno" class="form-label">Fecha de Estreno</label>
+               <input type="date" class="form-control" id="fechaEstreno" th:field="*{fechaEstreno}" placeholder="Ingrese fecha de estreno">
+               <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaEstreno')}" th:errors="*{fechaEstreno}"></div>
+          </div>
         
-          <label for="fechaEstreno" class="form-label">Fecha de Estreno</label>
-          <input type="date" class="form-control" id="fechaEstreno" th:field="*{fechaEstreno}" placeholder="Ingrese fecha de estreno">
-           <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaEstreno')}" th:errors="*{fechaEstreno}"></div>
+        
+	      <div class="form-group row">
+	       	<label for ="file" class="col-sm-4 col-form-label"> Subir Imagen</label>
+	       	 <div class="col-sm-10">
+	       	 	<input type="file" name="file" class="form-control-file" id="file"
+	       	 	accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
+	       	 	onchange="loadFile(event)"> <img id="output" 
+	       	 	style="padding-top: 2px; width: 146px;" />
+	       	 </div>
+	      </div> 
        
-       <div class="form-group row">
-       	<label for ="file" class="col-sm-4 col-form-label"> Subir
-       	 Imagen</label>
-       	 <div class="col-sm-10">
-       	 	<input type="file" name="file" class="form-control-file" id="file"
-       	 	accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
-       	 	onchange="loadFile(event)"> <img id="output" 
-       	 	style="padding-top: 2px; width: 146px;" />
-       	 </div>
-       </div>    
-        </div>
+        
+	     <div class="mb-3">
+	       <label for="generoPelicula" class="form-label">Género</label>
+	       <input type="text" class="form-label" id="generoPelicula" th:field="*{generoPelicula}" placeholder="Ingrese genero de la pelicula">
+	       <!-- <select class="form-select" aria-label="Default select example">
+	  		 <option selected>Seleccione una opción</option>
+	  		 <option value="1">Terror</option>
+	  		 <option value="2">Drama</option>
+	  		 <option value="3">Acción</option>
+	  		 <option value="3">Comedia</option>
+	  		</select> -->
+	     </div>
+	     
+	     
+	     <div class="mb-3">
+	     	  <label for="duracionPelicula" class="form-label">Duración</label>
+	          <input type="text" class="form-control" id="duracionPelicula" th:field="*{duracionPelicula}" placeholder="Ingrese duración de la pelicula">
+	     </div>
 	
+		
+		 <div class="mb-3">
+	     	  <label for="horario" class="form-label">Horario</label>
+	          <input type="time" class="form-control" id="horario" th:field="*{horario}" placeholder="Ingrese horario de la pelicula">
+	     	  <div class="alert alert-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
+	     </div>
+	     
 			<button type="submit" class="btn btn-primary"><span th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span> </button>
 		  	<a class="btn btn-light" th:href="@{/cargarPelicula}">Volver</a>
 		  	

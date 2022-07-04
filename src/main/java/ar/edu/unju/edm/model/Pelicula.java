@@ -1,6 +1,8 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,8 +45,8 @@ public class Pelicula {
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
 	private Integer duracionPelicula;
   
-	//@NotEmpty
-	//private String generoPelicula;
+	@NotEmpty
+	private String generoPelicula;
 	
 	@Column (name = "fechaestreno")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -52,8 +54,18 @@ public class Pelicula {
 	
 	private Boolean estadoPelicula;
 	
-//	private Long horario;
+	@Column (name = "horario")
+	@DateTimeFormat(pattern = "HH-mm-ss")
+	private LocalTime horario;
 	
+	public LocalTime getHorario() {
+		return horario;
+	}
+
+	public void setHorario(LocalTime horario) {
+		this.horario = horario;
+	}
+
 	//portada
 	@Lob
 	private String imagen;
@@ -113,37 +125,15 @@ public class Pelicula {
 		this.fechaEstreno = fechaEstreno;
 	}
 
-	/*public String getGeneroPelicula() {
+	public String getGeneroPelicula() {
 		return generoPelicula;
 	}
 
 	public void setGeneroPelicula(String generoPelicula) {
 		this.generoPelicula = generoPelicula;
 	}
-
-	public LocalTime getHorario1() {
-		return horario1;
-	}
-
-	public void setHorario1(LocalTime horario1) {
-		this.horario1 = horario1;
-	}
-
-	public LocalTime getHorario2() {
-		return horario2;
-	}
-
-	public void setHorario2(LocalTime horario2) {
-		this.horario2 = horario2;
-	}
-
-	public LocalTime getHorario3() {
-		return horario3;
-	}
-
-	public void setHorario3(LocalTime horario3) {
-		this.horario3 = horario3;
-	}*/
+	
+	
 
 	public Boolean getEstadoPelicula() {
 		return estadoPelicula;
