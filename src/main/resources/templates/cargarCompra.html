@@ -13,11 +13,17 @@
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
 
-      			<form class="form"
+
+<div class="modal-dialog text-center">
+		
+		<div class="col-sm-8 main-section">
+		<div class="modal-content">
+		<h4>Compra de Entradas</h4>
+      		<form class="col-12"
       			th:object="${usuariopelicula}" th:action" @{/guardarCompra}" method="post">
        	 
-       	  <div class="mb-3" th:if="${editMode == false}">
-	          <label for="usuario" class="form-label">Usuarios</label> 
+       	  <div class="form-group" th:if="${editMode == false}">
+	          <label for="usuario" class="form-label"><h6>Usuarios</h6></label> 
 	          <select class="form-control" 
 	          			th:field="*{usuario.dni}">
 	          				<option th:each="u:${usuarios}" th:value="${u.dni}" th:text="${u.apellido}"></option>
@@ -25,8 +31,8 @@
 		  </div>
 		  
 		  
-		  <div class="mb-3">
-		  	 <label for="peliculas" class="form-label">Peliculas</label>
+		  <div class="form-group"th:if="${editMode == false}">
+		  	 <label for="pelicula" class="form-label"><h6>Peliculas</h6></label>
 			 <select class="form-control" 
 			 		th:field="*{pelicula.idPelicula}">
 	         			<option th:each="p:${peliculas}" th:value="${p.idPelicula}" th:text="${p.nombre}"></option>
@@ -34,7 +40,7 @@
 		 </div>
 			
         <div class="mb-3">
-          <label for="birthdateID" class="form-label">Fecha de Compra</label>
+          <label for="birthdateID" class="form-label"><h6>Fecha de Compra</h6></label>
           <input type="date" class="form-control" id="birthdateID"  placeholder="Ingrese fecha de compra">
         </div>
 	
@@ -43,5 +49,6 @@
 		
 		</form>
 	</div>
+
 </body>
 </html>
