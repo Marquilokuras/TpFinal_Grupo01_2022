@@ -25,7 +25,7 @@ public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 			.authorizeRequests()
 				.antMatchers(resources).permitAll()
-				.antMatchers("/", "/index").permitAll()
+				.antMatchers("/", "/index", "/otroUsuario").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
