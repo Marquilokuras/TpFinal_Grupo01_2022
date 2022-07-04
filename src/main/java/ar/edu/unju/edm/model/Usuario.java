@@ -20,7 +20,7 @@ public class Usuario {
 	
 	
 	@NotEmpty //vacio string 
-	@Size (min=5, max=30, message="El nombre de contener entre 5 a 30 caracteres")
+	@Size (min=2, max=30, message="El nombre de contener entre 5 a 30 caracteres")
 	private String nombre;
 	
 	@NotEmpty //vacio string
