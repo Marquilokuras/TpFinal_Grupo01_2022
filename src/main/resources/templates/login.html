@@ -11,9 +11,27 @@
 	<title>LOGIN</title>
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/css/login.css}" rel="stylesheet" type="text/css">
+	
+	
+	<!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	
+	
 </head>
 
 <body>
+	<div th:insert="layouts/headerCliente :: header"></div>
+
+<!-- 
 	<div class="container">
 		<form class="form" th:action="@{/login}" method="post">
 			<h1>BIENVENIDO AL CINE</h1>
@@ -36,6 +54,43 @@
 			<button type="submit" class="btn btn-primary">Ingresar</button>
 		</form>
 	</div>
+	 -->
+	
+	
+	
+	
+	<div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <div class="modal-content">
+                <div class="col-12 user-img">
+                    <img src="static/img/user.png" th:src="@{/img/login1.png}"/>
+                </div>
+                <form class="col-12" th:action="@{/login}" method="post">
+                    <div class="form-group" id="user-group">
+                        <input type="number" class="form-control" placeholder="DNI" name="dni"/>
+                    </div>
+                    <div class="form-group" id="contrasena-group">
+                        <input type="password" class="form-control" placeholder="Contraseña" name="contrasena"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                </form>
+                <div class="col-12 forgot">
+                    <a href="#">¿Recordar contrasena?</a>
+                </div>
+                <div th:if="${param.error}" class="alert alert-danger" role="alert">
+		            Dni y contraseña invalidos
+		        </div>
+		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
+		            Has cerrado sesion
+		        </div>
+            </div>
+        </div>
+    </div>
+	
+	
+	
+	
+	
 	
 	<br>
 	
@@ -77,6 +132,8 @@
 			</div>
 		</div>
 			
+			
+			<div th:insert="layouts/footer :: footer"></div>
 	</body>
 
 
