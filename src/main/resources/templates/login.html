@@ -5,99 +5,101 @@
 
 	<meta charset="UTF-8">
 	<!-- Colocar icono en las pestañas -->
-	<meta http-equiv="X-UA-Compatible"content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
-	<link rel="shortcut icon"href="img/palomitas.png">
+	<link rel="shortcut icon" href="img/palomitas.png">
 	<title>LOGIN</title>
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/css/login.css}" rel="stylesheet" type="text/css">
-	
-	
+
+
 	<!--JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<!-- Los iconos tipo Solid de Fontawesome-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
 </head>
 
 <body>
-  <div th:insert="layouts/headerCliente :: header"></div>   
- 
-	<div class="modal-dialog text-center">
-        <div class="col-sm-8 main-section">
-            <div class="modal-content">
-                <div class="col-12 user-img">
-                    <img src="static/img/user.png" th:src="@{/img/login1.png}"/>
-                </div>
-                <form class="col-12" th:action="@{/login}" method="post">
-                    <div class="form-group" id="user-group">
-                        <input type="number" class="form-control" placeholder="DNI" name="dni"/>
-                    </div>
-                    <div class="form-group" id="contrasena-group">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="contrasena"/>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
-                </form>
-                <div class="col-12 forgot">
-                    <li class="nav-item"><a class="nav-link active" href="otroUsuario">¿No tienes cuenta? Ingrese aqui para crear cuenta</a></li>
-                </div>
-                <div th:if="${param.error}" class="alert alert-danger" role="alert">
-		            Dni y contraseña invalidos
-		        </div>
-		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
-		            Has cerrado sesion
-		        </div>
-            </div>
-        </div>
-    </div>
-	
-	<br>
-	
-	<!-- Carrucel de Imagenes -->
-	<div class="slide">
-			<div class="slide-inner">
-				<input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
-				<div class="slide-item">
-					<img src="img/sonic2.jpeg">
-				</div>
-				<input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
-				<div class="slide-item">
-					<img src="img/moonfall.jpeg">
-				</div>
-				<input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
-				<div class="slide-item">
-					<img src="img/jurassicworld.jpeg">
-				</div>
-				<label for="slide-3" class="slide-control prev control-1">‹</label>
-				<label for="slide-2" class="slide-control next control-1">›</label>
-				<label for="slide-1" class="slide-control prev control-2">‹</label>
-				<label for="slide-3" class="slide-control next control-2">›</label>
-				<label for="slide-2" class="slide-control prev control-3">‹</label>
-				<label for="slide-1" class="slide-control next control-3">›</label>
-				<ol class="slide-indicador">
-					<li>
-						<label for="slide-1" class="slide-circulo">•</label>
-					</li>
-					<li>
-						<label for="slide-2" class="slide-circulo">•</label>
-					</li>
-					<li>
-						<label for="slide-3" class="slide-circulo">•</label>
-					</li>
+	<div th:insert="layouts/headerCliente :: header"></div>
 
-				</ol>
+	<div class="modal-dialog text-center">
+		<div class="col-sm-8 main-section">
+			<div class="modal-content">
+				<div class="col-12 user-img">
+					<img src="static/img/user.png" th:src="@{/img/login1.png}" />
+				</div>
+				<form class="col-12" th:action="@{/login}" method="post">
+					<div class="form-group" id="user-group">
+						<input type="number" class="form-control" placeholder="DNI" name="dni" />
+					</div>
+					<div class="form-group" id="contrasena-group">
+						<input type="password" class="form-control" placeholder="Contraseña" name="contrasena" />
+					</div>
+					<button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Ingresar </button>
+				</form>
+				<div class="col-12 forgot">
+					<li class="nav-item"><a class="nav-link active" href="otroUsuario">¿No tienes cuenta? Ingrese aqui
+							para crear cuenta</a></li>
+				</div>
+				<div th:if="${param.error}" class="alert alert-danger" role="alert">
+					Dni y contraseña invalidos
+				</div>
+				<div th:if="${param.logout}" class="alert alert-success" role="alert">
+					Has cerrado sesion
+				</div>
 			</div>
 		</div>
-	
+	</div>
+
 	<br>
-	
+
+	<!-- Carrucel de Imagenes -->
+	<div class="slide">
+		<div class="slide-inner">
+			<input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden=""
+				checked="checked">
+			<div class="slide-item">
+				<img src="img/sonic2.jpeg">
+			</div>
+			<input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
+			<div class="slide-item">
+				<img src="img/moonfall.jpeg">
+			</div>
+			<input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
+			<div class="slide-item">
+				<img src="img/jurassicworld.jpeg">
+			</div>
+			<label for="slide-3" class="slide-control prev control-1">‹</label>
+			<label for="slide-2" class="slide-control next control-1">›</label>
+			<label for="slide-1" class="slide-control prev control-2">‹</label>
+			<label for="slide-3" class="slide-control next control-2">›</label>
+			<label for="slide-2" class="slide-control prev control-3">‹</label>
+			<label for="slide-1" class="slide-control next control-3">›</label>
+			<ol class="slide-indicador">
+				<li>
+					<label for="slide-1" class="slide-circulo">•</label>
+				</li>
+				<li>
+					<label for="slide-2" class="slide-circulo">•</label>
+				</li>
+				<li>
+					<label for="slide-3" class="slide-circulo">•</label>
+				</li>
+
+			</ol>
+		</div>
+	</div>
+
+	<br>
+
 	<!-- Carrucel de imagenes de Combos 
 	
 	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -131,8 +133,8 @@
 
 		-->
 
-	</body>
+</body>
 
-	
+
 
 </html>
