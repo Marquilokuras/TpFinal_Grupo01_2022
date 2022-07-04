@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<!-- Colocar icono en las pestañas -->
-<meta http-equiv="X-UA-Compatible"content="IE=edge">
-<meta name="viewport" content="width-device-width,initial-scale-1.0">
-<link rel="shortcut icon"href="img/palomitas.png">
-<title>TRABAJO PRÁCTICO FINAL</title>
-<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
-<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="@{src/main/resources/img/palomitas.png}">
+	<meta charset="UTF-8">
+	<!-- Colocar icono en las pestañas -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width-device-width,initial-scale-1.0">
+	<link rel="shortcut icon" href="img/palomitas.png">
+	<title>TRABAJO PRÁCTICO FINAL</title>
+	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="@{src/main/resources/img/palomitas.png}">
 </head>
 
 <!-- contenido -->
+
 <body>
 
 
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
 
-<!-- AVISO Y ASIDE -->
+		<!-- AVISO Y ASIDE -->
 
 
-				<section class="aviso">
+		<section class="aviso">
 
 
 			<div class="container w-30">
@@ -50,14 +52,13 @@
 						<p>
 							ATENCIÓN <br> ¡Hey! ¿Cómo estás ? <br>
 							en esta página te mostraremos <br> todas las películas que
-							están en la boca de todos <br> REGISTRATE Y COMIENZA A DISFRUTAR <br> 
-							DE ESTE FANTÁSTICO CINE <br> ¡¡ NO PIERDAS TIEMPO !! 
+							están en la boca de todos <br> REGISTRATE Y COMIENZA A DISFRUTAR <br>
+							DE ESTE FANTÁSTICO CINE <br> ¡¡ NO PIERDAS TIEMPO !!
 						</p>
 					</div>
 
 					<div class="col-sm p-3">
-						<img src="img/bienvenidos.png"
-							class="w-100 rounded-circle mx-auto d-block" alt="">
+						<img src="img/bienvenidos.png" class="w-100 rounded-circle mx-auto d-block" alt="">
 					</div>
 
 
@@ -65,73 +66,85 @@
 
 			</div>
 		</aside>
-		
-
-<!-- AVISO Y ASIDE -->
 
 
-<!-- CURSOS -->
+		<!-- AVISO Y ASIDE -->
+
+
+		<!-- CURSOS -->
 
 		<section class="cursos"></section>
-			<div class="container-md w-30 p-5">
+		<div class="container-md w-30 p-5">
 
-				<div class="row">
-					<h3 class="text-center h1">PELÍCULAS</h3>
+			<div class="row">
+				<h3 class="text-center h1">PELÍCULAS</h3>
+			</div>
+
+			<div class="row">
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-100 card-border" style="width: 100%;">
+						<img src="./img/drstrange.jpeg" height="300px" class="card-img-top" alt="">
+						<div class="card-body">
+							<h5 class="card-title">DR STRANGE</h5>
+							<p class="card-text">El Dr. Stephen Strange abre un portal al multiverso al utilizar un
+								hechizo prohibido. Ahora, su equipo debe enfrentarse a una amenaza que podría destruirlo
+								todo.</p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Leer más</a>
+						</div>
+					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-6 col-sm pt-5">
-						<div class="card h-100 card-border" style="width: 100%;">
-							<img src="./img/drstrange.jpeg" height="300px"
-								class="card-img-top" alt="" >
-							<div class="card-body">
-								<h5 class="card-title">DR STRANGE</h5>
-								<p class="card-text">El Dr. Stephen Strange abre un portal al multiverso al utilizar un hechizo prohibido. Ahora, su equipo debe enfrentarse a una amenaza que podría destruirlo todo.</p>
-								<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank" class="btn btn-primary">Leer más</a>
-							</div>
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-100 card-border" style="width: 100%;">
+						<img src="./img/dune.jpeg" height="200px" class="card-img-top" alt="">
+						<div class="card-body">
+							<h5 class="card-title">DUNE</h5>
+							<p class="card-text">Arrakis, también denominado "Dune", se ha convertido en el planeta más
+								importante del universo. A su alrededor comienza una gigantesca lucha por el poder que
+								culmina en una guerra interestelar.</p>
+							<a href="https://www.youtube.com/watch?v=TTgk_iT8Uts" target="_blank"
+								class="btn btn-primary">Leer más</a>
 						</div>
 					</div>
-	
-					<div class="col-6 col-sm pt-5">
-						<div class="card h-100 card-border" style="width: 100%;">
-							<img src="./img/dune.jpeg" height="200px"
-								class="card-img-top" alt="">
-							<div class="card-body">
-								<h5 class="card-title">DUNE</h5>
-								<p class="card-text">Arrakis, también denominado "Dune", se ha convertido en el planeta más importante del universo. A su alrededor comienza una gigantesca lucha por el poder que culmina en una guerra interestelar.</p>
-								<a href="https://www.youtube.com/watch?v=TTgk_iT8Uts" target="_blank" class="btn btn-primary">Leer más</a>
-							</div>
-						</div>
-					</div>
-			
-					<div class="col-6 col-sm pt-5">
-						<div class="card h-100 card-border">
-							<img src="./img/jurassicworld.jpeg" height="200px" class="card-img-top" alt="">
-							<div class="card-body">
-								<h5 class="card-title">JURASSIC WORLD</h5>
-								<p class="card-text">La isla Nublar y su parque han sido destruidos, pero el problema no se terminó. Con los dinosaurios dispersos por todo el mundo, la convivencia entre el presente y el pasado alcanza un nuevo nivel de tensión.</p>
-								<a hef="https://www.youtube.com/watch?v=zfURZ-Vb8_E"
-									target="_blank" class="btn btn-primary">Leer más</a>
-							</div>
-						</div>
-					</div>
+				</div>
 
-					<div class="col-6 col-sm pt-5">
-						<div class="card h-100 card-border">
-							<img src="./img/sonic2.jpeg" height="300px" class="card-img-top" alt="">
-							<div class="card-body">
-								<h5 class="card-title">SONIC 2</h5>
-								<p class="card-text">Después de establecerse en Green Hills, Sonic quiere demostrar que tiene madera de héroe. La prueba de fuego llega con el retorno del malvado Robotnik, y su nuevo compinche, Knuckles, en busca de una esmeralda que destruye civilizaciones.</p>
-								<a href="https://www.youtube.com/watch?v=hB6krsAiyFo" target="_blank" class="btn btn-primary">Leer más</a>
-							</div>
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-100 card-border">
+						<img src="./img/jurassicworld.jpeg" height="200px" class="card-img-top" alt="">
+						<div class="card-body">
+							<h5 class="card-title">JURASSIC WORLD</h5>
+							<p class="card-text">La isla Nublar y su parque han sido destruidos, pero el problema no se
+								terminó. Con los dinosaurios dispersos por todo el mundo, la convivencia entre el
+								presente y el pasado alcanza un nuevo nivel de tensión.</p>
+							<a hef="https://www.youtube.com/watch?v=zfURZ-Vb8_E" target="_blank"
+								class="btn btn-primary">Leer más</a>
 						</div>
 					</div>
+				</div>
 
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-100 card-border">
+						<img src="./img/sonic2.jpeg" height="300px" class="card-img-top" alt="">
+						<div class="card-body">
+							<h5 class="card-title">SONIC 2</h5>
+							<p class="card-text">Después de establecerse en Green Hills, Sonic quiere demostrar que
+								tiene madera de héroe. La prueba de fuego llega con el retorno del malvado Robotnik, y
+								su nuevo compinche, Knuckles, en busca de una esmeralda que destruye civilizaciones.</p>
+							<a href="https://www.youtube.com/watch?v=hB6krsAiyFo" target="_blank"
+								class="btn btn-primary">Leer más</a>
+						</div>
+					</div>
 				</div>
 
 			</div>
+
+		</div>
 	</div>
-	<!-- footer --> 
-	   <footer><div th:insert="/layouts/footer :: footer"></div></footer>
-    </body>
+	<!-- footer -->
+	<footer>
+		<div th:insert="/layouts/footer :: footer"></div>
+	</footer>
+</body>
+
 </html>

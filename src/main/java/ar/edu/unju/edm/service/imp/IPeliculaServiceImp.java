@@ -2,18 +2,12 @@ package ar.edu.unju.edm.service.imp;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 //import javax.validation.Valid;
-
 //import org.apache.commons.logging.Log;
 //import org.apache.commons.logging.LogFactory;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ar.edu.unju.edm.controller.PeliculaController;
+//import ar.edu.unju.edm.controller.PeliculaController;
 import ar.edu.unju.edm.model.Pelicula;
 import ar.edu.unju.edm.repository.PeliculaRepository;
 import ar.edu.unju.edm.service.IPeliculaService;
@@ -30,7 +24,7 @@ public class IPeliculaServiceImp implements IPeliculaService{
 	@Override
 	public void guardarPelicula(Pelicula peliculaparaguardar) {
 		// TODO Auto-generated method stub
-		System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+peliculaparaguardar.getNombrePelicula());
+		//System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+peliculaparaguardar.getNombrePelicula());
 		// TODO Auto-generated method stub
 		peliculaparaguardar.setEstadoPelicula(true);
 		peliculaRepository.save(peliculaparaguardar);
