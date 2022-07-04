@@ -16,6 +16,7 @@
 		<div th:insert="/layouts/header :: header"></div>
 		<div class="alert-primary text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">Nombre de Error</div>
 		<br>
+
 		<table class="table table-bordered border-primary">
 			<thead class="table-dark">
 				<tr>
@@ -40,27 +41,32 @@
 					<td>
 					<a class="btn btn-warning" th:href="@{'/editarUsuario/'+${u.dni}}">Editar</a>
 					<a class="btn btn-danger" th:onclick="'javascript:confirmarEliminar(\''+${u.dni}+'\');'"
-					    >Eliminar</a></td> <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
+					    >Eliminar</a>
+					</td> <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
+				
 				</tr>
 			</tbody>
 		</table>
 	</div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    
     <div class="modal-content">
+    <div><button type="button"  class="btn-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      
       <div class="modal-body">
-        <h3>¿Quiere eliminar el Usuario?</h3>
-        <br>
-        <input type="text" id="identificadorDeUsuario" class="form-control"></input>
-      </div>
+        <h3>¿Quiere eliminar el Usuario?</h3></div>
+        <form>
+        	<input type="text" id="identificadorDeUsuario" class="form-control"></input>
+      </form>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
         <button type="button" class="btn btn-primary" th:onclick="eliminarUsuario()">Eliminar</button>
       </div>
     </div>
