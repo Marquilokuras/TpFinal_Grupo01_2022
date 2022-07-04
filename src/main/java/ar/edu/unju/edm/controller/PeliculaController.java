@@ -81,7 +81,7 @@ public class PeliculaController {
 	@GetMapping("/listadoPelicula")
 	public ModelAndView showMovie() {
 		ModelAndView vista = new ModelAndView("listadoPelicula");
-		vista.addObject("listaPelicula", peliculaService.listarPelicula());
+		vista.addObject("listaPelicula", peliculaService.listadoPelicula());
 		return vista;
 	}
 	
@@ -119,7 +119,7 @@ public class PeliculaController {
 			return vista;
 		}
 			ModelAndView vista = new ModelAndView("listadoPelicula");
-			vista.addObject("listaPelicula", peliculaService.listarPelicula());	
+			vista.addObject("listaPelicula", peliculaService.listadoPelicula());	
 			vista.addObject("formPeliculaErrorMessage","Pelicula modificada Correctamente");
 		return vista;
 	}

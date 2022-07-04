@@ -8,6 +8,7 @@
 	<meta http-equiv="X-UA-Compatible"content="IE=edge">
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
 	<link rel="shortcut icon"href="img/palomitas.png">
+</div >
 	<title>LOGIN</title>
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
@@ -29,10 +30,45 @@
 </head>
 
 <body>
-	<div th:insert="layouts/headerCliente :: header"></div>
 
-<!-- 
-	<div class="container">
+<div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <div class="modal-content">
+                <div class="col-12 user-img">
+                    <img src="static/img/user.png" th:src="@{/img/user.png}"/>
+                </div>
+                <form class="col-12" th:action="@{/login}" method="post">
+                    <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label"></label>
+				    <input type="number" class="form-control"  placeholder="Documento Nacional de Identidad" 
+				     id="exampleInputEmail1" aria-describedby="emailHelp" name="dni">
+      
+                    </div>
+                    <div class="form-group" >
+                   		<label for="exampleInputPassword1" class="form-label"></label>
+						<input type="password" class="form-control" placeholder="Contrasena" 
+						id="exampleInputPassword1" name="contrasena">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                </form>
+                <div class="col-12 forgot">
+                    <p><a href="#">Recordar contrasena?</a></p>
+                    <p><a href="#" th:href="@{/otroUsuario}">Crear Usuario - Registrarse</a>
+                </div>
+                <div th:if="${param.error}" class="alert alert-danger" role="alert">
+		            Contraseña o Usuario Invalido.
+		        </div>
+		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
+		            You have been logged out.
+		        </div>
+            </div>
+        </div>
+    </div>
+   
+  <div th:insert="layouts/headerCliente :: header"></div>   
+   
+	<!--<div class="container">
+
 		<form class="form" th:action="@{/login}" method="post">
 			<h1>BIENVENIDO AL CINE</h1>
 			<h2>Ingrese Cuenta</h2>
@@ -123,9 +159,8 @@
 				</ol>
 			</div>
 		</div>
-			
-			
-			<div th:insert="layouts/footer :: footer"></div>
+    <div th:insert="layouts/footer :: footer"></div>
+
 	</body>
 
 
