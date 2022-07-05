@@ -49,7 +49,7 @@ public class UsuarioPeliculaController {
 			EMILIA.fatal("Error de validacion");
 			vista.addObject("usuariopelicula", compraparaguardar);
 			vista.addObject("editMode", false);
-			vista.setViewName("cargarComentario");
+			vista.setViewName("cargarCompra");
 			return vista;
 		}
 		try {
@@ -58,7 +58,7 @@ public class UsuarioPeliculaController {
 			vista.addObject("formUsuarioErrorMessage", e.getMessage());
 			vista.addObject("usuariopelicula", compraparaguardar);
 			vista.addObject("editMode", false);
-			vista.setViewName("cargarComentario");
+			vista.setViewName("cargarCompra");
 			return vista;
 		}
 		vista.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");
@@ -96,7 +96,7 @@ public class UsuarioPeliculaController {
 			vista.addObject("formUsuarioErrorMessage", e.getMessage());
 			vista.addObject("usuariopelicula", compraparaguardar);
 			vista.addObject("editMode", false);
-			vista.setViewName("cargarCompra");
+			vista.setViewName("cargarComentario");
 			return vista;
 		}
 		vista.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");

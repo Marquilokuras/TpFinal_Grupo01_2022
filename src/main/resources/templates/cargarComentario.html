@@ -26,7 +26,6 @@
 							</select>
 						</div>
 
-
 						<div class="mb-3">
 							<label for="peliculas" class="form-label">Peliculas</label>
 							<select class="form-control" th:field="*{pelicula.idPelicula}">
@@ -35,8 +34,12 @@
 						</div>
 
 						<div class="mb-3">
+							<!--<label for="comentario" class="form-label">Comentario</label>
+							<input type="text" class="form-control" id="comentario" placeholder="Ingrese comentario">-->
 							<label for="comentario" class="form-label">Comentario</label>
-							<input type="text" class="form-control" id="comentario" placeholder="Ingrese comentario">
+							<select class="form-control" th:field="*{usuarioPelicula.comentario}">
+								<option th:each="p:${peliculas}" th:value="${p.comentario}"	th:text="${p.comentario}"></option>
+							</select>
 						</div>
 						
 						<div class="mb-3">
@@ -45,7 +48,7 @@
 						</div>
 
 						<button type="submit" class="btn btn-primary">Comentar</button>
-						<a class="btn btn-light" th:href="@{/cargarComentario}">Volver</a>
+						<a class="btn btn-light" th:href="@{/index}">Volver</a>
 
 					</form>
 
