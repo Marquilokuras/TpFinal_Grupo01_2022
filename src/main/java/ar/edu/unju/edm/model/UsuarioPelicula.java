@@ -30,6 +30,9 @@ public class UsuarioPelicula {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaDeCompra;
 	
+	@JoinColumn(name="comentario")//parte comun de dos conjuntos
+	private String comentario;
+	
 	public UsuarioPelicula() {
 		// TODO Auto-generated constructor stub
 	}
