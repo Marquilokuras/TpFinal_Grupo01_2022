@@ -43,7 +43,7 @@
 					<td th:text="${movie.horario}"></td>
 					<td th:text="${movie.estado}"></td>
 					<td th:text="${movie.actores}"></td> -->
-					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt=""></td>
+					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt="" class="imagen-listado-pelicula"></td>
 					<td colspan="3"><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
 					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
 				</tr>

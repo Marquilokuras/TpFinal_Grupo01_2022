@@ -13,6 +13,12 @@
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
 
+		<div class="modal-dialog text-center">
+			<div class="col-sm-8 main-section">
+				<div class="modal-content">
+				<h4>Compra de Entradas</h4>
+			
+
       			<form class="form"
       			th:object="${usuariopelicula}" th:action="@{/guardarCompra}" method="post">
        	 
@@ -42,6 +48,11 @@
 		  <a class="btn btn-light" th:href="@{/}">Volver</a>
 		
 		</form>
+			
+				</div>
+			</div>
+		</div>
+		
 	</div>
 </body>
 </html>
