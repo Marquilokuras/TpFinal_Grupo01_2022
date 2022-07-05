@@ -132,15 +132,17 @@ public class PeliculaController {
 	// eliminar pelicula
 			@RequestMapping("/deleteMovie/{idPelicula}")
 			public String deleteMovie(@PathVariable(name="idPelicula") Long idPelicula, Model model) {
+				AGUSTINA.info("ingresando al metodo eliminar");
 				try {
+					AGUSTINA.info("ingresando al metodo eliminartryyyyyyyyyyy");
 					peliculaService.eliminarPelicula(idPelicula);
 				}catch(Exception error){
 					AGUSTINA.error("encontrando: eliminarpelicula");
 					model.addAttribute("formPeliculaErrorMessage", error.getMessage());
 					return "redirect:/otraPelicula";
 				}
-			
-			    return "redirect:/listarPelicula";
+				AGUSTINA.info("saliendo al metodo eliminar");
+			    return "redirect:/listadoPelicula";
 			}
 	}
 	

@@ -36,7 +36,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioController.class);
 		ModelAndView vista = new ModelAndView("cargarCompra");
 		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
 		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
-		vista.addObject("pelicula", peliculaservice.listadoPelicula() );
+		vista.addObject("peliculas", peliculaservice.listadoPelicula() );
 		vista.addObject("editMode",false);
 		return vista;
 	}
