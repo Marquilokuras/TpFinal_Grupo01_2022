@@ -46,7 +46,7 @@ public class Usuario {
 	@NotNull
 	private int telefono;
 	
-	@NotEmpty
+	
 	private String genero;
 	
 	@NotNull
@@ -116,7 +116,7 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getTipo() {
+	public String getTipo(String string) {
 		return tipo;
 	}
 

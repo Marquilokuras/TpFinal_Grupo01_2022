@@ -17,12 +17,19 @@
 
 <body>
 
+
 	<div class="container">
-		<div th:insert="/layouts/header :: header"></div>
+		<div th:insert="/layouts/header0 :: header"></div>
+		<a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/logout}">Cerrar Sesion</a>
 
 		<!-- AVISO Y ASIDE -->
+
+
 		<section class="aviso">
+
+
 			<div class="container w-30">
+
 				<div class="row justify-content-md-center py-3">
 					<div class="col text-center">
 						<p class="text">Este sitio tiene el próposito de mostrar
@@ -30,12 +37,18 @@
 							que el cine más exitoso de Jujuy ofrece.</p>
 					</div>
 				</div>
+
 			</div>
+
 		</section>
+
 
 		<aside class="container-fluid">
 			<div id="noticia" class="container w-70 pl-5">
+
 				<div class="row align-items-center">
+
+
 					<div class="col-sm text-light p-3 text-center">
 						<p>
 							ATENCIÓN <br> ¡Hey! ¿Cómo estás ? <br>
@@ -46,13 +59,42 @@
 					</div>
 
 					<div class="col-sm p-3">
-						<img src="img/bienvenidos.png" class="w-100 rounded-circle mx-auto d-block" alt="">
+						<img src="img/cine.jpg" class="w-100 rounded-circle mx-auto d-block" alt="">
 					</div>
+
+
 				</div>
+
 			</div>
 		</aside>
-
+		
 		<!-- AVISO Y ASIDE -->
+
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+	
+		<div class="card text-center">
+			<div class="card-header">CLIENTE</div>
+			<div class="card-body">
+				<h5 class="card-title">COMPRAR TICKETS</h5>
+				<p class="card-text"></p>
+				<a th:href="@{/compra}" class="btn btn-primary">Comprar un ticket</a>
+				
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">PELICULAS</h5>
+				<a th:href="@{/listadoPeliculaCliente}" class="btn btn-primary">Ver Cartelera</a>
+				<a  class="btn btn-primary">Valorar una pelicula</a>
+				<a  class="btn btn-primary">Comentar una pelicula</a>
+			</div>
+		</div>
+		
+		<br>
+		<br>
 
 		<!-- CURSOS -->
 
@@ -60,7 +102,7 @@
 		<div class="container-md w-30 p-5">
 
 			<div class="row">
-				<h3 class="text-center h1">PELÍCULAS</h3>
+				<h3 class="text-center text-light h1">CARTELERA</h3>
 			</div>
 
 			<div class="row">
@@ -119,7 +161,9 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
+
 		</div>
 	</div>
 	<!-- footer -->

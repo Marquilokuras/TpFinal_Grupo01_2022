@@ -1,13 +1,15 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+//import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -16,7 +18,8 @@ import org.springframework.stereotype.Component;
 @Entity
 public class UsuarioPelicula {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="idUsuarioPelicula")
 	private Integer idUsuarioPelicula;
 	
 	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
@@ -27,7 +30,7 @@ public class UsuarioPelicula {
 	@JoinColumn(name="id")//parte comun de dos conjuntos
 	private Pelicula pelicula;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDeCompra;
 	
 	@JoinColumn(name="comentario")//parte comun de dos conjuntos
