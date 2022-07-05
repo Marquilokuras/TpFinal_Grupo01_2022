@@ -298,3 +298,7 @@ aside {
 .imagen-listado-pelicula {
 	width: 20%;
 }
+
+.custom-control.custom-radio {
+	width: 50%;
+}

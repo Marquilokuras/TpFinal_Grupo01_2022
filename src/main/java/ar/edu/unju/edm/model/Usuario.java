@@ -3,6 +3,8 @@ package ar.edu.unju.edm.model;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -48,6 +50,7 @@ public class Usuario {
 	@NotEmpty
 	private String genero;
 	
+	@NotNull
 	private String tipo;
 	
 

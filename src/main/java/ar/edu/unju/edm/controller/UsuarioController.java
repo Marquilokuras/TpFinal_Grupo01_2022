@@ -68,10 +68,8 @@ public class UsuarioController {
 	@GetMapping("/listadoUsuario")
 	public ModelAndView listUser() {
 		ModelAndView vista2 = new ModelAndView("listadoUsuario");
-		if(serviceUsuario.mostrarUsuarios().size()!=0) {
-		vista2.addObject("listaUsuario", serviceUsuario.mostrarUsuarios());
 		EMILIO.info("ingresando al metodo: listUsers "+serviceUsuario.mostrarUsuarios().get(0).getApellido());
-		}
+		vista2.addObject("listaUsuario", serviceUsuario.mostrarUsuarios());
 		return vista2;
 	}
 	
