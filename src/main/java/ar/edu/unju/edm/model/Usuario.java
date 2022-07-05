@@ -3,8 +3,6 @@ package ar.edu.unju.edm.model;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -20,7 +18,7 @@ public class Usuario {
 	
 	
 	@NotEmpty //vacio string 
-	@Size (min=5, max=30, message="El nombre de contener entre 5 a 30 caracteres")
+	@Size (min=2, max=30, message="El nombre de contener entre 5 a 30 caracteres")
 	private String nombre;
 	
 	@NotEmpty //vacio string
