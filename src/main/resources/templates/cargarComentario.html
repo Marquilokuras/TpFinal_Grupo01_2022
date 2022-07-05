@@ -17,7 +17,7 @@
 				<div class="modal-content">
 					<h4>Comentar Pelicula</h4>
 
-					<form class="form" th:object="${usuariopelicula}" th:action="@{/guardarCompra}" method="post">
+					<form class="form" th:object="${usuariopelicula}" th:action="@{/guardarComentario}" method="post">
 
 						<div class="mb-3" th:if="${editMode == false}">
 							<label for="usuario" class="form-label">Usuarios</label>
@@ -40,7 +40,7 @@
 						</div>
 
 						<button type="submit" class="btn btn-primary">Comentar</button>
-						<a class="btn btn-light" th:href="@{/}">Volver</a>
+						<a class="btn btn-light" th:href="@{/cargarComentario}">Volver</a>
 
 					</form>
 
