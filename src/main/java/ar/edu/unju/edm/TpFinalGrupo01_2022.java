@@ -26,15 +26,7 @@ IUsuarioService usuarioService;
 @Override
 public void run(String... args) throws Exception {
 	// TODO Auto-generated method stub
-	usuario.setDni((long)45109291);
-	usuario.setNombre("Emilia");
-	usuario.setApellido("Valeriano");
-	usuario.setContrasena("hola123");
-	usuario.setFechaNacimiento(LocalDate.now());
-	usuario.setEmail("emivaleriano03@gmail.com");
-	usuario.setTelefono((int)388501425);
-	usuario.setGenero("Fememnino");
-	usuarioService.guardarUsuario(usuario);
+
 	
 }
 

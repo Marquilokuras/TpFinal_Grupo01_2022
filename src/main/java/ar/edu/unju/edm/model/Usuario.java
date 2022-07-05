@@ -45,7 +45,7 @@ public class Usuario {
 	@NotNull
 	private int telefono;
 	
-	@NotEmpty
+	
 	private String genero;
 	
 	private String tipo;
