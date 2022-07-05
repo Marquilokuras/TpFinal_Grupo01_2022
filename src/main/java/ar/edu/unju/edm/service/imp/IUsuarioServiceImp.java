@@ -26,7 +26,7 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	public void guardarUsuario(Usuario usuarioparaguardar) {
 		// TODO Auto-generated method stub
 		usuarioparaguardar.setEstado(true);
-		usuarioparaguardar.setTipo("CLIENTE");
+		//usuarioparaguardar.setTipo("CLIENTE");
 
 	//	lista.getListado().add(usuarioparaguardar); 
 		String pw=usuarioparaguardar.getContrasena();
@@ -53,6 +53,9 @@ public class IUsuarioServiceImp implements IUsuarioService {
 				auxiliar2.add(auxiliar.get(i));
 			}
 		}
+		
+		System.out.println("CANTIDAD DE USUARIOS: "+auxiliar2.size());
+		
 		return auxiliar2;
 	}
 	
