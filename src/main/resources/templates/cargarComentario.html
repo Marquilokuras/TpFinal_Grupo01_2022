@@ -18,7 +18,6 @@
 					<h4>Comentar Pelicula</h4>
 
 					<form class="form" th:object="${usuariopelicula}" th:action="@{/guardarComentario}" method="post">
-
 						<div class="mb-3" th:if="${editMode == false}">
 							<label for="usuario" class="form-label">Usuarios</label>
 							<select class="form-control" th:field="*{usuario.dni}">
@@ -37,8 +36,8 @@
 							<!--<label for="comentario" class="form-label">Comentario</label>
 							<input type="text" class="form-control" id="comentario" placeholder="Ingrese comentario">-->
 							<label for="comentario" class="form-label">Comentario</label>
-							<select class="form-control" th:field="*{usuarioPelicula.comentario}">
-								<option th:each="p:${peliculas}" th:value="${p.comentario}"	th:text="${p.comentario}"></option>
+							<select class="form-control" th:field="*{UsuarioPelicula.comentario}">
+								<option th:each="up:${UsuarioPelicula}" th:value="${up.comentario}"	th:text="${up.comentario}"></option>
 							</select>
 						</div>
 						
