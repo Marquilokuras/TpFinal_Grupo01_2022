@@ -58,7 +58,6 @@ public class Pelicula {
 
 	//portada
 	@Lob
-	
 	private String imagen;
 	
 	public String getImagen() {
