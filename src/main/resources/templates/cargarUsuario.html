@@ -23,43 +23,58 @@
 						th:action="${editMode}? @{/editarUsuario} : @{/guardarUsuario}" method="post">
 						<input type="hidden" class="form-control" th:if="${editMode}" th:field="*{contrasena}">
 						<input type="hidden" class="form-control" th:if="${editMode}" th:field="*{dni}">
+						<input type="hidden" class="form-control" th:if="${editMode}" th:field="*{tipo}">
 
+
+
+						
 						<div class="form-group ">
-							<label for="dni" class="form-label" th:if="${editMode==false}"></label>
-							<input type="number" class="form-control" id="dni" th:field="*{dni}"
-								th:if="${editMode==false}" placeholder="Ingrese DNI" required>
+							<label for="dni" class="form-label" th:if="${editMode==false}">DNI</label>
+							<input type="number" class="form-control" id="dni" th:field="*{dni}" th:if="${editMode==false}" placeholder="Ingrese DNI" required>
 							<div class="alert alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}">
 							</div>
 						</div>
+						
 
-						<!-- Input Dropdown 
+
+
+
+
+						<!-- TIPO DE USUARIO -->
+			    <div class="custom-control custom-radio">
+				  <input type="radio" id="CLIENTE" name="tipo" class="custom-control-input" value="CLIENTE" th:if="${editMode==false}">
+				  <label class="custom-control-label" for="CLIENTE" th:if="${editMode==false}">Cliente</label>
+			</div>
 			
-			<div class="input-group mb-3">
-				<label class="input-group-text" for="inputGroupSelect01">Rol</label>
-				<select class="form-select" id="inputGroupSelect01">
-					<option selected>Escoge...</option>
-					<option value="1">Administrador</option>
-					<option value="2">Cliente</option>
-				</select>
-			</div>-->
-
-						<!-- Input Dropdown -->
+			<div class="custom-control custom-radio">
+				  <input type="radio" id="ADMIN" name="tipo" class="custom-control-input" value="ADMIN" th:if="${editMode==false}">
+				  <label class="custom-control-label" for="ADMIN" th:if="${editMode==false}">Administrador</label>
+			</div>
+			
+				<!-- TIPO DE USUARIO -->
+				
+				
+				
 
 						<div class="form-group">
-							<label for="nombre" class="form-label"></label>
-							<input type="text" class="form-control" id="nombre" th:field="*{nombre}"
-								placeholder="Ingrese nombre completo">
-							<label for="apellido" class="form-label"> </label>
+							
+							<label for="nombre" class="form-label">Nombre/s</label>
+							<input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese nombre completo">
+							
+							<label for="apellido" class="form-label">Apellido/s</label>
 							<input type="text" class="form-control" id="apellido" th:field="*{apellido}"
 								placeholder="Ingrese apellido">
-							<label for="exampleInputEmail1" class="form-label"></label>
+								
+							<label for="exampleInputEmail1" class="form-label">Email</label>
 							<input type="email" class="form-control" id="exampleInputEmail1" th:field="*{email}"
 								placeholder="Ingrese email: ej@correo.com">
-
+								
+							<label for="genero" class="form-label">Genero</label>
+							<input type="text" class="form-control" id="genero" th:field="*{genero}" placeholder="Ej: femenino">
+						</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1" class="form-label"
-									th:if="${editMode==false}"></label> <input type="password" class="form-control"
-									id="exampleInputPassword1" th:field="*{contrasena}" th:if="${editMode==false}"
+								<label for="exampleInputPassword1" class="form-label" th:if="${editMode==false}">Contraseña</label>
+								<input type="password" class="form-control" id="exampleInputPassword1" th:field="*{contrasena}" th:if="${editMode==false}"
 									placeholder="Ingrese contraseña">
 								<div class="alert alert-danger" th:if="${#fields.hasErrors('contrasena')}"
 									th:errors="*{contrasena}"></div>
@@ -67,14 +82,14 @@
 
 
 							<div class="form-group">
-								<label for="fechaNacimiento" class="form-label"></label>
+								<label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
 								<input type="date" class="form-control" id="fechaNacimiento"
 									th:field="*{fechaNacimiento}" placeholder="Ingrese su fecha de nacimiento">
 							</div>
 
 							<button type="submit" class="btn btn-primary"><span
 									th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
-							<a class="btn btn-light" th:href="@{/cargarUsuario}">Volver</a>
+							<a class="btn btn-light" th:href="@{/index}">Volver</a>
 					</form>
 				</div>
 			</div>

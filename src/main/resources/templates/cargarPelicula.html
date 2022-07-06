@@ -13,11 +13,11 @@
 </head>
 
 <body>
-	<div th:insert="/layouts/header :: header"></div>
+	
 	
 	
 	<div class="container">
-		
+		<div th:insert="/layouts/header :: header"></div>
 		<div class="modal-dialog text-center">
 
 			<div class="col-sm-8 main-section">
@@ -38,13 +38,13 @@
 								<!--<div class="form-group">
 									<label for="idPelicula" class="form-label" th:if="${editMode==false}">Digite ID de la Pelicula</label>
 									<input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"
-										placeholder="Ingrese ID de la pelicula">
+										placeholder="Ingrese ID de la pelicula" th:if="${editMode==false}">
 									<div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}"
 										th:errors="*{idPelicula}"></div>
 								</div> -->
 
 								<div class="form-group">
-									<label for="nombre" class="form-label">Nombre de la Pelicula</label>
+									<label for="nombre" class="form-label" placeholder="Nombre de la Pelicula">Nombre de la pelicula</label>
 									<input type="text" class="form-control" id="nombre" th:field="*{nombrePelicula}"
 										placeholder="Ingrese nombre de la pelicula">
 
@@ -62,7 +62,7 @@
 										th:errors="*{fechaEstreno}"></div>
 
 									<div class="form-group">
-										<label for="file" class="form-label"> Subir
+										<label for="file" class="form-label" > Subir
 											Imagen</label>
 										<div class="col-sm-10">
 											<input type="file" name="file" class="control-file" id="file"

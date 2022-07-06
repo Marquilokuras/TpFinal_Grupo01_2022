@@ -11,13 +11,13 @@
 <body>
 	<div class="container">
 		<div th:insert="/layouts/header :: header"></div>
+
 		<div class="modal-dialog text-center">
 			<div class="col-sm-8 main-section">
 				<div class="modal-content">
-					<h4>Compra de Entradas</h4>
+					<h4>Comentar Pelicula</h4>
 
-					<form class="form" th:object="${usuariopelicula}" th:action="@{/guardarCompra}" method="post">
-
+					<form class="form" th:object="${usuariopelicula}" th:action="@{/guardarComentario}" method="post">
 						<div class="mb-3" th:if="${editMode == false}">
 							<label for="usuario" class="form-label">Usuarios</label>
 							<select class="form-control" th:field="*{usuario.dni}">
@@ -25,26 +25,36 @@
 							</select>
 						</div>
 
-
 						<div class="mb-3">
 							<label for="peliculas" class="form-label">Peliculas</label>
 							<select class="form-control" th:field="*{pelicula.idPelicula}">
-								<option th:each="p:${peliculas}" th:value="${p.idPelicula}" th:text="${p.nombrePelicula}"></option>
+								<option th:each="p:${peliculas}" th:value="${p.idPelicula}"	th:text="${p.nombrePelicula}"></option>
 							</select>
 						</div>
 
 						<div class="mb-3">
-							<label for="birthdateID" class="form-label">Fecha de Compra</label>
+							<!--<label for="comentario" class="form-label">Comentario</label>
+							<input type="text" class="form-control" id="comentario" placeholder="Ingrese comentario">-->
+							<label for="comentario" class="form-label">Comentario</label>
+							<select class="form-control" th:field="*{UsuarioPelicula.comentario}">
+								<option th:each="up:${UsuarioPelicula}" th:value="${up.comentario}"	th:text="${up.comentario}"></option>
+							</select>
+						</div>
+						
+						<div class="mb-3">
+							<label for="birthdateID" class="form-label">Fecha del Comentario</label>
 							<input type="date" class="form-control" id="birthdateID" placeholder="Ingrese fecha de compra">
 						</div>
 
-						<button type="submit" class="btn btn-primary">Comprar</button>
+						<button type="submit" class="btn btn-primary">Comentar</button>
 						<a class="btn btn-light" th:href="@{/index}">Volver</a>
 
 					</form>
+
 				</div>
 			</div>
 		</div>
+
 	</div>
 </body>
 
