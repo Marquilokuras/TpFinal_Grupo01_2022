@@ -56,3 +56,15 @@ button{
     padding: 20px 0;
 }
 
+/* Imagenes de los combos */
+.imgPromos{
+width: 100%;
+text-align: center;
+}
+
+.imgPromos img{
+width: 500px;
+display: inline-block;
+text-align: center;
+}
+
