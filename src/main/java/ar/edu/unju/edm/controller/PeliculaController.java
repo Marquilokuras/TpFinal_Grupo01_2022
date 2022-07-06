@@ -49,7 +49,7 @@ public class PeliculaController {
 		
 		if(resultado.hasErrors()) {
 			AGUSTINA.fatal("Error en el metodo GUARDAR PELICULA");
-			
+			model.addAttribute("editMode", false);
 			model.addAttribute("pelicula", peliculaparaguardar);
 			//model.addAttribute("editMode", false);
 			return "cargarPelicula";
@@ -59,13 +59,14 @@ public class PeliculaController {
 			byte[] content = file.getBytes();
 			String base64 = Base64.getEncoder().encodeToString(content);
 			peliculaparaguardar.setImagen(base64);
-			peliculaparaguardar.setDuracionPelicula(45);
+			//peliculaparaguardar.setDuracionPelicula(45);
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
 			model.addAttribute("pelicula", peliculaparaguardar);
 			//model.addAttribute("editMode", false);
 			AGUSTINA.error("No se pudo guardar la pelicula");
+			model.addAttribute("editMode", false);
 			return "cargarPelicula";
 		}
 		
@@ -74,6 +75,7 @@ public class PeliculaController {
 
 		//model.addAttribute("editMode", false);
 		AGUSTINA.info("saliendo del metodo: GUARDAR PELICULA");
+		model.addAttribute("editMode", false);
 		return "cargarPelicula";
 	}
 	
