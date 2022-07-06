@@ -35,13 +35,14 @@
 
 							<div class="col">
 
-								<div class="form-group">
+								<!-- El Id se almacena automaticamente 
+									<div class="form-group">
 									<label for="idPelicula" class="form-label" th:if="${editMode==false}">Digite ID de la Pelicula</label>
 									<input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"
 										placeholder="Ingrese ID de la pelicula" th:if="${editMode==false}">
 									<div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}"
-										th:errors="*{idPelicula}"></div>
-								</div>
+										th:errors="*{idPelicula}"></div> 
+ 								</div> -->
 
 								<div class="form-group">
 									<label for="nombre" class="form-label" placeholder="Nombre de la Pelicula">Nombre de la pelicula</label>
