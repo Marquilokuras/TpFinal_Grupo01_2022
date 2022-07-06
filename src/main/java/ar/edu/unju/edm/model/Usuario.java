@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Usuario {
 	
-	
 	@NotEmpty //vacio string 
 	@Size (min=2, max=30, message="El nombre de contener entre 5 a 30 caracteres")
 	private String nombre;
