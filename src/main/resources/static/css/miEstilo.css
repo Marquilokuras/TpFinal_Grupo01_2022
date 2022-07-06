@@ -55,6 +55,7 @@ form-group input{
     border-radius: 5px;
 }
 
+
 .form-group::before{
     font-family: "Font Awesome\ 5 Free";
     position: absolute;
