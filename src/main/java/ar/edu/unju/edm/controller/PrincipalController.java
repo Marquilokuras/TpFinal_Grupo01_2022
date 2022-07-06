@@ -18,7 +18,13 @@ public class PrincipalController implements ErrorController{
 	public String getIndex(){
 		
 		return "index";
-	}	
+	}
+	
+	@GetMapping({"/registroAdmin"})
+	public String getRegistro(){
+		
+		return "registroAdmin";
+	}
 	
 	@GetMapping({"/","/login","/ingreso"})
 	public String getLogin(){

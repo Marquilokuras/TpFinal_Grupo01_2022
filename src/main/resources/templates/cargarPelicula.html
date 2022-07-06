@@ -17,7 +17,6 @@
 	
 	
 	<div class="container">
-		<div th:insert="/layouts/header :: header"></div>
 		<div class="modal-dialog text-center">
 
 			<div class="col-sm-8 main-section">
@@ -75,7 +74,7 @@
 								<button type="submit" class="btn btn-primary"><span
 										th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span>
 								</button>
-								<a class="btn btn-light" th:href="@{/index}">Volver</a>
+								<a class="btn btn-light" th:href="@{/registroAdmin}">Volver</a>
 
 							</div>
 						</div>

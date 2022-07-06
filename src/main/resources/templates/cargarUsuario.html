@@ -14,7 +14,7 @@
 
 <body>
 	<div class="container">
-		<div th:insert="/layouts/header :: header"></div>
+		
 		<div class="modal-dialog text-center">
 			<div class="col-sm-8 main-section-xd">
 				<div class="modal-content">
@@ -71,6 +71,9 @@
 								
 							<label for="genero" class="form-label">Genero</label>
 							<input type="text" class="form-control" id="genero" th:field="*{genero}" placeholder="Ej: femenino">
+							
+							<label for="telefono" class="form-label">Telefono</label>
+							<input type="number" class="form-control" id="telefono" th:field="*{telefono}" placeholder="Ej: 388999999">
 						</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1" class="form-label" th:if="${editMode==false}">Contraseña</label>
@@ -89,7 +92,7 @@
 
 							<button type="submit" class="btn btn-primary"><span
 									th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
-							<a class="btn btn-light" th:href="@{/index}">Volver</a>
+							<a class="btn btn-light" th:href="@{/registroAdmin}">Volver</a>
 					</form>
 				</div>
 			</div>
