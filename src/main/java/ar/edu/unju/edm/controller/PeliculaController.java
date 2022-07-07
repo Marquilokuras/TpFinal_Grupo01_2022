@@ -87,6 +87,13 @@ public class PeliculaController {
 		return vista;
 	}
 	
+	@GetMapping("/listadoPeliculaCliente")
+	public ModelAndView showMovieCliente() {
+		ModelAndView vista = new ModelAndView("listadoPeliculaCliente");
+		vista.addObject("listaPelicula", peliculaService.listadoPelicula());
+		return vista;
+	}
+	
 		//modificar  pelicula
 	@RequestMapping("/editPelicula/{idPelicula}")
 	public ModelAndView editMovie(Model model,@PathVariable (name="idPelicula") Long idPelicula)throws Exception {	

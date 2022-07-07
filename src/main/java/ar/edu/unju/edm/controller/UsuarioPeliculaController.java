@@ -19,7 +19,7 @@ import ar.edu.unju.edm.service.IUsuarioService;
 
 @Controller
 public class UsuarioPeliculaController {
-private static final Log EMILIA = LogFactory.getLog(UsuarioController.class);
+private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.class);
 
 	@Autowired 
 	IUsuarioPeliculaService usuariopeliculaservice;

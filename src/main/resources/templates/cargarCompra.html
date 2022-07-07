@@ -41,7 +41,7 @@
 			
         <div class="mb-3">
           <label for="birthdateID" class="form-label">Fecha de Compra</label>
-          <input type="date" class="form-control" id="birthdateID"  placeholder="Ingrese fecha de compra">
+          <input th:field="*{fechaDeCompra}" type="date" class="form-control" id="birthdateID"  placeholder="Ingrese fecha de compra">
         </div>
 	
 		  <button type="submit" class="btn btn-primary">Comprar</button>

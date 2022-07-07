@@ -27,7 +27,7 @@ public class UsuarioPelicula {
 	@JoinColumn(name="id")//parte comun de dos conjuntos
 	private Pelicula pelicula;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDeCompra;
 	
 	public UsuarioPelicula() {
