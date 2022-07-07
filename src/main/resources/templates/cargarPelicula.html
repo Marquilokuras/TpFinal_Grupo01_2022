@@ -13,9 +13,7 @@
 </head>
 
 <body>
-	
-	
-	
+		
 	<div class="container">
 		<div class="modal-dialog text-center">
 
@@ -58,6 +56,35 @@
 										</div>
 									</div>
 								</div>
+								
+								<div class="form-group">
+						     	  	<label for="duracionPelicula" class="form-label">Duración en min</label>
+						          	<input type="number" class="form-control" id="duracionPelicula" th:field="*{duracionPelicula}" placeholder="Ingrese duración de la pelicula">
+						     	</div>
+						     	
+						     	<div class="form-group">
+						     		<label for="generoPelicula" class="form-label">Género</label>
+						       		<input type="text" class="form-label" id="generoPelicula" th:field="*{generoPelicula}" placeholder="Ingrese genero de la pelicula">
+						       		<!--<select class="form-select" id="generoPelicula" th:field="*{generoPelicula}">
+						  		 		<option selected>Seleccione una opción</option>
+						  		 		<option th:value="1">Terror</option>
+						  		 		<option th:value="2">Drama</option>
+						  		 		<option th:value="3">Acción</option>
+						  		 		<option th:value="4">Comedia</option>
+						  			</select>-->
+						     	</div>
+						     	
+						     	
+						     	<div class="form-group">
+						     	  	<label for="horario" class="form-label">Horario</label>
+						          	<input type="time" class="form-control" id="horario" th:field="*{horario}" placeholder="Ingrese horario de la pelicula">
+						     	  	<div class="alert alert-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
+						     	</div>
+						     	
+						     	<div class="form-group">
+						     	  <label for="actoresPelicula" class="form-label">Actores</label>
+						          <input type="text" class="form-control" id="actoresPelicula" th:field="*{actoresPelicula}" placeholder="Ingrese actores de la pelicula">
+						     	</div>
 
 								<button type="submit" class="btn btn-primary"><span
 										th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span>
