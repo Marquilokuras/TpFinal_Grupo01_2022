@@ -111,6 +111,7 @@ public class PeliculaController {
 	@PostMapping("/editarPelicula")
 	public ModelAndView saveEditMovie(@Valid @ModelAttribute ("pelicula") Pelicula peliculaparamodificar, BindingResult result) {  
 		if(result.hasErrors()) {
+			System.out.println(result.getAllErrors());
 			AGUSTINA.fatal("Error de validacion");
 			ModelAndView vista = new ModelAndView("cargarPelicula");
 			vista.addObject("pelicula", peliculaparamodificar);
