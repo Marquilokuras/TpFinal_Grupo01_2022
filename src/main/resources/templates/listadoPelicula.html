@@ -15,9 +15,14 @@
 <body>
 
   <div class="container">
-		<div th:insert="/layouts/header :: header"></div>
+		
 		<br>
 		<div class="alert-primary text-center" th:if="${formPeliculaErrorMessage}" th:text="${formPeliculaErrorMessage}">Nombre Error</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		
 		<table class="table table-bordered border-primary">
 			<thead class="table-dark">
 				<tr>
@@ -44,7 +49,7 @@
 				</tr>
 			</tbody>
 		</table>
-
+		<a class="btn btn-primary" th:href="@{/registroAdmin}">Volver</a>
 	</div>
 </body>
 <!-- Modal -->

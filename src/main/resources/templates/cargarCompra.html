@@ -11,7 +11,7 @@
 
 <body>
 	<div class="container">
-		<div th:insert="/layouts/header :: header"></div>
+		<div th:insert="/layouts/header0 :: header"></div>
 
 		<div class="modal-dialog text-center">
 			<div class="col-sm-8 main-section">
@@ -20,10 +20,9 @@
 			
 
       			<form class="form"
-      			th:object="${usuariopelicula}" th:action="@{/guardarCompra}" method="post"
-      			enctype="multipart/form-data">
-       	 <div class="col">
-       	  <div class="form-group" >
+      			th:object="${usuariopelicula}" th:action="@{/guardarCompra}" method="post">
+       	 
+       	  <div class="mb-3" th:if="${editMode == false}">
 	          <label for="usuario" class="form-label">Usuarios</label> 
 	          <select class="form-control" 
 	          			th:field="*{usuario.dni}">
@@ -32,7 +31,7 @@
 		  </div>
 		  
 		  
-		  <div class="form-group">
+		  <div class="mb-3">
 		  	 <label for="peliculas" class="form-label">Peliculas</label>
 			 <select class="form-control" 
 			 		th:field="*{pelicula.idPelicula}">
@@ -40,20 +39,20 @@
 	         </select>
 		 </div>
 			
-        <div class="form-group">
+        <div class="mb-3">
           <label for="birthdateID" class="form-label">Fecha de Compra</label>
-          <input type="date" class="form-control" id="birthdateID">
-        
-	</div>
+          <input th:field="*{fechaDeCompra}" type="date" class="form-control" id="birthdateID"  placeholder="Ingrese fecha de compra">
+        </div>
+	
 		  <button type="submit" class="btn btn-primary">Comprar</button>
-		  <a class="btn btn-light" th:href="@{/}">Volver</a>
+		  <a class="btn btn-light" th:href="@{/index}">Volver</a>
 		
 		</form>
 			
 				</div>
 			</div>
 		</div>
-	</div>
+		
 	</div>
 </body>
 </html>

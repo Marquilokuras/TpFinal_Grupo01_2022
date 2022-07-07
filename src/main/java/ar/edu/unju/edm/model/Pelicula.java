@@ -2,6 +2,7 @@ package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -54,8 +55,8 @@ public class Pelicula {
 	@Max(value=857,message="El duracion en horas debe ser menor que 857")
 	private Integer duracionPelicula;
   
-	//@NotEmpty
-	//private String generoPelicula;
+	@NotEmpty
+	private String generoPelicula;
 	
 	@Column (name = "fechaestreno")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -63,26 +64,10 @@ public class Pelicula {
 	
 	private Boolean estadoPelicula;
 	
-	@NotBlank
-    private String youtubeTrailerId;
-	
-
-	  
-	  
-	  
-	  
-	  @Transient
-	    private MultipartFile portada;
-	  
-	  public MultipartFile getPortada() {
-			return portada;
-		}
-
-		public void setPortada(MultipartFile portada) {
-			this.portada = portada;
-		}
 //	private Long horario;
-	
+
+	private LocalTime horario;
+
 	//portada
 	@Lob
 	private String imagen;
@@ -142,37 +127,39 @@ public class Pelicula {
 		this.fechaEstreno = fechaEstreno;
 	}
 
-	/*public String getGeneroPelicula() {
+	public String getGeneroPelicula() {
 		return generoPelicula;
 	}
-
 	public void setGeneroPelicula(String generoPelicula) {
 		this.generoPelicula = generoPelicula;
 	}
-
-	public LocalTime getHorario1() {
+	
+	/*public LocalTime getHorario1() {
 		return horario1;
 	}
-
 	public void setHorario1(LocalTime horario1) {
 		this.horario1 = horario1;
 	}
-
 	public LocalTime getHorario2() {
 		return horario2;
 	}
-
 	public void setHorario2(LocalTime horario2) {
 		this.horario2 = horario2;
 	}
-
 	public LocalTime getHorario3() {
 		return horario3;
 	}
-
 	public void setHorario3(LocalTime horario3) {
 		this.horario3 = horario3;
 	}*/
+
+	public LocalTime getHorario() {
+		return horario;
+	}
+
+	public void setHorario(LocalTime horario) {
+		this.horario = horario;
+	}
 
 	public Boolean getEstadoPelicula() {
 		return estadoPelicula;
@@ -182,20 +169,19 @@ public class Pelicula {
 		this.estadoPelicula = estadoPelicula;
 	}
 
-	public String getYoutubeTrailerId() {
-		return youtubeTrailerId;
-	}
-
-	public void setYoutubeTrailerId(String youtubeTrailerId) {
-		this.youtubeTrailerId = youtubeTrailerId;
-	}
-
+}
 
 	/*public String getActores() {
 		return actores;
+=======
+	public String getActoresPelicula() {
+		return actoresPelicula;
+>>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 	}
-	public void setActores(String actores) {
-		this.actores = actores;
-	}*/
+
+	public void setActoresPelicula(String actoresPelicula) {
+		this.actoresPelicula = actoresPelicula;
+	}
 	
 }
+*/

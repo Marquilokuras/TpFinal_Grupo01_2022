@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- Colocar icono en las pestañas -->
+	<meta http-equiv="X-UA-Compatible"content="IE=edge">
+	<meta name="viewport" content="width-device-width,initial-scale-1.0">
+	<link rel="shortcut icon"href="img/palomitas.png">
+	<title>Cartelera</title>
+	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+	  <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <div class="container">
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<table class="table table-bordered border-primary">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre de Pelicula</th>
+					<th scope="col">Descripcion</th>
+					<th scope="col">Fecha de Estreno</th>
+					<th scope="col">Imagen</th>
+						<th scope="col"></th>
+			</tr>
+			</thead>
+			<tbody class="table-secondary">
+				<tr th:if="${listaPelicula.empty}">
+					<td colspan="7">No hay peliculas cargados</td>
+				</tr>
+				<tr th:each="m : ${listaPelicula}">
+					<td th:text="${m.idPelicula}"></td>
+					<td th:text="${m.nombrePelicula}"></td>
+					<td th:text="${m.descripcionPelicula}"></td>
+					<td th:text="${m.fechaEstreno}"></td>
+					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt="" class="imagen-listado-pelicula"></td> 
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-primary" th:href="@{/index}">Volver</a>
+	</div>
+</body>
+
+</html> 

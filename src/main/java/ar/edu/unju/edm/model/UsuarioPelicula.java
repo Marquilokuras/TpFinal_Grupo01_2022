@@ -1,16 +1,15 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+//import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -31,8 +30,14 @@ public class UsuarioPelicula {
 	@JoinColumn(name="id")//parte comun de dos conjuntos
 	private Pelicula pelicula;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDeCompra;
+	
+	@JoinColumn(name="comentario")//parte comun de dos conjuntos
+	private String comentario;
+	
+	@JoinColumn(name="valoracion")//parte comun de dos conjuntos
+	private String valoracion;
 	
 	public UsuarioPelicula() {
 		// TODO Auto-generated constructor stub

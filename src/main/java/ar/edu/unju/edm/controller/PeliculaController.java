@@ -49,7 +49,7 @@ public class PeliculaController {
 		
 		if(resultado.hasErrors()) {
 			AGUSTINA.fatal("Error en el metodo GUARDAR PELICULA");
-			
+			model.addAttribute("editMode", false);
 			model.addAttribute("pelicula", peliculaparaguardar);
 			//model.addAttribute("editMode", false);
 			return "cargarPelicula";
@@ -66,6 +66,7 @@ public class PeliculaController {
 			model.addAttribute("pelicula", peliculaparaguardar);
 			//model.addAttribute("editMode", false);
 			AGUSTINA.error("No se pudo guardar la pelicula");
+			model.addAttribute("editMode", false);
 			return "cargarPelicula";
 		}
 		
@@ -74,6 +75,7 @@ public class PeliculaController {
 
 		//model.addAttribute("editMode", false);
 		AGUSTINA.info("saliendo del metodo: GUARDAR PELICULA");
+		model.addAttribute("editMode", false);
 		return "cargarPelicula";
 	}
 	
@@ -81,6 +83,13 @@ public class PeliculaController {
 	@GetMapping("/listadoPelicula")
 	public ModelAndView showMovie() {
 		ModelAndView vista = new ModelAndView("listadoPelicula");
+		vista.addObject("listaPelicula", peliculaService.listadoPelicula());
+		return vista;
+	}
+	
+	@GetMapping("/listadoPeliculaCliente")
+	public ModelAndView showMovieCliente() {
+		ModelAndView vista = new ModelAndView("listadoPeliculaCliente");
 		vista.addObject("listaPelicula", peliculaService.listadoPelicula());
 		return vista;
 	}
