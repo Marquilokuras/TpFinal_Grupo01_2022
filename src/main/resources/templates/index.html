@@ -79,7 +79,7 @@
 				<h5 class="card-title">PELICULAS</h5>
 				<a th:href="@{/listadoPeliculaCliente}" class="btn btn-primary">Ver Cartelera</a>
 				<a  class="btn btn-primary">Valorar una pelicula</a>
-				<a  class="btn btn-primary">Comentar una pelicula</a>
+				<a  th:href="@{/comentario}" class="btn btn-primary">Comentar una pelicula</a>
 			</div>
 		</div>
 		
@@ -156,6 +156,7 @@
 
 		</div>
 	</div>
+	
 	<!-- footer -->
 	<footer>
 		<div th:insert="/layouts/footer :: footer"></div>
