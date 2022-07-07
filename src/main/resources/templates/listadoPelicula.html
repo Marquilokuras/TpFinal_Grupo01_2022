@@ -30,19 +30,27 @@
 					<th scope="col">Nombre de Pelicula</th>
 					<th scope="col">Descripcion</th>
 					<th scope="col">Fecha de Estreno</th>
+					<th scope="col">Duracion</th>
+					<th scope="col">Genero</th>
+					<th scope="col">Horario</th>
+					<th scope="col">Actores</th>
 					<th scope="col">Imagen</th>
 						<th scope="col"></th>
 			</tr>
 			</thead>
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
-					<td colspan="7">No hay peliculas cargados</td>
+					<td colspan="10">No hay peliculas cargadas</td>
 				</tr>
 				<tr th:each="m : ${listaPelicula}">
 					<td th:text="${m.idPelicula}"></td>
 					<td th:text="${m.nombrePelicula}"></td>
 					<td th:text="${m.descripcionPelicula}"></td>
 					<td th:text="${m.fechaEstreno}"></td>
+					<td th:text="${m.duracionPelicula}"></td>
+					<td th:text="${m.generoPelicula}"></td>
+					<td th:text="${m.horario}"></td>
+					<td th:text="${m.actoresPelicula}"></td> 
 					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt="" class="imagen-listado-pelicula"></td>
 					<td colspan="3"><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
 					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
