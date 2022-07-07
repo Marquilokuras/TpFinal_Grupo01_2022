@@ -59,7 +59,7 @@ public class PeliculaController {
 			byte[] content = file.getBytes();
 			String base64 = Base64.getEncoder().encodeToString(content);
 			peliculaparaguardar.setImagen(base64);
-			//peliculaparaguardar.setDuracionPelicula(45);
+			peliculaparaguardar.setDuracionPelicula(45);
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
@@ -83,6 +83,13 @@ public class PeliculaController {
 	@GetMapping("/listadoPelicula")
 	public ModelAndView showMovie() {
 		ModelAndView vista = new ModelAndView("listadoPelicula");
+		vista.addObject("listaPelicula", peliculaService.listadoPelicula());
+		return vista;
+	}
+	
+	@GetMapping("/listadoPeliculaCliente")
+	public ModelAndView showMovieCliente() {
+		ModelAndView vista = new ModelAndView("listadoPeliculaCliente");
 		vista.addObject("listaPelicula", peliculaService.listadoPelicula());
 		return vista;
 	}

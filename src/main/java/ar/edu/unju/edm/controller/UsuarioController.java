@@ -37,6 +37,8 @@ public class UsuarioController {
 		return vista;
 	}
 	
+	
+	
 	//guardar usuarios
 	@PostMapping("/guardarUsuario")
 	public String saveUser(@Valid @ModelAttribute("usuario") Usuario usuarioparaguardar, BindingResult resultado, Model model) { //del modelo viene 1 atributo llamado usuario y lo agarra le indica el tipo y un nombre 
@@ -132,5 +134,4 @@ public class UsuarioController {
 		
 		return vista1;
 	}
-
 }

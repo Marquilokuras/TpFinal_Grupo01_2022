@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<!-- Colocar icono en las pestañas -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width-device-width,initial-scale-1.0">
+<link rel="shortcut icon" href="img/palomitas.png">
+<title>TRABAJO PRÁCTICO FINAL</title>
+<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="@{src/main/resources/img/palomitas.png}">
+</head>
+
+<!-- contenido -->
+
+<body>
+	
+	
+	<div class="container">
+		<div th:insert="/layouts/header0 :: header"></div>
+		<a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/logout}">Cerrar Sesion</a>
+	
+		<br>
+		<br>
+		<br>
+		<br>
+	
+		<div class="card text-center">
+			<div class="card-header">Registro solo para administradores</div>
+			<div class="card-body">
+				<h5 class="card-title">USUARIO</h5>
+				<p class="card-text"></p>
+				<a th:href="@{/otroUsuario}" class="btn btn-primary">Añadir un nuevo usuario</a>
+				<a th:href="@{/listadoUsuario}" class="btn btn-primary">Ver/Editar usuarios</a>
+			</div>
+		</div>
+		
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<div class="card text-center">
+			<div class="card-header">Registro solo para administradores</div>
+			<div class="card-body">
+				<h5 class="card-title">PELICULA</h5>
+				<p class="card-text"></p>
+				<a th:href="@{/otraPelicula}" class="btn btn-primary">Añadir una nueva pelicula</a>
+				<a th:href="@{/listadoPelicula}" class="btn btn-primary">Ver/Editar peliculas</a>
+			</div>
+		</div>
+		
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		
+	
+	</div>
+
+
+
+	<div th:insert="/layouts/footer :: footer"></div>
+</body>
+
+</html>
