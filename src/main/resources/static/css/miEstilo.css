@@ -85,6 +85,12 @@ button{
     color: white;
 }
 
+.container-fluid h2{
+	font-family: 'Bebas Neue', cursive;
+	font-weight: normal;
+	color: rojo;
+	font-size: 40px;
+}
 /*LOGIN TERMINA*/
 
 .navbar {
@@ -92,7 +98,7 @@ button{
 }
 label{
 	font-size:25px;
-	color:rgb(255, 255, 255);
+	color:rgb(0, 0, 0);
 }
 
 /* Formulario Centrado */
