@@ -81,7 +81,6 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 		return vista;
 	}
 	
-	
 	@PostMapping("/guardarComentario")
 	public ModelAndView saveComentario(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
 		ModelAndView vista=new ModelAndView ();
@@ -107,6 +106,45 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			vista.addObject("unUsuario", usuariopeliculaservice.nuevoUsuarioCine());
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarComentario");
+			return vista;
+	}
+	
+	@GetMapping({"/valoracion"})	
+	public ModelAndView addValoracion() {
+		EMILIA.info("ingresando al metodo: Nueva valoracion");
+		ModelAndView vista = new ModelAndView("cargarValoracion");
+		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
+		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
+		vista.addObject("peliculas", peliculaservice.listadoPelicula() );
+		vista.addObject("editMode",false);
+		return vista;
+	}
+	
+	@PostMapping("/guardarValoracion")
+	public ModelAndView saveValoracion(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
+		ModelAndView vista=new ModelAndView ();
+		if(result.hasErrors()) {
+			EMILIA.fatal("Error de validacion");
+			vista.addObject("usuariopelicula", compraparaguardar);
+			vista.addObject("editMode", false);
+			vista.setViewName("cargarValoracion");
+			return vista;
+		}
+			try {
+				usuariopeliculaservice.guardarUsuarioCine(compraparaguardar);
+			} catch(Exception e) {
+				vista.addObject("formUsuarioErrorMessage", e.getMessage());
+				vista.addObject("usuariopelicula", compraparaguardar);
+				EMILIA.error("saliendo del metodo: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+				vista.addObject("editMode", false);
+				vista.setViewName("cargarValoracion");
+				return vista;
+			}
+		
+			vista.addObject("formUsuarioErrorMessage", "Valoracion guardado correctamente");
+			vista.addObject("unUsuario", usuariopeliculaservice.nuevoUsuarioCine());
+			vista.addObject("editMode", false);
+			vista.setViewName("cargarValoracion");
 			return vista;
 	}
 	
