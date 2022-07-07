@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
 	<link rel="shortcut icon" href="img/palomitas.png">
-	<title>TRABAJO PRÁCTICO FINAL</title>
+	<title>Películas | Cine GRUPO01L</title>
 	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" href="@{src/main/resources/img/palomitas.png}">
@@ -16,14 +16,36 @@
 <!-- contenido -->
 
 <body>
+<div th:insert="/layouts/header :: header"></div>
+    <h4>Todas las películas</h4>
 
+    <div class="row">
+        <div class="col-md-3 my-5" th:each="pelicula : ${peliculas}"
+             th:object="${pelicula}">
+            <a th:href="@{/peliculas/{id}(id=*{id})}" class="card shadow-lg"
+               style="text-decoration: none;">
+                <img th:src="@{/assets/{filename}(filename=*{rutaPortada})}"
+                     class="card-img-top"
+                     th:alt="*{nombrePelicula}}">
+                <div class="card-body">
+                    <h2 class="card-title fs-6" th:text="*{titulo}"></h2>
+                    <p th:text="*{#temporals.format(fechaEstreno, 'dd/MM/yyyy')}"
+                       class="text-muted small"></p>
+                </div>
+            </a>
+        </div>
 
-	<div class="container">
-		<div th:insert="/layouts/header :: header"></div>
+        <div class="row mt-5" th:with="page=${peliculas}">
+            <div class="col-sm-6">
+                <div sd:pagination-summary></div>
+            </div>
 
-		<!-- AVISO Y ASIDE -->
+	
+		
 
-
+		<!-- AVISO Y ASIDE 
+<div class="container">-->
+<!--
 		<section class="aviso">
 
 
@@ -71,7 +93,7 @@
 		<!-- AVISO Y ASIDE -->
 
 
-		<!-- CURSOS -->
+		<!-- CURSOS 
 
 		<section class="cursos"></section>
 		<div class="container-md w-30 p-5">
@@ -141,6 +163,8 @@
 
 		</div>
 	</div>
+	-->
+	
 	<!-- footer -->
 	<footer>
 		<div th:insert="/layouts/footer :: footer"></div>

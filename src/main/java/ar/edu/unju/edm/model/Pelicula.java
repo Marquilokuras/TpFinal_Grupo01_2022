@@ -1,12 +1,19 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +22,10 @@ import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+
+
+
 
 @Component
 @Entity //sirve para conectar con PeliculaRepository
@@ -47,11 +58,29 @@ public class Pelicula {
 	//private String generoPelicula;
 	
 	@Column (name = "fechaestreno")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fechaEstreno;
 	
 	private Boolean estadoPelicula;
 	
+	@NotBlank
+    private String youtubeTrailerId;
+	
+
+	  
+	  
+	  
+	  
+	  @Transient
+	    private MultipartFile portada;
+	  
+	  public MultipartFile getPortada() {
+			return portada;
+		}
+
+		public void setPortada(MultipartFile portada) {
+			this.portada = portada;
+		}
 //	private Long horario;
 	
 	//portada
@@ -152,6 +181,15 @@ public class Pelicula {
 	public void setEstadoPelicula(Boolean estadoPelicula) {
 		this.estadoPelicula = estadoPelicula;
 	}
+
+	public String getYoutubeTrailerId() {
+		return youtubeTrailerId;
+	}
+
+	public void setYoutubeTrailerId(String youtubeTrailerId) {
+		this.youtubeTrailerId = youtubeTrailerId;
+	}
+
 
 	/*public String getActores() {
 		return actores;
