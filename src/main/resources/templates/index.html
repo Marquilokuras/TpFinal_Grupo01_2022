@@ -16,35 +16,10 @@
 <!-- contenido -->
 
 <body>
-<div th:insert="/layouts/header :: header"></div>
-    <h4>Todas las películas</h4>
-
-    <div class="row">
-        <div class="col-md-3 my-5" th:each="pelicula : ${peliculas}"
-             th:object="${pelicula}">
-            <a th:href="@{/peliculas/{id}(id=*{id})}" class="card shadow-lg"
-               style="text-decoration: none;">
-                <img th:src="@{/assets/{filename}(filename=*{rutaPortada})}"
-                     class="card-img-top"
-                     th:alt="*{nombrePelicula}}">
-                <div class="card-body">
-                    <h2 class="card-title fs-6" th:text="*{titulo}"></h2>
-                    <p th:text="*{#temporals.format(fechaEstreno, 'dd/MM/yyyy')}"
-                       class="text-muted small"></p>
-                </div>
-            </a>
-        </div>
-
-<<<<<<< HEAD
-        <div class="row mt-5" th:with="page=${peliculas}">
-            <div class="col-sm-6">
-                <div sd:pagination-summary></div>
-            </div>
-=======
 	<div class="container">
-		<div th:insert="/layouts/header0 :: header"></div>
+		<div th:insert="/layouts/header :: header"></div>
 		<a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/logout}">Cerrar Sesion</a>
->>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
+
 
 	
 		
@@ -98,7 +73,7 @@
 		<!-- AVISO Y ASIDE -->
 
 
-<<<<<<< HEAD
+
 		<!-- CURSOS 
 =======
 
@@ -127,7 +102,7 @@
 		<br>
 
 		<!-- CURSOS -->
->>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
+
 
 		<section class="cursos"></section>
 		<div class="container-md w-30 p-5">

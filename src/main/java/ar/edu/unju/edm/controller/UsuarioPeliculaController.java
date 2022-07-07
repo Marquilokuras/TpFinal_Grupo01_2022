@@ -32,7 +32,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	
 	@GetMapping({"/compra"})	
 	public ModelAndView addCompra() {
-		EMILIA.info("ingresando al metodo: Nuevo usuario");
+		EMILIA.info("ingresando al metodo: NuevA COMPRAAAA");
 		ModelAndView vista = new ModelAndView("cargarCompra");
 		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
 		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
@@ -46,7 +46,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	public ModelAndView saveCompra(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
 		ModelAndView vista=new ModelAndView ();
 		if(result.hasErrors()) {
-			EMILIA.fatal("Error de validacion");
+			EMILIA.fatal("ErrorEN GUARDAR COMPRAAAAAA");
 			vista.addObject("usuariopelicula", compraparaguardar);
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
@@ -63,7 +63,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 				return vista;
 			}
 		
-			vista.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");
+			vista.addObject("formUsuarioErrorMessage", "COMPRA guardadA correctamente");
 			vista.addObject("unUsuario", usuariopeliculaservice.nuevoUsuarioCine());
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");

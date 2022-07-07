@@ -1,20 +1,14 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.time.LocalTime;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -23,10 +17,6 @@ import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
-
-
-
 
 @Component
 @Entity //sirve para conectar con PeliculaRepository
@@ -59,13 +49,11 @@ public class Pelicula {
 	private String generoPelicula;
 	
 	@Column (name = "fechaestreno")
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaEstreno;
 	
 	private Boolean estadoPelicula;
 	
-//	private Long horario;
-
 	private LocalTime horario;
 
 	//portada
@@ -169,14 +157,8 @@ public class Pelicula {
 		this.estadoPelicula = estadoPelicula;
 	}
 
-}
-
-	/*public String getActores() {
-		return actores;
-=======
 	public String getActoresPelicula() {
 		return actoresPelicula;
->>>>>>> branch 'master' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 	}
 
 	public void setActoresPelicula(String actoresPelicula) {
@@ -184,4 +166,3 @@ public class Pelicula {
 	}
 	
 }
-*/
