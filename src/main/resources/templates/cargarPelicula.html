@@ -13,17 +13,13 @@
 </head>
 
 <body>
-	
-	
-	
+		
 	<div class="container">
 		<div class="modal-dialog text-center">
 
 			<div class="col-sm-8 main-section">
 				<div class="modal-content">
 					<h4>Registro de Pelicula</h4>
-					
-					
 					
 					<form class="form" th:object="${pelicula}"
 						th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
@@ -35,23 +31,13 @@
 							<div class="col">
 
 								<div class="form-group">
-									<label for="idPelicula" class="form-label" th:if="${editMode==false}">Digite ID de la Pelicula</label>
-									<input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"
-										placeholder="Ingrese ID de la pelicula" th:if="${editMode==false}">
-									<div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}"
-										th:errors="*{idPelicula}"></div>
-								</div>
-
-								<div class="form-group">
 									<label for="nombre" class="form-label" placeholder="Nombre de la Pelicula">Nombre de la pelicula</label>
 									<input type="text" class="form-control" id="nombre" th:field="*{nombrePelicula}"
 										placeholder="Ingrese nombre de la pelicula">
-
 									<label for="descripcionID" class="form-label">Descripcion</label>
 									<input type="text" class="form-control" id="descripcionID"
 										th:field="*{descripcionPelicula}" placeholder="Ingrese sintesis de la pelicula">
 								</div>
-
 
 								<div class="form-group">
 									<label for="fechaEstreno" class="form-label">Fecha de Estreno</label>
@@ -70,6 +56,35 @@
 										</div>
 									</div>
 								</div>
+								
+								<div class="form-group">
+						     	  	<label for="duracionPelicula" class="form-label">Duración en min</label>
+						          	<input type="number" class="form-control" id="duracionPelicula" th:field="*{duracionPelicula}" placeholder="Ingrese duración de la pelicula">
+						     	</div>
+						     	
+						     	<div class="form-group">
+						     		<label for="generoPelicula" class="form-label">Género</label>
+						       		<input type="text" class="form-label" id="generoPelicula" th:field="*{generoPelicula}" placeholder="Ingrese genero de la pelicula">
+						       		<!--<select class="form-select" id="generoPelicula" th:field="*{generoPelicula}">
+						  		 		<option selected>Seleccione una opción</option>
+						  		 		<option th:value="1">Terror</option>
+						  		 		<option th:value="2">Drama</option>
+						  		 		<option th:value="3">Acción</option>
+						  		 		<option th:value="4">Comedia</option>
+						  			</select>-->
+						     	</div>
+						     	
+						     	
+						     	<div class="form-group">
+						     	  	<label for="horario" class="form-label">Horario</label>
+						          	<input type="time" class="form-control" id="horario" th:field="*{horario}" placeholder="Ingrese horario de la pelicula">
+						     	  	<div class="alert alert-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
+						     	</div>
+						     	
+						     	<div class="form-group">
+						     	  <label for="actoresPelicula" class="form-label">Actores</label>
+						          <input type="text" class="form-control" id="actoresPelicula" th:field="*{actoresPelicula}" placeholder="Ingrese actores de la pelicula">
+						     	</div>
 
 								<button type="submit" class="btn btn-primary"><span
 										th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span>
@@ -79,8 +94,6 @@
 							</div>
 						</div>
 					</form>
-					
-					
 					
 				</div>
 			</div>

@@ -29,7 +29,7 @@ public class LoginService implements UserDetailsService{
 		
 		//definir autorizaciones
 		List <GrantedAuthority> tipos = new ArrayList<>();
-		GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioEncontrado.getTipo());
+		GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioEncontrado.getTipo(dni));
 		tipos.add(grantedAuthority);
 		
 		//definir el usuario en sesion

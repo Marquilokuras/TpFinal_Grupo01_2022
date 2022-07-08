@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible"content="IE=edge">
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
 	<link rel="shortcut icon"href="img/palomitas.png">
-	<title>Listado de Compra de Entradas</title>
+	<title>Listado de Valoraciones</title>
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	  <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
@@ -25,19 +25,20 @@
 					<th scope="col">ID</th>
 					<th scope="col">Nombre de Pelicula</th>
 					<th scope="col">Nombre Cliente</th>
-					<th scope="col">Fecha de Compra</th>
-						<th scope="col"></th>
+					<th scope="col">Valoracion</th>
+					<th scope="col">Fecha de Valoracion</th>
 			</tr>
 			</thead>
 			<tbody class="table-secondary">
-				<tr th:if="${listaCompra.empty}">
+				<tr th:if="${listaValoracion.empty}">
 					<td colspan="7">No se  ha realizado niguna compra</td>
 				</tr>
-				<tr th:each="c : ${listaCompra}">
-					<td th:text="${c.idUsuarioPelicula}"></td>
-					<td th:text="${c.usuario}"></td>
-					<td th:text="${c.pelicula}"></td>
-					<td th:text="${c.fechaDeCompra}"></td>
+				<tr th:each="v : ${listaValoracion}">
+					<td th:text="${v.idUsuarioPelicula}"></td>
+					<td th:text="${v.usuario}"></td>
+					<td th:text="${v.pelicula}"></td>
+					<td th:text="${v.valoracion}"></td>
+					<td th:text="${v.fechaDeValoracion}"></td>
 				</tr>
 			</tbody>
 		</table>

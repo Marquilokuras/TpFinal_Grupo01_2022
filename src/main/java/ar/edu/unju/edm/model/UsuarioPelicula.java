@@ -10,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 //import javax.persistence.Table;
-
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+//import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
@@ -36,6 +38,9 @@ public class UsuarioPelicula {
 	@JoinColumn(name="comentario")//parte comun de dos conjuntos
 	private String comentario;
 	
+	//@NotNull //para numeros
+	@Min(value=1,message="Valoracion minima de 1")
+	@Max(value=10,message="Valoracion maxima de 10")
 	@JoinColumn(name="valoracion")//parte comun de dos conjuntos
 	private String valoracion;
 	
