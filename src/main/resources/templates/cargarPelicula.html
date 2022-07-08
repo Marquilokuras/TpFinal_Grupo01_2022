@@ -23,6 +23,8 @@
 				<div class="modal-content">
 					<h4>Registro de Pelicula</h4>
 					
+					
+					
 					<form class="form" th:object="${pelicula}"
 						th:action="${editMode} ? @{/editarPelicula} : @{/guardarPelicula}" method="post"
 						enctype="multipart/form-data">
@@ -33,13 +35,23 @@
 							<div class="col">
 
 								<div class="form-group">
+									<label for="idPelicula" class="form-label" th:if="${editMode==false}">Digite ID de la Pelicula</label>
+									<input type="number" class="form-control" id="idPelicula" th:field="*{idPelicula}"
+										placeholder="Ingrese ID de la pelicula" th:if="${editMode==false}">
+									<div class="alert alert-danger" th:if="${#fields.hasErrors('idPelicula')}"
+										th:errors="*{idPelicula}"></div>
+								</div>
+
+								<div class="form-group">
 									<label for="nombre" class="form-label" placeholder="Nombre de la Pelicula">Nombre de la pelicula</label>
 									<input type="text" class="form-control" id="nombre" th:field="*{nombrePelicula}"
 										placeholder="Ingrese nombre de la pelicula">
+
 									<label for="descripcionID" class="form-label">Descripcion</label>
 									<input type="text" class="form-control" id="descripcionID"
 										th:field="*{descripcionPelicula}" placeholder="Ingrese sintesis de la pelicula">
 								</div>
+
 
 								<div class="form-group">
 									<label for="fechaEstreno" class="form-label">Fecha de Estreno</label>
@@ -67,6 +79,8 @@
 							</div>
 						</div>
 					</form>
+					
+					
 					
 				</div>
 			</div>

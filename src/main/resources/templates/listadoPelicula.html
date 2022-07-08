@@ -36,7 +36,7 @@
 			</thead>
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
-					<td colspan="7">No hay peliculas cargados</td>
+					<td colspan="7">No hay peliculas cargadas</td>
 				</tr>
 				<tr th:each="m : ${listaPelicula}">
 					<td th:text="${m.idPelicula}"></td>
