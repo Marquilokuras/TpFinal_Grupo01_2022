@@ -59,6 +59,7 @@ public class PeliculaController {
 			byte[] content = file.getBytes();
 			String base64 = Base64.getEncoder().encodeToString(content);
 			peliculaparaguardar.setImagen(base64);
+			peliculaparaguardar.setDuracionPelicula(45);
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
@@ -110,7 +111,6 @@ public class PeliculaController {
 	@PostMapping(value= "/editarPelicula", consumes = "multipart/form-data")
 	public ModelAndView saveEditMovie(@Valid @ModelAttribute ("pelicula") Pelicula peliculaparamodificar, BindingResult result,  @RequestParam("file") MultipartFile file) {  
 		if(result.hasErrors()) {
-			System.out.println(result.getAllErrors());
 			AGUSTINA.fatal("Error de validacion");
 			ModelAndView vista = new ModelAndView("cargarPelicula");
 			vista.addObject("pelicula", peliculaparamodificar);

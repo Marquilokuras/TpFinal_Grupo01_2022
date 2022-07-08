@@ -17,13 +17,26 @@
 
 <body>
 
+
 	<div class="container">
 		<div th:insert="/layouts/header0 :: header"></div>
-		<a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/logout}">Cerrar Sesion</a>
+		<!--  <a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/logout}">Cerrar Sesion</a>-->
+		<li class="nav-item">
+			<a class="btn btn-outline-danger form-control" href="#" th:href="@{/logout}">
+			IdUsuario:
+			<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+			<br>
+			<span>Cerrar Sesion</span>
+			<span class="float-right"><i class="fas fa-sign-out-alt"></i></span>
+			
+			</a>
+		</li>
 
 		<!-- AVISO Y ASIDE -->
 
+
 		<section class="aviso">
+
 
 			<div class="container w-30">
 
@@ -39,10 +52,12 @@
 
 		</section>
 
+
 		<aside class="container-fluid">
 			<div id="noticia" class="container w-70 pl-5">
 
 				<div class="row align-items-center">
+
 
 					<div class="col-sm text-light p-3 text-center">
 						<p>
@@ -56,11 +71,16 @@
 					<div class="col-sm p-3">
 						<img src="img/cine.jpg" class="w-100 rounded-circle mx-auto d-block" alt="">
 					</div>
+
+
 				</div>
+
 			</div>
 		</aside>
 		
 		<!-- AVISO Y ASIDE -->
+
+
 
 		<br>
 		<br>
@@ -78,8 +98,8 @@
 			<div class="card-body">
 				<h5 class="card-title">PELICULAS</h5>
 				<a th:href="@{/listadoPeliculaCliente}" class="btn btn-primary">Ver Cartelera</a>
-				<a th:href="@{/valoracion}" class="btn btn-primary">Valorar una pelicula</a>
-				<a th:href="@{/comentario}" class="btn btn-primary">Comentar una pelicula</a>
+				<a  class="btn btn-primary">Valorar una pelicula</a>
+				<a  class="btn btn-primary">Comentar una pelicula</a>
 			</div>
 		</div>
 		
@@ -156,7 +176,6 @@
 
 		</div>
 	</div>
-	
 	<!-- footer -->
 	<footer>
 		<div th:insert="/layouts/footer :: footer"></div>

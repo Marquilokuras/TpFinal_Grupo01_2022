@@ -22,25 +22,6 @@
 		<br>
 		<br>
 		
-		<div class="card mb-3" style="max-width: 540px;">
-			<div class="row g-0">
-				<div class="col-md-4">
-					<img src="${'data:image/png;base64,'+m.imagen}" class="imagen-listado-pelicula" alt="...">
-				</div>
-				<div class="col-md-8">
-					<div class="card-body" th:each="m : ${listaPelicula}">
-						<h5 th:text="${m.nombrePelicula}"></h5>
-						<p>Descripcion:</p>
-						<p th:text="${m.descripcionPelicula}"></p>
-						<p>Fecha de Estreno:</p>
-						<p th:text="${m.fechaEstreno}"<small class="text-muted"></small></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-		<!--
 		<table class="table table-bordered border-primary">
 			<thead class="table-dark">
 				<tr>
@@ -64,8 +45,7 @@
 					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt="" class="imagen-listado-pelicula"></td> 
 				</tr>
 			</tbody>
-		</table>-->
-		
+		</table>
 		<a class="btn btn-primary" th:href="@{/index}">Volver</a>
 	</div>
 </body>
