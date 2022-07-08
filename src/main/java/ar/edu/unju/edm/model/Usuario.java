@@ -3,8 +3,8 @@ package ar.edu.unju.edm.model;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-//import javax.persistence.Temporal;
-//import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 public class Usuario {
+	
 	
 	@NotEmpty //vacio string 
 	@Size (min=2, max=30, message="El nombre de contener entre 5 a 30 caracteres")
@@ -46,7 +47,7 @@ public class Usuario {
 	@NotNull
 	private int telefono;
 	
-	
+	@NotEmpty
 	private String genero;
 	
 	@NotNull
@@ -116,7 +117,7 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getTipo(String string) {
+	public String getTipo() {
 		return tipo;
 	}
 

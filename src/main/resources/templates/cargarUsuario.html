@@ -55,6 +55,16 @@
 				
 				
 				
+				<div class="custom-control custom-radio">
+				  <input type="radio" id="estado" th:field="*{estado}" class="custom-control-input" value="true" th:if="${editMode==true}">
+				  <label class="custom-control-label" for="estado" th:if="${editMode==true}">Activar Estado</label>
+			</div>
+			
+			<div class="custom-control custom-radio">
+				  <input type="radio" id="estadoInactivo" th:field="*{estado}" class="custom-control-input" value="false" th:if="${editMode==true}">
+				  <label class="custom-control-label" for="estadoInactivo" th:if="${editMode==true}">Inactivo</label>
+			</div>
+				
 
 						<div class="form-group">
 							

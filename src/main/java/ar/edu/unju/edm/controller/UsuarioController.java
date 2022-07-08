@@ -70,8 +70,9 @@ public class UsuarioController {
 	@GetMapping("/listadoUsuario")
 	public ModelAndView listUser() {
 		ModelAndView vista2 = new ModelAndView("listadoUsuario");
-		EMILIO.info("ingresando al metodo: listUsers "+serviceUsuario.mostrarUsuarios().get(0).getApellido());
+		//EMILIO.info("ingresando al metodo: listUsers "+serviceUsuario.mostrarUsuarios().get(0).getApellido());
 		vista2.addObject("listaUsuario", serviceUsuario.mostrarUsuarios());
+		vista2.addObject("listaUsuarioInactivo", serviceUsuario.mostrarUsuariosInactivos());
 		return vista2;
 	}
 	
@@ -94,7 +95,7 @@ public class UsuarioController {
 		usuarioEncontrado = serviceUsuario.buscarUsuario(dni);
 		ModelAndView modelView = new ModelAndView("cargarUsuario");
 		modelView.addObject("usuario", usuarioEncontrado);
-		EMILIO.error("saliendo del metodo :AAAAAA"+ usuarioEncontrado.getDni());
+		EMILIO.info("saliendo del metodo: editar usuario get mapping"+ usuarioEncontrado.getDni());
 		modelView.addObject("editMode", true);
 		return modelView;
 	}
@@ -106,8 +107,8 @@ public class UsuarioController {
 		vista.addObject("listaUsuario", serviceUsuario.mostrarUsuarios());
 		vista.addObject("formUsuarioErrorMessage", "Usuario Guardado Correctamente");
 		return vista;*/
-		EMILIO.fatal("Error de validacion"+usuarioparamodificar.getContrasena());
-		EMILIO.fatal("Error de validacion"+usuarioparamodificar.getDni());
+		//EMILIO.fatal("Error de validacion"+usuarioparamodificar.getContrasena());
+		//EMILIO.fatal("Error de validacion"+usuarioparamodificar.getDni());
 		/*if(result.hasFieldErrors("nombre") || result.hasFieldErrors("apellido") || result.hasFieldErrors("fechanacimiento") || result.hasFieldErrors("email") ) {*/
 			if(result.hasErrors()){
 			EMILIO.fatal("Error de validacion");
@@ -126,10 +127,11 @@ public class UsuarioController {
 			EMILIO.error("saliendo del metodo: editar usuario");
 			return vista;
 		}
-		 EMILIO.error("DNI de usuarioparamod "+ usuarioparamodificar.getDni());
-		 EMILIO.error("Nombre de usuarioparamod "+ usuarioparamodificar.getNombre());
+		 EMILIO.info("DNI de usuarioparamod "+ usuarioparamodificar.getDni());
+		 EMILIO.info("Nombre de usuarioparamod "+ usuarioparamodificar.getNombre());
 		ModelAndView vista1 = new ModelAndView("listadoUsuario");		
 		vista1.addObject("listaUsuario", serviceUsuario.mostrarUsuarios());	
+		vista1.addObject("listaUsuarioInactivo", serviceUsuario.mostrarUsuariosInactivos());	
 		vista1.addObject("formUsuarioErrorMessage","Usuario modificado Correctamente");
 		
 		return vista1;

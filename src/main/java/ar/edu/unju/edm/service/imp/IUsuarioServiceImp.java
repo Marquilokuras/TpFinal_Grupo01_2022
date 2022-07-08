@@ -26,9 +26,7 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	public void guardarUsuario(Usuario usuarioparaguardar) {
 		// TODO Auto-generated method stub
 		usuarioparaguardar.setEstado(true);
-		//usuarioparaguardar.setTipo("CLIENTE");
 
-	//	lista.getListado().add(usuarioparaguardar); 
 		String pw=usuarioparaguardar.getContrasena();
 		BCryptPasswordEncoder coder = new BCryptPasswordEncoder(4); //clase de codificadores para incriptar datos
 		usuarioparaguardar.setContrasena(coder.encode(pw));
@@ -41,12 +39,7 @@ public class IUsuarioServiceImp implements IUsuarioService {
 		// TODO Auto-generated method stub
 		List<Usuario> auxiliar = new ArrayList<>();
 		List<Usuario> auxiliar2 = new ArrayList<>();
-		/*
-		for(int i=0;i<lista.getListado().size();i++) {
-			if(lista.getListado().get(i).getEstado()==true) {
-				auxiliar.add(lista.getListado().get(i));
-			}
-		}*/
+
 		auxiliar=(List<Usuario>) usuarioRepository.findAll();
 		for(int i=0;i<auxiliar.size();i++) {
 			if(auxiliar.get(i).getEstado()==true) {
@@ -54,7 +47,25 @@ public class IUsuarioServiceImp implements IUsuarioService {
 			}
 		}
 		
-		System.out.println("CANTIDAD DE USUARIOS: "+auxiliar2.size());
+		System.out.println("CANTIDAD DE USUARIOS ACTIVOS: "+auxiliar2.size());
+		
+		return auxiliar2;
+	}
+	
+	@Override
+	public List<Usuario> mostrarUsuariosInactivos() {
+		// TODO Auto-generated method stub
+		List<Usuario> auxiliar = new ArrayList<>();
+		List<Usuario> auxiliar2 = new ArrayList<>();
+
+		auxiliar=(List<Usuario>) usuarioRepository.findAll();
+		for(int i=0;i<auxiliar.size();i++) {
+			if(auxiliar.get(i).getEstado()==false) {
+				auxiliar2.add(auxiliar.get(i));
+			}
+		}
+		
+		System.out.println("CANTIDAD DE USUARIOS INACTIVOS: "+auxiliar2.size());
 		
 		return auxiliar2;
 	}
@@ -70,22 +81,14 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	
 	@Override
 	public void modificarUsuario(Usuario usuario) {
-		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+usuario.getEmail());
+		System.out.println("ingresando al metodo modificar usuario"+usuario.getEmail());
 		
 		// TODO Auto-generated method stub
-		usuario.setEstado(true);
-		usuario.setGenero("femenino");
-		usuario.setTelefono(388505596);
-	  /*for(int i = 0; i < lista.getListado().size(); i++) {
-			if(lista.getListado().get(i).getDni().equals(usuario.getDni())) {
-				MARCOS.error("Encontrado");
-				lista.getListado().set(i, usuario);
-			}
-		}*/
-		
+		//usuario.setEstado(true);
+	
 		usuarioRepository.save(usuario);
 		
-		System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+		System.out.println("saliendo del metodo modificar usuario");
 	}
 
 	@Override
@@ -101,6 +104,6 @@ public class IUsuarioServiceImp implements IUsuarioService {
 		usuarioEncontrado=usuarioRepository.findById(dni).orElseThrow(()->new Exception("Usuario No Encontrado"));
 		return usuarioEncontrado;
 	}
-	
+
 	
 }
