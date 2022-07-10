@@ -26,13 +26,6 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	public void guardarUsuario(Usuario usuarioparaguardar) {
 		// TODO Auto-generated method stub
 		usuarioparaguardar.setEstado(true);
-<<<<<<< HEAD
-
-=======
-		//usuarioparaguardar.setTipo("CLIENTE");
-
-	//	lista.getListado().add(usuarioparaguardar); 
->>>>>>> branch 'Emilia__Valeriano' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 		String pw=usuarioparaguardar.getContrasena();
 		BCryptPasswordEncoder coder = new BCryptPasswordEncoder(4); //clase de codificadores para incriptar datos
 		usuarioparaguardar.setContrasena(coder.encode(pw));

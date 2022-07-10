@@ -70,46 +70,42 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
 			return vista;
-<<<<<<< HEAD
+
 	}
 	
 	@GetMapping({"/comentario"})	
 	public ModelAndView addComentario() {
 		EMILIA.info("ingresando al metodo: Nuevo comentario");
-		ModelAndView vista = new ModelAndView("cargarComentario");
-		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
-		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
-		vista.addObject("peliculas", peliculaservice.listadoPelicula() );
-		vista.addObject("editMode",false);
-		return vista;
+		ModelAndView vista1 = new ModelAndView("cargarComentario");
+		vista1.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
+		vista1.addObject("usuarios", usuarioservice.mostrarUsuarios() );
+		vista1.addObject("peliculas", peliculaservice.listadoPelicula() );
+		vista1.addObject("editMode",false);
+		return vista1;
 	}
 	
 	@PostMapping("/guardarComentario")
-	public ModelAndView saveComentario(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
-		ModelAndView vista=new ModelAndView ();
+	public ModelAndView saveComentario(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula comentarioparaguardar, BindingResult result) {
+		ModelAndView vista1=new ModelAndView ();
 		if(result.hasErrors()) {
 			EMILIA.fatal("Error de validacion");
-			vista.addObject("usuariopelicula", compraparaguardar);
-			vista.addObject("editMode", false);
-			vista.setViewName("cargarComentario");
-			return vista;
+			vista1.addObject("usuariopelicula", comentarioparaguardar);
+			vista1.addObject("editMode", false);
+			vista1.setViewName("cargarComentario");
+			return vista1;
 		}
 			try {
-				usuariopeliculaservice.guardarUsuarioCine(compraparaguardar);
+				usuariopeliculaservice.guardarUsuarioCine(comentarioparaguardar);
 			} catch(Exception e) {
-				vista.addObject("formUsuarioErrorMessage", e.getMessage());
-				vista.addObject("usuariopelicula", compraparaguardar);
+				vista1.addObject("formUsuarioErrorMessage", e.getMessage());
+				vista1.addObject("usuariopelicula", comentarioparaguardar);
 				EMILIA.error("saliendo del metodo: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-				vista.addObject("editMode", false);
-				vista.setViewName("cargarComentario");
-				return vista;
+				vista1.addObject("editMode", false);
+				vista1.setViewName("cargarComentario");
+				return vista1;
 			}
-=======
-
->>>>>>> branch 'Emilia__Valeriano' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
-		
 	}
-<<<<<<< HEAD
+	
 	
 	@GetMapping({"/valoracion"})	
 	public ModelAndView addValoracion() {
@@ -150,6 +146,4 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			return vista;
 	}
 	
-=======
->>>>>>> branch 'Emilia__Valeriano' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 }

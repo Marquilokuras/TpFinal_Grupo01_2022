@@ -30,15 +30,13 @@ public class UsuarioPelicula {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDeCompra;
 	
-<<<<<<< HEAD
-=======
-	/*@JoinColumn(name="comentario")//parte comun de dos conjuntos
+	@JoinColumn(name="comentario")//parte comun de dos conjuntos
 	private String comentario;
 	
 	@JoinColumn(name="valoracion")//parte comun de dos conjuntos
 	private String valoracion;
-	*/
->>>>>>> branch 'Emilia__Valeriano' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
+	
+
 	public UsuarioPelicula() {
 		// TODO Auto-generated constructor stub
 	}

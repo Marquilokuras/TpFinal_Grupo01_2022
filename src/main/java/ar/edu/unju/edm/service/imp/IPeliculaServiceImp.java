@@ -22,17 +22,10 @@ public class IPeliculaServiceImp implements IPeliculaService{
 	PeliculaRepository peliculaRepository;
 	
 	@Override
-<<<<<<< HEAD
 	public void guardarPelicula(Pelicula peliculaparaguardar) {
 		// TODO Auto-generated method stub
 		//System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+peliculaparaguardar.getNombrePelicula());
 		// TODO Auto-generated method stub
-=======
-	public void guardarPelicula(Pelicula peliculaparaguardar) {
-		// TODO Auto-generated method stub
-		System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+peliculaparaguardar.getNombrePelicula());
-		// TODO Auto-generated method stub
->>>>>>> branch 'Emilia__Valeriano' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 		peliculaparaguardar.setEstadoPelicula(true);
 		peliculaRepository.save(peliculaparaguardar);
 	}
