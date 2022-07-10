@@ -157,6 +157,3 @@ public class PeliculaController {
 			    return "redirect:/listadoPelicula";
 			}
 	}
-	
-	
-	

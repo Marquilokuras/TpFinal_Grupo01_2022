@@ -14,7 +14,7 @@
 
 <body>
 	<div class="container">
-		
+
 		<div class="modal-dialog text-center">
 			<div class="col-sm-8 main-section-xd">
 				<div class="modal-content">
@@ -27,20 +27,17 @@
 
 
 
-						
+
 						<div class="form-group ">
 							<label for="dni" class="form-label" th:if="${editMode==false}">DNI</label>
-							<input type="number" class="form-control" id="dni" th:field="*{dni}" th:if="${editMode==false}" placeholder="Ingrese DNI" required>
+							<input type="number" class="form-control" id="dni" th:field="*{dni}"
+								th:if="${editMode==false}" placeholder="Ingrese DNI" required>
 							<div class="alert alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}">
 							</div>
 						</div>
-						
-
-
-
-
 
 						<!-- TIPO DE USUARIO -->
+
 			    <div class="custom-control custom-radio">
 				  <input type="radio" id="CLIENTE" name="tipo" class="custom-control-input" value="CLIENTE" th:if="${editMode==false}">
 				  <label class="custom-control-label" for="CLIENTE" th:if="${editMode==false}">Cliente</label>
@@ -64,45 +61,48 @@
 				  <input type="radio" id="estadoInactivo" th:field="*{estado}" class="custom-control-input" value="false" th:if="${editMode==true}">
 				  <label class="custom-control-label" for="estadoInactivo" th:if="${editMode==true}">Inactivo</label>
 			</div>
-				
 
 						<div class="form-group">
-							
+
 							<label for="nombre" class="form-label">Nombre/s</label>
-							<input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese nombre completo">
-							
+							<input type="text" class="form-control" id="nombre" th:field="*{nombre}"
+								placeholder="Ingrese nombre completo">
+
 							<label for="apellido" class="form-label">Apellido/s</label>
 							<input type="text" class="form-control" id="apellido" th:field="*{apellido}"
 								placeholder="Ingrese apellido">
-								
+
 							<label for="exampleInputEmail1" class="form-label">Email</label>
 							<input type="email" class="form-control" id="exampleInputEmail1" th:field="*{email}"
 								placeholder="Ingrese email: ej@correo.com">
-								
+
 							<label for="genero" class="form-label">Genero</label>
-							<input type="text" class="form-control" id="genero" th:field="*{genero}" placeholder="Ej: femenino">
-							
+							<input type="text" class="form-control" id="genero" th:field="*{genero}"
+								placeholder="Ej: femenino">
+
 							<label for="telefono" class="form-label">Telefono</label>
-							<input type="number" class="form-control" id="telefono" th:field="*{telefono}" placeholder="Ej: 388999999">
+							<input type="number" class="form-control" id="telefono" th:field="*{telefono}"
+								placeholder="Ej: 388999999">
 						</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1" class="form-label" th:if="${editMode==false}">Contraseña</label>
-								<input type="password" class="form-control" id="exampleInputPassword1" th:field="*{contrasena}" th:if="${editMode==false}"
-									placeholder="Ingrese contraseña">
-								<div class="alert alert-danger" th:if="${#fields.hasErrors('contrasena')}"
-									th:errors="*{contrasena}"></div>
-							</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1" class="form-label"
+								th:if="${editMode==false}">Contraseña</label>
+							<input type="password" class="form-control" id="exampleInputPassword1"
+								th:field="*{contrasena}" th:if="${editMode==false}" placeholder="Ingrese contraseña">
+							<div class="alert alert-danger" th:if="${#fields.hasErrors('contrasena')}"
+								th:errors="*{contrasena}"></div>
+						</div>
 
 
-							<div class="form-group">
-								<label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-								<input type="date" class="form-control" id="fechaNacimiento"
-									th:field="*{fechaNacimiento}" placeholder="Ingrese su fecha de nacimiento">
-							</div>
+						<div class="form-group">
+							<label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+							<input type="date" class="form-control" id="fechaNacimiento" th:field="*{fechaNacimiento}"
+								placeholder="Ingrese su fecha de nacimiento">
+						</div>
 
-							<button type="submit" class="btn btn-primary"><span
-									th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
-							<a class="btn btn-light" th:href="@{/registroAdmin}">Volver</a>
+						<button type="submit" class="btn btn-primary"><span
+								th:text="${editMode}? 'Modificar' : 'Registrarse' "></span> </button>
+						<a class="btn btn-light" th:href="@{/registroAdmin}">Volver</a>
 					</form>
 				</div>
 			</div>

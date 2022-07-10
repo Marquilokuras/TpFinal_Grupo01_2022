@@ -32,21 +32,23 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	
 	@GetMapping({"/compra"})	
 	public ModelAndView addCompra() {
-		EMILIA.info("ingresando al metodo: Nueva compra");
+		EMILIA.info("ingresando al metodo NUEVA COMPRAAAA");
 		ModelAndView vista = new ModelAndView("cargarCompra");
 		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
 		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
 		vista.addObject("peliculas", peliculaservice.listadoPelicula() );
 		vista.addObject("editMode",false);
+		EMILIA.info("SALIENDO DEL METODO NUEVA COMPRAAA");
 		return vista;
 	}
 	
 	
 	@PostMapping("/guardarCompra")
 	public ModelAndView saveCompra(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
+		EMILIA.fatal("INGRESANDO AL METODO GUARDAR COMPRAAAAAAAAA");
 		ModelAndView vista=new ModelAndView ();
 		if(result.hasErrors()) {
-			EMILIA.fatal("Error de validacion");
+			EMILIA.fatal("Error EN METODO GUARDAR COMPRAAAAAAAAA");
 			vista.addObject("usuariopelicula", compraparaguardar);
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
@@ -55,59 +57,55 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			try {
 				usuariopeliculaservice.guardarUsuarioCine(compraparaguardar);
 			} catch(Exception e) {
-				vista.addObject("formUsuarioErrorMessage", e.getMessage());
+				vista.addObject("formCompraErrorMessage", e.getMessage());
 				vista.addObject("usuariopelicula", compraparaguardar);
-				EMILIA.error("saliendo del metodo: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+				EMILIA.error("saliendo del metodo: GUARDAR COMPRAAAAAAAAAAAAAAAA");
 				vista.addObject("editMode", false);
 				vista.setViewName("cargarCompra");
 				return vista;
 			}
 		
-			vista.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");
-			vista.addObject("unUsuario", usuariopeliculaservice.nuevoUsuarioCine());
+			vista.addObject("formCompraErrorMessage", "COMPRAA guardado correctamente");
+			vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine());
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
 			return vista;
+
 	}
 	
 	@GetMapping({"/comentario"})	
 	public ModelAndView addComentario() {
 		EMILIA.info("ingresando al metodo: Nuevo comentario");
-		ModelAndView vista = new ModelAndView("cargarComentario");
-		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
-		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
-		vista.addObject("peliculas", peliculaservice.listadoPelicula() );
-		vista.addObject("editMode",false);
-		return vista;
+		ModelAndView vista1 = new ModelAndView("cargarComentario");
+		vista1.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
+		vista1.addObject("usuarios", usuarioservice.mostrarUsuarios() );
+		vista1.addObject("peliculas", peliculaservice.listadoPelicula() );
+		vista1.addObject("editMode",false);
+		return vista1;
 	}
 	
 	@PostMapping("/guardarComentario")
-	public ModelAndView saveComentario(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
-		ModelAndView vista=new ModelAndView ();
+	public ModelAndView saveComentario(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula comentarioparaguardar, BindingResult result) {
+		ModelAndView vista1=new ModelAndView ();
 		if(result.hasErrors()) {
 			EMILIA.fatal("Error de validacion");
-			vista.addObject("usuariopelicula", compraparaguardar);
-			vista.addObject("editMode", false);
-			vista.setViewName("cargarComentario");
-			return vista;
+			vista1.addObject("usuariopelicula", comentarioparaguardar);
+			vista1.addObject("editMode", false);
+			vista1.setViewName("cargarComentario");
+			return vista1;
 		}
 			try {
-				usuariopeliculaservice.guardarUsuarioCine(compraparaguardar);
+				usuariopeliculaservice.guardarUsuarioCine(comentarioparaguardar);
 			} catch(Exception e) {
-				vista.addObject("formUsuarioErrorMessage", e.getMessage());
-				vista.addObject("usuariopelicula", compraparaguardar);
+				vista1.addObject("formUsuarioErrorMessage", e.getMessage());
+				vista1.addObject("usuariopelicula", comentarioparaguardar);
 				EMILIA.error("saliendo del metodo: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-				vista.addObject("editMode", false);
-				vista.setViewName("cargarComentario");
-				return vista;
+				vista1.addObject("editMode", false);
+				vista1.setViewName("cargarComentario");
+				return vista1;
 			}
-		
-			vista.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");
-			vista.addObject("unUsuario", usuariopeliculaservice.nuevoUsuarioCine());
-			vista.addObject("editMode", false);
-			vista.setViewName("cargarComentario");
-			return vista;
 	}
+	
 	
 	@GetMapping({"/valoracion"})	
 	public ModelAndView addValoracion() {
