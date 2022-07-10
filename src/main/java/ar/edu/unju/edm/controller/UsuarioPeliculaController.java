@@ -32,21 +32,23 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	
 	@GetMapping({"/compra"})	
 	public ModelAndView addCompra() {
-		EMILIA.info("ingresando al metodo: Nueva compra");
+		EMILIA.info("ingresando al metodo NUEVA COMPRAAAA");
 		ModelAndView vista = new ModelAndView("cargarCompra");
 		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
 		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
 		vista.addObject("peliculas", peliculaservice.listadoPelicula() );
 		vista.addObject("editMode",false);
+		EMILIA.info("SALIENDO DEL METODO NUEVA COMPRAAA");
 		return vista;
 	}
 	
 	
 	@PostMapping("/guardarCompra")
 	public ModelAndView saveCompra(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
+		EMILIA.fatal("INGRESANDO AL METODO GUARDAR COMPRAAAAAAAAA");
 		ModelAndView vista=new ModelAndView ();
 		if(result.hasErrors()) {
-			EMILIA.fatal("Error de validacion");
+			EMILIA.fatal("Error EN METODO GUARDAR COMPRAAAAAAAAA");
 			vista.addObject("usuariopelicula", compraparaguardar);
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
@@ -55,19 +57,20 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			try {
 				usuariopeliculaservice.guardarUsuarioCine(compraparaguardar);
 			} catch(Exception e) {
-				vista.addObject("formUsuarioErrorMessage", e.getMessage());
+				vista.addObject("formCompraErrorMessage", e.getMessage());
 				vista.addObject("usuariopelicula", compraparaguardar);
-				EMILIA.error("saliendo del metodo: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+				EMILIA.error("saliendo del metodo: GUARDAR COMPRAAAAAAAAAAAAAAAA");
 				vista.addObject("editMode", false);
 				vista.setViewName("cargarCompra");
 				return vista;
 			}
 		
-			vista.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");
-			vista.addObject("unUsuario", usuariopeliculaservice.nuevoUsuarioCine());
+			vista.addObject("formCompraErrorMessage", "COMPRAA guardado correctamente");
+			vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine());
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
 			return vista;
+<<<<<<< HEAD
 	}
 	
 	@GetMapping({"/comentario"})	
@@ -101,13 +104,12 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 				vista.setViewName("cargarComentario");
 				return vista;
 			}
+=======
+
+>>>>>>> branch 'Emilia__Valeriano' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 		
-			vista.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");
-			vista.addObject("unUsuario", usuariopeliculaservice.nuevoUsuarioCine());
-			vista.addObject("editMode", false);
-			vista.setViewName("cargarComentario");
-			return vista;
 	}
+<<<<<<< HEAD
 	
 	@GetMapping({"/valoracion"})	
 	public ModelAndView addValoracion() {
@@ -148,4 +150,6 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			return vista;
 	}
 	
+=======
+>>>>>>> branch 'Emilia__Valeriano' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 }

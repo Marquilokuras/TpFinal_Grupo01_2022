@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
@@ -176,4 +177,156 @@
 	</footer>
 </body>
 
+=======
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- Colocar icono en las pestañas -->
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+	<meta name="viewport" content="width-device-width,initial-scale-1.0">
+	<!--<link rel="shortcut icon" href="img/palomitas.png">-->
+	<title>TRABAJO PRÁCTICO FINAL</title>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+	<link th:href="@{/css/estilo.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+	<!--<link rel="shortcut icon" href="@{src/main/resources/img/palomitas.png}">-->
+</head>
+
+<!-- contenido -->
+
+<body>
+
+		<!--<div th:insert="/layouts/header0 :: header"></div>-->
+	<header>
+		<div class="contenedor">
+			<h2 class="logotipo">GRUPO 01</h2>
+		</div>
+	</header>
+		<main>
+		<div class="pelicula-principal">
+			<div class="contenedor">
+				<h3 class="titulo">Minions:El origen de Gru</h3>
+				<p class="descripcion">
+					<h5>Vista general</h5>
+				Mucho antes de convertirse en un genio del mal, Gru no 
+				era más que un chaval de 12 años en plenos años 70 tratando de
+				 conquistar el mundo desde el sótano de su casa de un barrio 
+				 residencial cualquiera. Y no le iba demasiado bien. Pero cuando 
+				 Gru se cruza en su camino con Kevin, Stuart, Bob, y Otto —un 
+				 nuevo Minion con aparato en los dientes y desesperado por sentirse
+				  aceptado—, esta inesperada familia unirá fuerzas para construir 
+				  su primera guarida, diseñar sus primeras armas y llevar a cabo sus primeras misiones.
+				</p>
+				
+				<a href="https://youtu.be/W27moupirnI"
+				role="button" class="boton"><i class="fas fa-play" 
+				 ></i>Ver Trailer</a>
+				
+				<a href="https://es.wikipedia.org/wiki/Minions:_The_Rise_of_Gru"
+				role="button" class="boton"><i class="fas fa-info-circle"></i>Mas Infomacion</a>
+			</div>
+		</div>
+	</main>
+		<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
+		<div class="card text-center">
+			<div class="card-header">CLIENTE</div>
+			<div class="card-body">
+				<h5 class="card-title">COMPRAR TICKETS</h5>
+				<p class="card-text"></p>
+				<a th:href="@{/compra}" class="btn btn-primary">Comprar un ticket</a>
+				
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">PELICULAS</h5>
+				<a th:href="@{/listadoPeliculaCliente}" class="btn btn-primary">Ver Cartelera</a>
+				<a  class="btn btn-primary">Valorar una pelicula</a>
+				<a  class="btn btn-primary">Comentar una pelicula</a>
+			</div>
+		</div>
+		<!-- CURSOS -->
+		<div class="container">
+
+			<div class="row">
+				<h3 class="text-center text-light h1" >CARTELERA</h3>
+
+
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/jurassic.jpg" height="400px" class="card-img-top" >
+						<div class="card-body">
+							<h5 class="card-title">Jurassic World:Dominion</h5>
+							<p class="card-text"><small class="text-muted">Se estreno el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/elvis.jpg" height="400px" class="card-img-top" >
+						<div class="card-body">
+							<h5 class="card-title">Elvis</h5>
+							<p class="card-text"><small class="text-muted">Se estreno el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/thor.jpg" height="400px" class="card-img-top" >
+						<div class="card-body">
+							<h5 class="card-title">Thor:Love and Thunder</h5>
+							<p class="card-text"><small class="text-muted">Se estrena el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/telefononegro.jpg" height="400px" class="card-img-top" >
+						<div class="card-body">
+							<h5 class="card-title">Black Phone</h5>
+							<p class="card-text"><small class="text-muted">Se estreno el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/lightyear.jpg" height="400px" class="card-img-top" >
+						<div class="card-body">
+							<h5 class="card-title">Lightyear</h5>
+							<p class="card-text"><small class="text-muted">Se estreno el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
+						</div>
+					</div>
+				</div>
+				
+				
+
+			
+
+			</div>
+
+		</div>
+	</div>
+	<!-- footer -->
+	<footer>
+		<div th:insert="/layouts/footer :: footer"></div>
+	</footer>
+</body>
+
+>>>>>>> branch 'Emilia__Valeriano' of https://github.com/Marquilokuras/TpFinal_Grupo01_2022.git
 </html>
