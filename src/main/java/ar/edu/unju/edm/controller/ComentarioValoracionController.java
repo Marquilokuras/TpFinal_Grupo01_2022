@@ -68,6 +68,7 @@ public class ComentarioValoracionController {
 			view.setViewName("cargarInfo");
 			return view;
 	}
+	
 	@GetMapping("/listadoComentario")	
 	public ModelAndView showCourses() {
 		ModelAndView vista = new ModelAndView("listadoComentario");		

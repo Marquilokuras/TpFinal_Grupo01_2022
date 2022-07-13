@@ -32,11 +32,13 @@
 					<tbody class="table-group-divider">
 					
 						<tr th:each="u :${listaComentarioValoracion}" class="text-center">
-						<tr th:each="p :${listaPelicula}" class="text-center">
+						<!--<tr th:each="p :${listaPelicula}" class="text-center">
 						<tr th:each="us :${listaUsuario}" class="text-center">
 							<td th:text="${us.nombre}"></td>
 							<td th:text="${p.nombrePelicula}"></td>
-							<td th:text="${u.fechaComen}"></td>
+							<td th:text="${u.fechaComen}"></td>-->
+							<td th:text="${u.id}"></td>
+							<td th:text="${u.idPelicula}"></td>
 							<td th:text="${u.texto}"></td>
 							<td th:text="${u.valoracion}"></td>
 						<td><a class="btn btn-warning" href="#">Editar</a> 
