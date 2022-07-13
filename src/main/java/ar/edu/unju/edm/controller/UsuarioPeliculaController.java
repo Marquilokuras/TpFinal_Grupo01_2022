@@ -1,5 +1,6 @@
 package ar.edu.unju.edm.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.edm.model.Usuario;
 import ar.edu.unju.edm.model.UsuarioPelicula;
 import ar.edu.unju.edm.service.IPeliculaService;
 import ar.edu.unju.edm.service.IUsuarioPeliculaService;
@@ -31,6 +33,18 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	
 	@Autowired
 	IPeliculaService peliculaservice;
+	
+	public ModelAndView addVenta(Principal principal) throws Exception {
+		Usuario existente = usuarioservice.buscarUsuario(principal.con);
+		
+	EMILIA.info("ingresando al metodo: venta");
+		ModelAndView modelView = new ModelAndView("ticket");
+		modelView.addObject("unTicket", usuariopeliculaservice.nuevoUsuarioPelicula());
+		//modelView.addObject("usuarios", usuarioService.mostrarUsuario());
+		modelView.addObject("usuarios", existente);
+		modelView.addObject("pelicula", peliculaservice.listadoPelicula());
+		return modelView;
+	}
 	
 	@PostMapping("/guardarTicket")
 	public ModelAndView saveInscripcion(@Valid @ModelAttribute("unTicket") UsuarioPelicula usuarioPeliculaNuevo, BindingResult resultado) {			
