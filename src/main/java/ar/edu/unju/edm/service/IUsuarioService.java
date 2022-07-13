@@ -11,5 +11,7 @@ public interface IUsuarioService {
 	public void modificarUsuario(Usuario usuario);
 	public void eliminarUsuario(Long dni) throws Exception;
 	public List<Usuario> mostrarUsuarios();
+	public List<Usuario> mostrarUsuariosInactivos();
 	public Usuario buscarUsuario(Long dni) throws Exception;
+	public Usuario encontrarConDni(String usuario) throws Exception;
 }

@@ -13,3 +13,4 @@ public interface IPeliculaService {
 	public Pelicula buscarPelicula(Long idPelicula) throws Exception;
 	public List<Pelicula> listadoPelicula(); 
 }
+

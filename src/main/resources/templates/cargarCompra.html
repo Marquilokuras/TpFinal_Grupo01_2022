@@ -20,28 +20,28 @@
 			
 
       			<form class="form"
-      			th:object="${usuariopelicula}" th:action="@{/guardarCompra}" method="post"enctype="multipart/form-data">
+      			th:object="${unaCompra}" th:action="@{/guardarCompra}" method="post">
        	 
-       	  <div class="mb-3" th:if="${editMode == false}">
-	          <label for="usuario" class="form-label">Usuarios</label> 
+       	  <div class="mb-3" >
+	          <label for="exampleInputEmail1" class="form-label">Usuarios</label> 
 	          <select class="form-control" 
 	          			th:field="*{usuario.dni}">
-	          				<option th:each="u:${usuarios}" th:value="${u.dni}" th:text="${u.apellido}"></option>
+	          				<option th:each="u:${usuarios}" th:value="${u.dni}" th:text="${u.nombre}"></option>
 	          </select>
 		  </div>
 		  
 		  
 		  <div class="mb-3">
-		  	 <label for="peliculas" class="form-label">Peliculas</label>
+		  	 <label for="exampleInputPassword1" class="form-label">Peliculas</label>
 			 <select class="form-control" 
 			 		th:field="*{pelicula.idPelicula}">
-	         			<option th:each="p:${peliculas}" th:value="${p.idPelicula}" th:text="${p.nombrePelicula}"></option>
+	         			<option th:each="p:${pelicula}" th:value="${p.idPelicula}" th:text="${p.nombrePelicula}"></option>
 	         </select>
 		 </div>
 			
         <div class="mb-3">
-          <label for="birthdateID" class="form-label">Fecha de Compra</label>
-          <input th:field="*{fechaDeCompra}" type="date" class="form-control" id="birthdateID"  placeholder="Ingrese fecha de compra">
+          <label for="fechaDecompra" class="form-label">Fecha de Compra</label>
+          <input th:field="*{fechaDeCompra}" type="date" class="form-control" id="fechaDecompra">
         </div>
 	
 		  <button type="submit" class="btn btn-primary">Comprar</button>

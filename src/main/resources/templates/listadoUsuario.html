@@ -30,6 +30,7 @@
 					<th scope="col">Telefono</th>
 					<th scope="col">Email</th>
 					<th scope="col">Fecha de Nacimiento</th>
+					<th scope="col">Estado Actual</th>
 					<th scope="col">Edicion</th> 
 				</tr>
 			</thead>
@@ -45,6 +46,7 @@
 					<td th:text="${u.telefono}"></td>
 					<td th:text="${u.email}"></td>
 					<td th:text="${u.fechaNacimiento}"></td>
+					<td th:text="${u.estado}"></td>
 					<td>
 					<a class="btn btn-warning" th:href="@{'/editarUsuario/'+${u.dni}}">Editar</a>
 					<a class="btn btn-danger" th:onclick="'javascript:confirmarEliminar(\''+${u.dni}+'\');'"
@@ -54,6 +56,44 @@
 				</tr>
 			</tbody>
 		</table>
+		
+		
+		<table class="table table-bordered border-primary">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">DNI</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Genero</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Email</th>
+					<th scope="col">Fecha de Nacimiento</th>
+					<th scope="col">Estado Actual</th>
+					<th scope="col">Edicion</th> 
+				</tr>
+			</thead>
+			<tbody class="table-secondary">
+				  <tr th:if="${listaUsuarioInactivo.empty}">
+					<td colspan="6">No hay usuarios eliminados</td>
+				</tr>
+				<tr th:each="i : ${listaUsuarioInactivo}">
+					<td th:text="${i.dni}"></td>
+					<td th:text="${i.nombre}"></td>
+					<td th:text="${i.apellido}"></td>
+					<td th:text="${i.genero}"></td>
+					<td th:text="${i.telefono}"></td>
+					<td th:text="${i.email}"></td>
+					<td th:text="${i.fechaNacimiento}"></td>
+					<td th:text="${i.estado}"></td>
+					<td>
+						<a class="btn btn-warning" th:href="@{'/editarUsuario/'+${i.dni}}">Editar/Editar Estado</a>
+					</td> 
+				
+				</tr>
+			</tbody>
+		</table>
+		
+		
 		<a class="btn btn-primary" th:href="@{/registroAdmin}">Volver</a>
 	</div>
 

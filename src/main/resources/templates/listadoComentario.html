@@ -26,7 +26,7 @@
 					<th scope="col">Nombre de Pelicula</th>
 					<th scope="col">Nombre Cliente</th>
 					<th scope="col">Comentario</th>
-						<th scope="col"></th>
+					<th scope="col">Fecha de Comentario</th>
 			</tr>
 			</thead>
 			<tbody class="table-secondary">
@@ -38,10 +38,11 @@
 					<td th:text="${c.usuario}"></td>
 					<td th:text="${c.pelicula}"></td>
 					<td th:text="${c.comentario}"></td>
+					<td th:text="${c.fechaDeComentario}"></td>
 				</tr>
 			</tbody>
 		</table>
 
 	</div>
 </body>
-</html> 
+</html>

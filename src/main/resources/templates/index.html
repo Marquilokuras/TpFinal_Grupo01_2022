@@ -18,7 +18,7 @@
 
 <body>
 
-		<!--<div th:insert="/layouts/header0 :: header"></div>-->
+		<!---<div th:insert="/layouts/header0 :: header"></div>-->
 	<header>
 		<div class="contenedor">
 			<h2 class="logotipo">GRUPO 01</h2>
@@ -56,7 +56,8 @@
 			<div class="card-body">
 				<h5 class="card-title">COMPRAR TICKETS</h5>
 				<p class="card-text"></p>
-				<a th:href="@{/compra}" class="btn btn-primary">Comprar un ticket</a>
+				<a th:href="@{/nuevaCompra}" class="btn btn-primary">Comprar un ticket</a>
+				<a th:href="@{/listadoCompra}" class="btn btn-primary">Listado de compras</a>
 				
 			</div>
 			<div class="card-body">
@@ -64,6 +65,7 @@
 				<a th:href="@{/listadoPeliculaCliente}" class="btn btn-primary">Ver Cartelera</a>
 				<a  class="btn btn-primary">Valorar una pelicula</a>
 				<a  class="btn btn-primary">Comentar una pelicula</a>
+				
 			</div>
 		</div>
 		<!-- CURSOS -->
