@@ -18,15 +18,15 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 	UsuarioPeliculaRepository usuariopelicularepository;
 
 		@Override
-		public UsuarioPelicula nuevoUsuarioCine() {
+		public UsuarioPelicula nuevoUsuarioPelicula() {
 			// TODO Auto-generated method stub
 			return usuariopelicula;
 		}
 
 		@Override
-		public void guardarUsuarioCine(UsuarioPelicula usuariocine) {
+		public void guardarUsuarioPelicula(UsuarioPelicula usuariopelicula) {
 			// TODO Auto-generated method stub
-			usuariopelicularepository.save (usuariocine);
+			usuariopelicularepository.save (usuariopelicula);
 		}
 
 		@Override
@@ -42,7 +42,7 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 		}
 
 		@Override
-		public List<UsuarioPelicula> listadoUsuariosCine() {
+		public List<UsuarioPelicula> listadoUsuariosPelicula() {
 			// TODO Auto-generated method stub
 			return (List<UsuarioPelicula>) usuariopelicularepository.findAll();
 		}
@@ -51,6 +51,12 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 		public UsuarioPelicula buscarUsuarioCine(Integer id) throws Exception {
 			// TODO Auto-generated method stub
 			return usuariopelicularepository.findById(id).orElseThrow(()-> new Exception("UsuarioCine no encontrado"));
+		}
+
+		@Override
+		public List<UsuarioPelicula> listadoUsuariosPelicula() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 
 }
