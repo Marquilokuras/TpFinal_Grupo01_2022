@@ -36,7 +36,8 @@ public class UsuarioPelicula {
 	@JoinColumn(name="valoracion")//parte comun de dos conjuntos
 	private String valoracion;
 	
-
+	private Integer Tickets; 
+	
 	public UsuarioPelicula() {
 		// TODO Auto-generated constructor stub
 	}
@@ -71,5 +72,29 @@ public class UsuarioPelicula {
 
 	public void setFechaDeCompra (LocalDate fechaDeCompra) {
 		this.fechaDeCompra = fechaDeCompra;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+
+	public String getValoracion() {
+		return valoracion;
+	}
+
+	public void setValoracion(String valoracion) {
+		this.valoracion = valoracion;
+	}
+
+	public Integer getTickets() {
+		return Tickets;
+	}
+
+	public void setTickets(Integer tickets) {
+		Tickets = tickets;
 	}
 }
