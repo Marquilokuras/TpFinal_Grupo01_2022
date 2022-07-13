@@ -144,8 +144,22 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 				vista.setViewName("cargarComentario");
 				return vista;
 			}
-	}*/
-			
+
+	return vista1;
+	}
+	
+	
+	@GetMapping({"/valoracion"})	
+	public ModelAndView addValoracion() {
+		EMILIA.info("ingresando al metodo: Nueva valoracion");
+		ModelAndView vista = new ModelAndView("cargarValoracion");
+		vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
+		vista.addObject("usuarios", usuarioservice.mostrarUsuarios() );
+		vista.addObject("peliculas", peliculaservice.listadoPelicula() );
+		vista.addObject("editMode",false);
+		return vista;
+	}
+
 	@PostMapping("/guardarValoracion")
 	public ModelAndView saveValoracion(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
 		ModelAndView vista=new ModelAndView ();
