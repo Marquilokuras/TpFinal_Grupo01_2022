@@ -32,7 +32,7 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 		@Override
 		public void guardarUsuarioCine(UsuarioPelicula usuariocine) {
 			// TODO Auto-generated method stub
-			usuariocine.setEstado(true);
+			
 			usuarioPelicularepository.save (usuariocine);
 		}
 

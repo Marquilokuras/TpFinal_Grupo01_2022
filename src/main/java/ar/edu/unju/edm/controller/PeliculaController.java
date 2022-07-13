@@ -1,7 +1,5 @@
 package ar.edu.unju.edm.controller;
-
 import java.util.Base64;
-
 import javax.validation.Valid;
 
 import org.apache.commons.logging.Log;
@@ -156,4 +154,4 @@ public class PeliculaController {
 				AGUSTINA.info("saliendo al metodo eliminar");
 			    return "redirect:/listadoPelicula";
 			}
-	}
+}

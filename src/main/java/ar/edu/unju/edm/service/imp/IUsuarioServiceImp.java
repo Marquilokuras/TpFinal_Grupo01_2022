@@ -25,7 +25,9 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	@Override
 	public void guardarUsuario(Usuario usuarioparaguardar) {
 		// TODO Auto-generated method stub
+
 		usuarioparaguardar.setEstado(true);
+
 		String pw=usuarioparaguardar.getContrasena();
 		BCryptPasswordEncoder coder = new BCryptPasswordEncoder(4); //clase de codificadores para incriptar datos
 		usuarioparaguardar.setContrasena(coder.encode(pw));
@@ -103,10 +105,6 @@ public class IUsuarioServiceImp implements IUsuarioService {
 		usuarioEncontrado=usuarioRepository.findById(dni).orElseThrow(()->new Exception("Usuario No Encontrado"));
 		return usuarioEncontrado;
 	}
-	@Override
-	public Usuario encontrarConDni(Long dni) throws Exception {
-		// TODO Auto-generated method stub
-		return usuarioRepository.findByDni(dni).orElseThrow(()->new Exception("NOOOOOOO Existe")); 
-	}
+
 	
 }

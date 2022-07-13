@@ -36,15 +36,6 @@ public class UsuarioPelicula {
 	@JoinColumn(name="valoracion")//parte comun de dos conjuntos
 	private String valoracion;
 	
-	private Boolean estado;
-	
-	public Boolean getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
 
 	public UsuarioPelicula() {
 		// TODO Auto-generated constructor stub

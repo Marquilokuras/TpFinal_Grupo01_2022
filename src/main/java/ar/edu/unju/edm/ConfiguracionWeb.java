@@ -24,9 +24,11 @@ public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 			.authorizeRequests()
+
 				.antMatchers(resources).permitAll()
 				.antMatchers("/", "/index","/listadoPeliculaCliente","/otroUsuario","/guardarUsuario").permitAll()
 				.antMatchers("/otroUsuario","/otraPelicula","/registroAdmin","/listadoPelicula").hasAuthority("ADMIN")
+
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
