@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<!-- Colocar icono en las pestañas -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
@@ -10,80 +11,84 @@
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    <div class="container">
-        <form class="caja col-md 6" th:object="${unaInfo}" th:action="@{/guardarInfo}" method="post">
-        
-        	  		<div class="mb-3">
-    			<label for="exampleInputEmail1" class="form-label">Usuario</label>
-    				<select class="form-control"
-						th:field="*{usuario.dni}">
-						<option th:each="c:${usuarios}" th:value="${c.dni}"
-							th:text="${c.apellido}"></option>
-					</select>    
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Peliculas</label>
-    <select class="form-control"
-						th:field="*{pelicula.idPelicula}">
-						<option th:each="p:${peliculas}" th:value="${p.idPelicula}"
-							th:text="${p.nombrePelicula}"></option>
-					</select>
-  </div>
-        
-        
-            <label for="texto">Ingrese su opinion sobre la pelicula</label>
-            <textarea class="form-control" id="texto"th:field="*{texto}" value=""></textarea>
-            <br>
-            <br>
-          <div class="mb-3">
-                <label for="valoracion" class="form-label">Valoracion</label>
-             <!-- <input type="number" class="form-control" id="valoracion" th:field="*{valoracion}" required> -->   
-       
-      		 <div class="col-sm-10">
-			
-			<p class="calificacion">
-		                <input th:field="*{valoracion}" class="inval" id="radio1" type="radio" name="estrellas" value="5">
-					<!----><label class="val" for="radio1">#</label>
-					<!----><input th:field="*{valoracion}" class="inval" id="radio2" type="radio" name="estrellas" value="4">
-					<!----><label class="val" for="radio2">#</label>
-					<!--  --> <input th:field="*{valoracion}" class="inval" id="radio3" type="radio" name="estrellas" value="3">
-					<!----><label class="val" for="radio3">#</label>
-					<!----><input th:field="*{valoracion}" class="inval" id="radio4" type="radio" name="estrellas" value="2">
-					<!----><label class="val" for="radio4">#</label>
-					<!----><input th:field="*{valoracion}" class="inval" id="radio5" type="radio" name="estrellas" value="1">
-					<!----><label class="val" for="radio5">#</label>
-				</p>
-				<p class="calificacion">
-		             <span class="fa fa-star"></span>
-		             <span class="fa fa-star"></span>
-		              <span class="fa fa-star"></span>
-		               
-		               
-				</p>
+	<div class="container">
+		<form class="caja col-md 6" th:object="${unaInfo}" th:action="@{/guardarInfo}" method="post">
+
+			<div class="mb-3">
+				<label for="exampleInputEmail1" class="form-label">Usuario</label>
+				<select class="form-control" th:field="*{usuario.dni}">
+					<option th:each="c:${usuarios}" th:value="${c.dni}" th:text="${c.apellido}"></option>
+				</select>
 			</div>
-       			 
-       			 <div class="alert alert-danger" 
-        		th:if="${#fields.hasErrors('valoracion')}"th:errors="*{valoracion}"></div>
-          </div>
-          
-          <div class="mb-3">
-                <label for="fechaComen" class="form-label">Fecha de Comentario</label>
-                <input  type="date"  class="date form-control" id="fechaComen" th:field="*{fechaComen}" required>
-                    <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaComen')}"th:errors="*{fechaComen}"></div>
-            </div> 
-          
-          
-            <button type="submit" class="button"><span>Publicar comentario y valoracion</span> </button> 
-		    <a class="button" th:href="@{/index}">Volver</a>
-        	
-        </form>
-        <div class="col-md-1"></div>
-        <div class="portada col-md-4">
-            <tr th:each="p : ${peliculas}">
-            <td><img th:src="${'data:image/jpg;base64,'+p.imagen}" alt="" ></td>
-        </tr>
-        </div>
-    </div>
+			<div class="mb-3">
+				<label for="exampleInputPassword1" class="form-label">Peliculas</label>
+				<select class="form-control" th:field="*{pelicula.idPelicula}">
+					<option th:each="p:${peliculas}" th:value="${p.idPelicula}" th:text="${p.nombrePelicula}"></option>
+				</select>
+			</div>
+
+
+			<label for="texto">Ingrese Comentario</label>
+			<textarea class="form-control" id="texto" th:field="*{texto}" value=""></textarea>
+			<br>
+			<br>
+			<div class="mb-3">
+				<label for="valoracion" class="form-label">Valoracion</label>
+				<!-- <input type="number" class="form-control" id="valoracion" th:field="*{valoracion}" required> -->
+
+				<div class="col-sm-10">
+
+					<p class="calificacion">
+						<input th:field="*{valoracion}" class="inval" id="radio1" type="radio" name="estrellas"
+							value="1">
+						<!----><label class="val" for="radio1">1</label>
+						<!----><input th:field="*{valoracion}" class="inval" id="radio2" type="radio" name="estrellas"
+							value="2">
+						<!----><label class="val" for="radio2">2</label>
+						<!--  --> <input th:field="*{valoracion}" class="inval" id="radio3" type="radio"
+							name="estrellas" value="3">
+						<!----><label class="val" for="radio3">3</label>
+						<!----><input th:field="*{valoracion}" class="inval" id="radio4" type="radio" name="estrellas"
+							value="4">
+						<!----><label class="val" for="radio4">4</label>
+						<!----><input th:field="*{valoracion}" class="inval" id="radio5" type="radio" name="estrellas"
+							value="5">
+						<!----><label class="val" for="radio5">5</label>
+					</p>
+					<p class="calificacion">
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+
+
+					</p>
+				</div>
+
+				<div class="alert alert-danger" th:if="${#fields.hasErrors('valoracion')}" th:errors="*{valoracion}">
+				</div>
+			</div>
+
+			<!--<div class="mb-3">
+				<label for="fechaComen" class="form-label">Fecha de Comentario</label>
+				<input type="date" class="date form-control" id="fechaComen" th:field="*{fechaComen}" required>
+				<div class="alert alert-danger" th:if="${#fields.hasErrors('fechaComen')}" th:errors="*{fechaComen}">
+				</div>
+			</div>-->
+
+
+			<button type="submit" class="button"><span>Publicar comentario y valoracion</span> </button>
+			<a class="button" th:href="@{/index}">Volver</a>
+
+		</form>
+		<div class="col-md-1"></div>
+		<div class="portada col-md-4">
+			<tr th:each="p : ${peliculas}">
+				<td><img th:src="${'data:image/jpg;base64,'+p.imagen}" alt=""></td>
+			</tr>
+		</div>
+	</div>
 </body>
+
 </html>

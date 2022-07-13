@@ -15,16 +15,16 @@
 <body>
 
   <div class="container">
-<div class="alert-danger text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">Name Error</div>
+<div class="alert-danger text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">Nombre Error</div>
 		<section>
 			<div class="table-responsive">
 				<table class="table table-sm table-dark table-hover">
-					<caption class="table-caption">List of users</caption>
+					<caption class="table-caption">No hay comentarios cargados</caption>
 					<thead>
 						<tr class="text-center">
-							<th scope="col">usuario</th>
-							<th scope="col">pelicula</th>
-							<th scope="col">fechadeComentario</th>
+							<th scope="col">Usuario</th>
+							<th scope="col">Pelicula</th>
+							<!--<th scope="col">Fecha de Comentario</th>-->
 							<th scope="col">Comentario</th>
 							<th scope="col">Valoracion</th>
 						</tr>
@@ -32,24 +32,24 @@
 					<tbody class="table-group-divider">
 					
 						<tr th:each="u :${listaComentarioValoracion}" class="text-center">
-							<td th:text="${u.usuario.nombre}"></td>
-							<td th:text="${u.pelicula.nombre}"></td>
-							<td th:text="${u.fechadeCom}"></td>
+						<tr th:each="p :${listaPelicula}" class="text-center">
+						<tr th:each="us :${listaUsuario}" class="text-center">
+							<td th:text="${us.nombre}"></td>
+							<td th:text="${p.nombrePelicula}"></td>
+							<!--<td th:text="${u.fechaComen}"></td>-->
 							<td th:text="${u.texto}"></td>
 							<td th:text="${u.valoracion}"></td>
-						<td><a class="btn btn-warning" href="#"
-								>Editar</a> 
+						<td><a class="btn btn-warning" href="#">Editar</a> 
 								<a class="link-eliminar" href="#">
 								<i class="btn btn-secondary fa fa-trash-alt"></i></a>
-							 							</td>
-
+							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</section>
 	</div>
-	
+	<a class="button" th:href="@{/index}">Volver</a>
 
 </body>
 </html>
