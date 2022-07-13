@@ -30,9 +30,9 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="peliculas" class="form-label">Peliculas</label>
+							<label for="pelicula" class="form-label">Peliculas</label>
 							<select class="form-control" th:field="*{pelicula.idPelicula}">
-								<option th:each="p:${peliculas}" th:value="${p.idPelicula}"	th:text="${p.nombrePelicula}"></option>
+								<option th:each="p:${pelicula}" th:value="${p.idPelicula}"	th:text="${p.nombrePelicula}"></option>
 							</select>
 						</div>
 

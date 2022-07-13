@@ -18,7 +18,7 @@
     			<label for="exampleInputEmail1" class="form-label">Usuario</label>
     				<select class="form-control"
 						th:field="*{usuario.dni}">
-						<option th:each="c:${usuarios}" th:value="${c.id}"
+						<option th:each="c:${usuarios}" th:value="${c.dni}"
 							th:text="${c.apellido}"></option>
 					</select>    
   </div>
@@ -27,7 +27,7 @@
     <select class="form-control"
 						th:field="*{pelicula.idPelicula}">
 						<option th:each="p:${peliculas}" th:value="${p.idPelicula}"
-							th:text="${p.nombre}"></option>
+							th:text="${p.nombrePelicula}"></option>
 					</select>
   </div>
         
@@ -44,15 +44,15 @@
 			
 			<p class="calificacion">
 		                <input th:field="*{valoracion}" class="inval" id="radio1" type="radio" name="estrellas" value="5">
-					<!----><label class="val" for="radio1">â˜…</label>
+					<!----><label class="val" for="radio1">#</label>
 					<!----><input th:field="*{valoracion}" class="inval" id="radio2" type="radio" name="estrellas" value="4">
-					<!----><label class="val" for="radio2">â˜…</label>
+					<!----><label class="val" for="radio2">#</label>
 					<!--  --> <input th:field="*{valoracion}" class="inval" id="radio3" type="radio" name="estrellas" value="3">
-					<!----><label class="val" for="radio3">â˜…</label>
+					<!----><label class="val" for="radio3">#</label>
 					<!----><input th:field="*{valoracion}" class="inval" id="radio4" type="radio" name="estrellas" value="2">
-					<!----><label class="val" for="radio4">â˜…</label>
+					<!----><label class="val" for="radio4">#</label>
 					<!----><input th:field="*{valoracion}" class="inval" id="radio5" type="radio" name="estrellas" value="1">
-					<!----><label class="val" for="radio5">â˜…</label>
+					<!----><label class="val" for="radio5">#</label>
 				</p>
 				<p class="calificacion">
 		             <span class="fa fa-star"></span>
@@ -68,14 +68,14 @@
           </div>
           
           <div class="mb-3">
-                <label for="fechadeCom" class="form-label">Fecha de Comentario</label>
-                <input  type="date"  class="date form-control" id="fechadeCom" th:field="*{fechadeCom}" required>
-                    <div class="alert alert-danger" th:if="${#fields.hasErrors('fechadeCom')}"th:errors="*{fechadeCom}"></div>
+                <label for="fechaComen" class="form-label">Fecha de Comentario</label>
+                <input  type="date"  class="date form-control" id="fechaComen" th:field="*{fechaComen}" required>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('fechaComen')}"th:errors="*{fechaComen}"></div>
             </div> 
           
           
             <button type="submit" class="button"><span>Publicar comentario y valoracion</span> </button> 
-		    <a class="button" th:href="@{/}">Volver</a>
+		    <a class="button" th:href="@{/index}">Volver</a>
         	
         </form>
         <div class="col-md-1"></div>
