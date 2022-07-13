@@ -21,8 +21,18 @@
 	
 	<div class="container">
 		<div th:insert="/layouts/header0 :: header"></div>
-		<a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/logout}">Cerrar Sesion</a>
-	
+		<!-- <a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/logout}">Cerrar Sesion</a> -->
+		<li class="nav-item">
+			<a class="btn btn-outline-danger form-control" href="#" th:href="@{/logout}">
+			IdUsuario:
+			<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+			<br>
+			<span>Cerrar Sesion</span>
+			<span class="float-right"><i class="fas fa-sign-out-alt"></i></span>
+			
+			</a>
+		</li>
+		
 		<br>
 		<br>
 		<br>

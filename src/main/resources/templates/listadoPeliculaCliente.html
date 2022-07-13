@@ -2,26 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<!-- Colocar icono en las pestañas -->
-	<meta http-equiv="X-UA-Compatible"content="IE=edge">
-	<meta name="viewport" content="width-device-width,initial-scale-1.0">
-	<link rel="shortcut icon"href="img/palomitas.png">
-	<title>Cartelera</title>
-	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
-	  <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<!-- Colocar icono en las pestañas -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width-device-width,initial-scale-1.0">
+<link rel="shortcut icon" href="img/palomitas.png">
+<title>Cartelera</title>
+<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css">
+<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-  <div class="container">
+	<div class="container">
+
+		<a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/index}">Volver</a>
 		
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br> <br> <br>
 		
+		
+			<div class="card mx-auto mt-5 border-dark" style="max-width: 540px;" th:each="m : ${listaPelicula}">
+				<div class="row g-0">
+				
+						<div class="col-md-4">
+							<img class="img-fluid" th:src="${'data:image/png;base64,'+m.imagen}" alt="">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body bg-warning">
+								<h5 class="card-title" th:text="${m.nombrePelicula}"></h5>
+								<p class="card-text" th:text="${m.descripcionPelicula}"></p>
+								<p class="card-text">Fecha de Estreno: 
+									<b th:text="${m.fechaEstreno}"></b>
+								</p>
+							</div>
+						</div>
+					
+				</div>
+			</div>
+	
+		
+		
+		
+		<!--  
+
+		<br> <br> <br> <br> <br>
+
 		<table class="table table-bordered border-primary">
 			<thead class="table-dark">
 				<tr>
@@ -30,8 +56,8 @@
 					<th scope="col">Descripcion</th>
 					<th scope="col">Fecha de Estreno</th>
 					<th scope="col">Imagen</th>
-						<th scope="col"></th>
-			</tr>
+					<th scope="col"></th>
+				</tr>
 			</thead>
 			<tbody class="table-secondary">
 				<tr th:if="${listaPelicula.empty}">
@@ -42,12 +68,19 @@
 					<td th:text="${m.nombrePelicula}"></td>
 					<td th:text="${m.descripcionPelicula}"></td>
 					<td th:text="${m.fechaEstreno}"></td>
-					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt="" class="imagen-listado-pelicula"></td> 
+					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt=""
+						class="imagen-listado-pelicula"></td>
 				</tr>
 			</tbody>
 		</table>
+		
 		<a class="btn btn-primary" th:href="@{/index}">Volver</a>
+		
+		-->
+		
+		<br> <br> <br> <br> <br>
+		
 	</div>
 </body>
 
-</html> 
+</html>

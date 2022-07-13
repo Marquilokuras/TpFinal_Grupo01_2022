@@ -4,79 +4,53 @@
 <head>
 	<meta charset="UTF-8">
 	<!-- Colocar icono en las pestañas -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
-	<link rel="shortcut icon" href="img/palomitas.png">
+	<!--<link rel="shortcut icon" href="img/palomitas.png">-->
 	<title>TRABAJO PRÁCTICO FINAL</title>
-	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+	<link th:href="@{/css/estilo.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
-	<link rel="shortcut icon" href="@{src/main/resources/img/palomitas.png}">
+	<!--<link rel="shortcut icon" href="@{src/main/resources/img/palomitas.png}">-->
 </head>
 
 <!-- contenido -->
 
 <body>
 
-
-	<div class="container">
-		<div th:insert="/layouts/header0 :: header"></div>
-		<a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/logout}">Cerrar Sesion</a>
-
-		<!-- AVISO Y ASIDE -->
-
-
-		<section class="aviso">
-
-
-			<div class="container w-30">
-
-				<div class="row justify-content-md-center py-3">
-					<div class="col text-center">
-						<p class="text">Este sitio tiene el próposito de mostrar
-							novedades e informacion acerca de las diferentes películas
-							que el cine más exitoso de Jujuy ofrece.</p>
-					</div>
-				</div>
-
+		<!--<div th:insert="/layouts/header0 :: header"></div>-->
+	<header>
+		<div class="contenedor">
+			<h2 class="logotipo">GRUPO 01</h2>
+		</div>
+	</header>
+		<main>
+		<div class="pelicula-principal">
+			<div class="contenedor">
+				<h3 class="titulo">Minions:El origen de Gru</h3>
+				<p class="descripcion">
+					<h5>Vista general</h5>
+				Mucho antes de convertirse en un genio del mal, Gru no 
+				era más que un chaval de 12 años en plenos años 70 tratando de
+				 conquistar el mundo desde el sótano de su casa de un barrio 
+				 residencial cualquiera. Y no le iba demasiado bien. Pero cuando 
+				 Gru se cruza en su camino con Kevin, Stuart, Bob, y Otto —un 
+				 nuevo Minion con aparato en los dientes y desesperado por sentirse
+				  aceptado—, esta inesperada familia unirá fuerzas para construir 
+				  su primera guarida, diseñar sus primeras armas y llevar a cabo sus primeras misiones.
+				</p>
+				
+				<a href="https://youtu.be/W27moupirnI"
+				role="button" class="boton"><i class="fas fa-play" 
+				 ></i>Ver Trailer</a>
+				
+				<a href="https://es.wikipedia.org/wiki/Minions:_The_Rise_of_Gru"
+				role="button" class="boton"><i class="fas fa-info-circle"></i>Mas Infomacion</a>
 			</div>
-
-		</section>
-
-
-		<aside class="container-fluid">
-			<div id="noticia" class="container w-70 pl-5">
-
-				<div class="row align-items-center">
-
-
-					<div class="col-sm text-light p-3 text-center">
-						<p>
-							ATENCIÓN <br> ¡Hey! ¿Cómo estás ? <br>
-							en esta página te mostraremos <br> todas las películas que
-							están en la boca de todos <br> REGISTRATE Y COMIENZA A DISFRUTAR <br>
-							DE ESTE FANTÁSTICO CINE <br> ¡¡ NO PIERDAS TIEMPO !!
-						</p>
-					</div>
-
-					<div class="col-sm p-3">
-						<img src="img/cine.jpg" class="w-100 rounded-circle mx-auto d-block" alt="">
-					</div>
-
-
-				</div>
-
-			</div>
-		</aside>
-		
-		<!-- AVISO Y ASIDE -->
-
-
-
-		<br>
-		<br>
-		<br>
-		<br>
-	
+		</div>
+	</main>
+		<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
 		<div class="card text-center">
 			<div class="card-header">CLIENTE</div>
 			<div class="card-body">
@@ -92,75 +66,77 @@
 				<a  class="btn btn-primary">Comentar una pelicula</a>
 			</div>
 		</div>
-		
-		<br>
-		<br>
-
 		<!-- CURSOS -->
-
-		<section class="cursos"></section>
-		<div class="container-md w-30 p-5">
+		<div class="container">
 
 			<div class="row">
-				<h3 class="text-center text-light h1">CARTELERA</h3>
-			</div>
+				<h3 class="text-center text-light h1" >CARTELERA</h3>
 
-			<div class="row">
+
 				<div class="col-6 col-sm pt-5">
-					<div class="card h-100 card-border" style="width: 100%;">
-						<img src="./img/drstrange.jpeg" height="300px" class="card-img-top" alt="">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/jurassic.jpg" height="400px" class="card-img-top" >
 						<div class="card-body">
-							<h5 class="card-title">DR STRANGE</h5>
-							<p class="card-text">El Dr. Stephen Strange abre un portal al multiverso al utilizar un
-								hechizo prohibido. Ahora, su equipo debe enfrentarse a una amenaza que podría destruirlo
-								todo.</p>
+							<h5 class="card-title">Jurassic World:Dominion</h5>
+							<p class="card-text"><small class="text-muted">Se estreno el :20/06/2022</small></p>
 							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
-								class="btn btn-primary">Leer más</a>
+								class="btn btn-primary">Ver Trailer</a>
 						</div>
 					</div>
 				</div>
-
+				
+				
 				<div class="col-6 col-sm pt-5">
-					<div class="card h-100 card-border" style="width: 100%;">
-						<img src="./img/dune.jpeg" height="200px" class="card-img-top" alt="">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/elvis.jpg" height="400px" class="card-img-top" >
 						<div class="card-body">
-							<h5 class="card-title">DUNE</h5>
-							<p class="card-text">Arrakis, también denominado "Dune", se ha convertido en el planeta más
-								importante del universo. A su alrededor comienza una gigantesca lucha por el poder que
-								culmina en una guerra interestelar.</p>
-							<a href="https://www.youtube.com/watch?v=TTgk_iT8Uts" target="_blank"
-								class="btn btn-primary">Leer más</a>
+							<h5 class="card-title">Elvis</h5>
+							<p class="card-text"><small class="text-muted">Se estreno el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="col-6 col-sm pt-5">
-					<div class="card h-100 card-border">
-						<img src="./img/jurassicworld.jpeg" height="200px" class="card-img-top" alt="">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/thor.jpg" height="400px" class="card-img-top" >
 						<div class="card-body">
-							<h5 class="card-title">JURASSIC WORLD</h5>
-							<p class="card-text">La isla Nublar y su parque han sido destruidos, pero el problema no se
-								terminó. Con los dinosaurios dispersos por todo el mundo, la convivencia entre el
-								presente y el pasado alcanza un nuevo nivel de tensión.</p>
-							<a hef="https://www.youtube.com/watch?v=zfURZ-Vb8_E" target="_blank"
-								class="btn btn-primary">Leer más</a>
+							<h5 class="card-title">Thor:Love and Thunder</h5>
+							<p class="card-text"><small class="text-muted">Se estrena el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="col-6 col-sm pt-5">
-					<div class="card h-100 card-border">
-						<img src="./img/sonic2.jpeg" height="300px" class="card-img-top" alt="">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/telefononegro.jpg" height="400px" class="card-img-top" >
 						<div class="card-body">
-							<h5 class="card-title">SONIC 2</h5>
-							<p class="card-text">Después de establecerse en Green Hills, Sonic quiere demostrar que
-								tiene madera de héroe. La prueba de fuego llega con el retorno del malvado Robotnik, y
-								su nuevo compinche, Knuckles, en busca de una esmeralda que destruye civilizaciones.</p>
-							<a href="https://www.youtube.com/watch?v=hB6krsAiyFo" target="_blank"
-								class="btn btn-primary">Leer más</a>
+							<h5 class="card-title">Black Phone</h5>
+							<p class="card-text"><small class="text-muted">Se estreno el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
 						</div>
 					</div>
 				</div>
+				
+				<div class="col-6 col-sm pt-5">
+					<div class="card h-200 card-border" style="max-width: 450px;">
+						<img src="/img/lightyear.jpg" height="400px" class="card-img-top" >
+						<div class="card-body">
+							<h5 class="card-title">Lightyear</h5>
+							<p class="card-text"><small class="text-muted">Se estreno el :20/06/2022</small></p>
+							<a href="https://www.youtube.com/watch?v=aWzlQ2N6qqg" target="_blank"
+								class="btn btn-primary">Ver Trailer</a>
+						</div>
+					</div>
+				</div>
+				
+				
+
+			
 
 			</div>
 

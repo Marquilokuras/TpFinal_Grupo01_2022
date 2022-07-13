@@ -141,5 +141,4 @@ public class Usuario {
 		this.genero = genero;
 	}
 
-
 }

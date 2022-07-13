@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
 	<link rel="shortcut icon" href="img/palomitas.png">
-	<title>Formulario Comentario</title>
+	<title>Formulario Valoracion</title>
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
@@ -19,7 +19,7 @@
 		<div class="modal-dialog text-center">
 			<div class="col-sm-8 main-section">
 				<div class="modal-content">
-					<h4>Comentar Pelicula</h4>
+					<h4>Valoracion Pelicula</h4>
 
 					<form class="form" th:object="${usuariopelicula}" th:action="@{/guardarComentario}" method="post">
 						<div class="mb-3" th:if="${editMode == false}">
@@ -37,16 +37,16 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="comentario" class="form-label">Comentario</label>
-							<input type="text" class="form-control" id="comentario" placeholder="Ingrese comentario">
+							<label for="valoracion" class="form-label">Valoracion</label>
+							<input type="Number" min="1" max="10" class="form-control" id="valoracion" placeholder="Ingrese valoracion">
 						</div>
 						
 						<div class="mb-3">
-							<label for="birthdateID" class="form-label">Fecha del Comentario</label>
-							<input type="date" class="form-control" id="birthdateID" placeholder="Ingrese fecha de comentario">
+							<label for="birthdateID" class="form-label">Fecha del Valoracion</label>
+							<input type="date" class="form-control" id="birthdateID" placeholder="Ingrese fecha de valoracion">
 						</div>
 
-						<button type="submit" class="btn btn-primary">Comentar</button>
+						<button type="submit" class="btn btn-primary">Valorar</button>
 						<a class="btn btn-light" th:href="@{/index}">Volver</a>
 
 					</form>
