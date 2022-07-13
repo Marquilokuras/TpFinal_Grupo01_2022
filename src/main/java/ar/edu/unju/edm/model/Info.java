@@ -59,7 +59,7 @@ public class Info {
 	public LocalDate getFechaComen() {
 		return fechaComen;
 	}
-	public void setFechadeCom(LocalDate fechaComen) {
+	public void setFechaComen(LocalDate fechaComen) {
 		this.fechaComen = fechaComen;
 	}
 

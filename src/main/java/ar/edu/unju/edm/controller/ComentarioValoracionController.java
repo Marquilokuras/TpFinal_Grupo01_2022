@@ -1,5 +1,8 @@
 package ar.edu.unju.edm.controller;
 
+import java.time.LocalDate;
+import java.util.Base64;
+
 import javax.validation.Valid;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -8,12 +11,18 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.edm.model.Info;
+import ar.edu.unju.edm.model.Pelicula;
 import ar.edu.unju.edm.service.ComentarioValoracionService;
 import ar.edu.unju.edm.service.IPeliculaService;
 import ar.edu.unju.edm.service.IUsuarioService;
@@ -69,6 +78,7 @@ public class ComentarioValoracionController {
 			EMILIA.info("entro al try");
 			infoNueva.setUsuario(usuarioservice.buscarUsuario(Long.parseLong(userDetail.getUsername())));
 			comentarioValoracionService.guardarInfo(infoNueva);
+			infoNueva.setFechaComen(LocalDate.now());
 			
 		}catch(Exception e) {
 			EMILIA.info("catch");
@@ -90,4 +100,19 @@ public class ComentarioValoracionController {
 		vista.addObject("listaComentarioValoracion", comentarioValoracionService.mostrarInfo());		
 		return vista;
 	}
+	
+	//modificar comentario
+	@RequestMapping("/editComentario/{idComentario}")
+	public ModelAndView editComentario(Model model,@PathVariable (name="idComentario") Long idComentario)throws Exception {	
+		Info comentarioEncontrado = new Info();
+		comentarioEncontrado = comentarioValoracionService(idComentario);		
+		ModelAndView modelView = new ModelAndView("cargarInfo");
+		modelView.addObject("comentario", comentarioEncontrado);
+		 AGUSTINA.info("saliendo del metodo: editMovie "+ peliculaEncontrada.getNombrePelicula());
+		modelView.addObject("editMode", true);
+		return modelView;
+	}
+	
+		
+	
 }
