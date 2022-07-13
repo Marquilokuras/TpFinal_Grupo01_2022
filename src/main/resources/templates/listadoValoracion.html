@@ -4,45 +4,53 @@
 <head>
 	<meta charset="UTF-8">
 	<!-- Colocar icono en las pestañas -->
-	<meta http-equiv="X-UA-Compatible"content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
-	<link rel="shortcut icon"href="img/palomitas.png">
-	<title>Listado de Valoraciones</title>
+	<link rel="shortcut icon" href="img/palomitas.png">
+	<title>Listado de Comentario de Peliculas</title>
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
-	  <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-  <div class="container">
-		<div th:insert="/layouts/header0 :: header"></div>
-		<br>
-		<div class="alert-primary text-center" th:if="${formCompraErrorMessage}" th:text="${formCompraErrorMessage}">Nombre Error</div>
-		
-		<table class="table table-bordered border-primary">
-			<thead class="table-dark">
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Nombre de Pelicula</th>
-					<th scope="col">Nombre Cliente</th>
-					<th scope="col">Valoracion</th>
-					<th scope="col">Fecha de Valoracion</th>
-			</tr>
-			</thead>
-			<tbody class="table-secondary">
-				<tr th:if="${listaValoracion.empty}">
-					<td colspan="7">No se  ha realizado niguna compra</td>
-				</tr>
-				<tr th:each="v : ${listaValoracion}">
-					<td th:text="${v.idUsuarioPelicula}"></td>
-					<td th:text="${v.usuario}"></td>
-					<td th:text="${v.pelicula}"></td>
-					<td th:text="${v.valoracion}"></td>
-					<td th:text="${v.fechaDeValoracion}"></td>
-				</tr>
-			</tbody>
-		</table>
-
+	<div class="container">
+		<div class="alert-danger text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">
+			Nombre Error</div>
+		<section>
+			<div class="table-responsive">
+				<table class="table table-sm table-dark table-hover">
+					
+					<thead>
+						<tr class="text-center">
+							<th scope="col">Usuario</th>
+							<th scope="col">Pelicula</th>
+							<!--<th scope="col">Fecha de Comentario</th>-->
+							<th scope="col">Comentario</th>
+							<th scope="col">Valoracion</th>
+							<th scope="col">Edicion</th>
+						</tr>
+					</thead>
+					<tbody class="table-group-divider">
+						<tr th:if="${listaComentarioValoracion.empty}">
+							<td colspan="10">No hay comentarios cargados</td>
+						</tr>
+						<tr th:each="u :${listaComentarioValoracion}" class="text-center">
+							<td th:text="${u.usuario.nombre}"></td>
+							<td th:text="${u.pelicula.nombrePelicula}"></td>
+							<!--<td th:text="${u.fechaComen}"></td>-->
+							<td th:text="${u.texto}"></td>
+							<td th:text="${u.valoracion}"></td>
+							<td><a class="btn btn-warning" href="#">Editar</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a class="btn btn-primary" th:href="@{/index}">Volver</a>
+			</div>
+		</section>
 	</div>
+
 </body>
+
 </html>

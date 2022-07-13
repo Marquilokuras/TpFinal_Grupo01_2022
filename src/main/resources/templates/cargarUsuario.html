@@ -77,8 +77,11 @@
 								placeholder="Ingrese email: ej@correo.com">
 
 							<label for="genero" class="form-label">Genero</label>
-							<input type="text" class="form-control" id="genero" th:field="*{genero}"
-								placeholder="Ej: femenino">
+							<select class="form-select" id="dni" th:field="*{genero}">
+						  		 		<option th:value="Masculino">Masculino</option>
+						  		 		<option th:value="Femenino">Femenino</option>
+						  	</select>
+							
 
 							<label for="telefono" class="form-label">Telefono</label>
 							<input type="number" class="form-control" id="telefono" th:field="*{telefono}"

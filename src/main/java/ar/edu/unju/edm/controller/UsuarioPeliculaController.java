@@ -104,6 +104,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 				vista1.setViewName("cargarComentario");
 				return vista1;
 			}
+		return vista1;
 	}
 	
 	

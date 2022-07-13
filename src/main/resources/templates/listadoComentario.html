@@ -15,34 +15,41 @@
 <body>
 
   <div class="container">
-		<div th:insert="/layouts/header0 :: header"></div>
-		<br>
-		<div class="alert-primary text-center" th:if="${formCompraErrorMessage}" th:text="${formCompraErrorMessage}">Nombre Error</div>
-		
-		<table class="table table-bordered border-primary">
-			<thead class="table-dark">
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Nombre de Pelicula</th>
-					<th scope="col">Nombre Cliente</th>
-					<th scope="col">Comentario</th>
-					<th scope="col">Fecha de Comentario</th>
-			</tr>
-			</thead>
-			<tbody class="table-secondary">
-				<tr th:if="${listaComentario.empty}">
-					<td colspan="7">No se  ha realizado niguna compra</td>
-				</tr>
-				<tr th:each="c : ${listaComentario}">
-					<td th:text="${c.idUsuarioPelicula}"></td>
-					<td th:text="${c.usuario}"></td>
-					<td th:text="${c.pelicula}"></td>
-					<td th:text="${c.comentario}"></td>
-					<td th:text="${c.fechaDeComentario}"></td>
-				</tr>
-			</tbody>
-		</table>
-
+<div class="alert-danger text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">Nombre Error</div>
+		<section>
+			<div class="table-responsive">
+				<table class="table table-sm table-dark table-hover">
+					<caption class="table-caption">No hay comentarios cargados</caption>
+					<thead>
+						<tr class="text-center">
+							<th scope="col">Usuario</th>
+							<th scope="col">Pelicula</th>
+							<th scope="col">Fecha de Comentario</th>
+							<th scope="col">Comentario</th>
+							<th scope="col">Valoracion</th>
+						</tr>
+					</thead>
+					<tbody class="table-group-divider">
+					
+						<tr th:each="u :${listaComentarioValoracion}" class="text-center">
+						<tr th:each="p :${listaPelicula}" class="text-center">
+						<tr th:each="us :${listaUsuario}" class="text-center">
+							<td th:text="${us.nombre}"></td>
+							<td th:text="${p.nombrePelicula}"></td>
+							<td th:text="${u.fechaComen}"></td>
+							<td th:text="${u.texto}"></td>
+							<td th:text="${u.valoracion}"></td>
+						<td><a class="btn btn-warning" href="#">Editar</a> 
+								<a class="link-eliminar" href="#">
+								<i class="btn btn-secondary fa fa-trash-alt"></i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
 	</div>
+	<a class="button" th:href="@{/index}">Volver</a>
+
 </body>
 </html>
