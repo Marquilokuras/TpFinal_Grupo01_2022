@@ -146,6 +146,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			}
 	}
 			
+
 	@PostMapping("/guardarValoracion")
 	public ModelAndView saveValoracion(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
 		ModelAndView vista=new ModelAndView ();
