@@ -18,11 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.edm.model.Info;
-import ar.edu.unju.edm.model.Pelicula;
 import ar.edu.unju.edm.service.ComentarioValoracionService;
 import ar.edu.unju.edm.service.IPeliculaService;
 import ar.edu.unju.edm.service.IUsuarioService;
@@ -103,16 +100,40 @@ public class ComentarioValoracionController {
 	
 	//modificar comentario
 	@RequestMapping("/editComentario/{idComentario}")
-	public ModelAndView editComentario(Model model,@PathVariable (name="idComentario") Long idComentario)throws Exception {	
+	public ModelAndView editComentario(Model model,@PathVariable (name="idComentario") Integer idComentario)throws Exception {	
 		Info comentarioEncontrado = new Info();
-		comentarioEncontrado = comentarioValoracionService(idComentario);		
+		comentarioEncontrado = comentarioValoracionService.buscarInfo(idComentario);		
 		ModelAndView modelView = new ModelAndView("cargarInfo");
 		modelView.addObject("comentario", comentarioEncontrado);
-		 AGUSTINA.info("saliendo del metodo: editMovie "+ peliculaEncontrada.getNombrePelicula());
+		 EMILIA.info("saliendo del metodo: editComentario "+ comentarioEncontrado.getIdComentario());
 		modelView.addObject("editMode", true);
 		return modelView;
 	}
 	
-		
+	//actualizar comentario
+	@PostMapping("/editComentario")
+	public ModelAndView saveEditComentario(@Valid @ModelAttribute ("unaInfo") Info comentarioparamodificar, BindingResult result) {  
+		if(result.hasErrors()) {
+			EMILIA.fatal("Error de validacion");
+			ModelAndView vista = new ModelAndView("cargarInfo");
+			vista.addObject("unaInfo", comentarioparamodificar);
+			vista.addObject("editMode",true);
+			return vista;
+		}
+		try {
+			comentarioValoracionService.modificarComentario(comentarioparamodificar);
+		}catch(Exception error){
+			ModelAndView vista = new ModelAndView("cargarInfo");
+			vista.addObject("formInfoErrorMessage", error.getMessage());
+			vista.addObject("unaInfo", comentarioparamodificar);
+			vista.addObject("editMode",true);
+			EMILIA.error("saliendo del metodo: editarComentario");
+			return vista;
+		}
+			ModelAndView vista = new ModelAndView("listadoComentario");
+			vista.addObject("listaPelicula", comentarioValoracionService.mostrarInfo());	
+			vista.addObject("formInfoErrorMessage","Comentario modificado Correctamente");
+		return vista;
+	}	
 	
 }

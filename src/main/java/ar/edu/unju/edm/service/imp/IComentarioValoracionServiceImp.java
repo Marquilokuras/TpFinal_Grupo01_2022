@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ar.edu.unju.edm.model.Info;
-import ar.edu.unju.edm.model.Pelicula;
 import ar.edu.unju.edm.repository.ComentarioValoracion;
 import ar.edu.unju.edm.service.ComentarioValoracionService;
 
@@ -27,7 +26,15 @@ public class IComentarioValoracionServiceImp implements ComentarioValoracionServ
 	}
 
 	@Override
-	public Info buscarInfo(Long idComentario) throws Exception {
+	public void modificarComentario(Info comentario) {
+		// TODO Auto-generated method stub
+		comentario.setEstadoComentario(true);
+		  
+		comentarioValoracionRepository.save(comentario);
+	}
+	
+	@Override
+	public Info buscarInfo(Integer idComentario) throws Exception {
 		// TODO Auto-generated method stub
 		Info comentarioEncontrado = new Info();
 		

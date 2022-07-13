@@ -32,6 +32,16 @@ public class Info {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaComen;
 	
+	private Boolean estadoComentario;
+	
+	public Boolean getEstadoComentario() {
+		return estadoComentario;
+	}
+
+	public void setEstadoComentario(Boolean estadoComentario) {
+		this.estadoComentario = estadoComentario;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
