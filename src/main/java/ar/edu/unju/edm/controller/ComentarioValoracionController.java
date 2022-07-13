@@ -35,7 +35,7 @@ public class ComentarioValoracionController {
 		public ModelAndView addInfo() {
 		
 		ModelAndView view = new ModelAndView("cargarInfo");
-		view.addObject("unaResenia", comentarioValoracionService.nuevaInfo());
+		view.addObject("unaInfo", comentarioValoracionService.nuevaInfo());
 		view.addObject("usuarios", usuarioservice.mostrarUsuarios());
 		view.addObject("peliculas", peliculaservice.listadoPelicula());
 		return view;
@@ -44,7 +44,7 @@ public class ComentarioValoracionController {
 	@PostMapping("/guardarInfo")
 	public ModelAndView saveResenia(@Valid @ModelAttribute("unaInfo") Info infoNueva, BindingResult resultado) {
 		ModelAndView view = new ModelAndView();
-		EMILIA.info("Entrandooo"+infoNueva.getFechadeCom());
+		EMILIA.info("Entrandooo");
 		if(resultado.hasErrors()) {
 			EMILIA.info("Antes de entrar al error");
 			view.setViewName("cargarInfo");
@@ -64,14 +64,14 @@ public class ComentarioValoracionController {
 			return view;
 		}
 			view.addObject("formReseniaErrorMessage", "Comentario guardado correctamente");
-			view.addObject("unaResenia", comentarioValoracionService.nuevaInfo());
+			view.addObject("unaInfo", comentarioValoracionService.nuevaInfo());
 			view.setViewName("cargarInfo");
 			return view;
 	}
 	@GetMapping("/listadoComentario")	
 	public ModelAndView showCourses() {
 		ModelAndView vista = new ModelAndView("listadoComentario");		
-		vista.addObject("listaComentario", comentarioValoracionService.mostrarRnfo());		
+		vista.addObject("listaComentario", comentarioValoracionService.mostrarInfo());		
 		return vista;
 	}
 }
