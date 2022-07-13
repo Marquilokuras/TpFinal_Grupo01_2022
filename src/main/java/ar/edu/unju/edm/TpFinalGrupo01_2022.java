@@ -10,4 +10,5 @@ public class TpFinalGrupo01_2022 {
 	public static void main(String[] args) {
 		SpringApplication.run(TpFinalGrupo01_2022.class, args);
 	}
+	 
 }
