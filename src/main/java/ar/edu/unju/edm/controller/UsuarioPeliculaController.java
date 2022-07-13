@@ -69,7 +69,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 		modelView.addObject("formUsuarioErrorMessage", "Usuario guardado correctamente");
 		modelView.addObject("unTicket", usuariopeliculaservice.nuevoUsuarioPelicula());
 		//modelView.setViewName("ticket");
-		modelView.addObject("listaTickets", usuariopeliculaservice.listadoUsuariosPelicula());
+		modelView.addObject("listaTickets", usuariopeliculaservice.listadoComentario());
 		modelView.setViewName("listadoTickets");
 		return modelView;
 		}
@@ -77,7 +77,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	@GetMapping("/listadoTickets")	
 	public ModelAndView showCourses() {
 		ModelAndView vista = new ModelAndView("listadoTickets");		
-		vista.addObject("listaTickets", usuariopeliculaservice.listadoUsuariosPelicula());		
+		vista.addObject("listaTickets", usuariopeliculaservice.listadoComentario());		
 		return vista;
 	}
 	
@@ -91,7 +91,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 		vista.addObject("editMode",false);
 		EMILIA.info("SALIENDO DEL METODO NUEVA COMPRAAA");
 		return vista;
-	}*/
+	}
 	
 
 	@PostMapping("/guardarCompra")
@@ -135,10 +135,10 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			return vista;
 		}
 			try {
-				usuariopeliculaservice.guardarUsuarioPelicula(compraparaguardar);
+				usuariopeliculaservice.guardarUsuarioPelicula(comentarioparaguardar);
 			} catch(Exception e) {
 				vista.addObject("formUsuarioErrorMessage", e.getMessage());
-				vista.addObject("usuariopelicula", compraparaguardar);
+				vista.addObject("usuariopelicula", comentarioparaguardar);
 				EMILIA.error("saliendo del metodo: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 				vista.addObject("editMode", false);
 				vista.setViewName("cargarComentario");
@@ -173,6 +173,9 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarValoracion");
 			return vista;
-	}
+
+	}*/
 	
+
 }
+	
