@@ -116,7 +116,7 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getTipo(String string) {
+	public String getTipo() {
 		return tipo;
 	}
 
