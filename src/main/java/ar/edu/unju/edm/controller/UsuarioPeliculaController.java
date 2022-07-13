@@ -91,7 +91,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 		vista.addObject("editMode",false);
 		EMILIA.info("SALIENDO DEL METODO NUEVA COMPRAAA");
 		return vista;
-	}
+	}*/
 	
 
 	@PostMapping("/guardarCompra")
@@ -106,7 +106,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			return vista;
 		}
 			try {
-				usuariopeliculaservice.guardarUsuarioCine(compraparaguardar);
+				usuariopeliculaservice.guardarUsuarioPelicula(compraparaguardar);
 			} catch(Exception e) {
 				vista.addObject("formCompraErrorMessage", e.getMessage());
 				vista.addObject("usuariopelicula", compraparaguardar);
@@ -117,7 +117,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 			}
 		
 			vista.addObject("formCompraErrorMessage", "COMPRAA guardado correctamente");
-			vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine());
+			vista.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioPelicula());
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarCompra");
 			return vista;
@@ -125,11 +125,11 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	}
 	
 	@PostMapping("/guardarComentario")
-	public ModelAndView saveComentario(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
+	public ModelAndView saveComentario(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula comentarioparaguardar, BindingResult result) {
 		ModelAndView vista=new ModelAndView ();
 		if(result.hasErrors()) {
 			EMILIA.fatal("Error de validacion");
-			vista.addObject("usuariopelicula", compraparaguardar);
+			vista.addObject("usuariopelicula", comentarioparaguardar);
 			vista.addObject("editMode", false);
 			vista.setViewName("cargarComentario");
 			return vista;
@@ -144,7 +144,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 				vista.setViewName("cargarComentario");
 				return vista;
 			}
-	}*/
+	}
 			
 	@PostMapping("/guardarValoracion")
 	public ModelAndView saveValoracion(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result) {
