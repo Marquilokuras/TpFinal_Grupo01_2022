@@ -13,11 +13,26 @@
 </head>
 
 <body>
-	<div class="container">
-	<div class="col-sm-6 main-section">
+	<div class="container"></div>
+	
+	<li class="nav-item">
+			<a class="btn btn-outline-danger form-control" href="#" th:href="@{/logout}">
+			IdUsuario:
+			<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+			<br>
+			<span>Cerrar Sesion</span>
+			<span class="float-right"><i class="fas fa-sign-out-alt"></i></span>
+			
+			</a>
+		</li>
+		
+	<br>
+	<br>
+	
+	<div class="col-sm-6">
 				<div class="modal-content">
 					<h4>Registro de Comentario y Valoracion</h4>
-		<form class="form-group" th:object="${unaInfo}" th:action="@{/guardarInfo}" method="post">
+		<form th:object="${unaInfo}" th:action="@{/guardarInfo}" method="post">
 
 			<div class="form-group">
 				<label for="exampleInputPassword1" class="form-label">Peliculas</label>
@@ -81,12 +96,7 @@
 			<a class="button" th:href="@{/index}">Volver</a>
 
 		</form>
-		<div class="col-md-1"></div>
-		<div class="portada col-md-4">
-			<tr th:each="p : ${peliculas}">
-				<td><img th:src="${'data:image/jpg;base64,'+p.imagen}" alt=""></td>
-			</tr>
-		</div>
+		
 	</div>
 </body>
 
