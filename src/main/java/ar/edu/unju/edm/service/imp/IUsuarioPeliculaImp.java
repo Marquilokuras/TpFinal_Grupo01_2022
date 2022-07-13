@@ -42,7 +42,7 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 		}
 
 		@Override
-		public List<UsuarioPelicula> listadoUsuariosPelicula() {
+		public List<UsuarioPelicula> listadoComentario() {
 			// TODO Auto-generated method stub
 			return (List<UsuarioPelicula>) usuariopelicularepository.findAll();
 		}
@@ -53,10 +53,10 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 			return usuariopelicularepository.findById(id).orElseThrow(()-> new Exception("UsuarioCine no encontrado"));
 		}
 
-		@Override
-		public List<UsuarioPelicula> listadoUsuariosPelicula() {
+		//@Override
+	//	public List<UsuarioPelicula> listadoComentario() {
 			// TODO Auto-generated method stub
-			return null;
-		}
+			//return null;
+		//}
 
 }
