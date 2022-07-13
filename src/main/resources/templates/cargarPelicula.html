@@ -78,14 +78,16 @@
 						     	
 						     	<div class="form-group">
 						     		<label for="generoPelicula" class="form-label">Género</label>
-						       		<input type="text" class="form-label" id="generoPelicula" th:field="*{generoPelicula}" placeholder="Ingrese genero de la pelicula">
-						       		<!--<select class="form-select" id="generoPelicula" th:field="*{generoPelicula}">
-						  		 		<option selected>Seleccione una opción</option>
-						  		 		<option th:value="1">Terror</option>
-						  		 		<option th:value="2">Drama</option>
-						  		 		<option th:value="3">Acción</option>
-						  		 		<option th:value="4">Comedia</option>
-						  			</select>-->
+						     	
+						       		<select class="form-select" id="idPelicula" th:field="*{generoPelicula}">
+						  		 		<option th:value="Terror">Terror</option>
+						  		 		<option th:value="Drama">Drama</option>
+						  		 		<option th:value="Acción">Acción</option>
+						  		 		<option th:value="Comedia">Comedia</option>
+						  			</select>
+						     		
+						       		<!--<input type="text" class="form-label" id="generoPelicula" th:field="*{generoPelicula}" placeholder="Ingrese genero de la pelicula">
+						       		-->
 						     	</div>
 						     	
 						     	
