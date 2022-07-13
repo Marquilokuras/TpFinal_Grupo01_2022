@@ -14,25 +14,24 @@
 
 <body>
 	<div class="container">
-		<form class="caja col-md 6" th:object="${unaInfo}" th:action="@{/guardarInfo}" method="post">
+	<div class="col-sm-6 main-section">
+				<div class="modal-content">
+					<h4>Registro de Comentario y Valoracion</h4>
+		<form class="form-group" th:object="${unaInfo}" th:action="@{/guardarInfo}" method="post">
 
-			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label">Usuario</label>
-				<select class="form-control" th:field="*{usuario.dni}">
-					<option th:each="c:${usuarios}" th:value="${c.dni}" th:text="${c.apellido}"></option>
-				</select>
-			</div>
-			<div class="mb-3">
+			<div class="form-group">
 				<label for="exampleInputPassword1" class="form-label">Peliculas</label>
 				<select class="form-control" th:field="*{pelicula.idPelicula}">
 					<option th:each="p:${peliculas}" th:value="${p.idPelicula}" th:text="${p.nombrePelicula}"></option>
 				</select>
 			</div>
 
+			<!--<label for="fechaComen">Ingrese Fecha</label>
+			<input type="date"class="form-control" id="fechaComen" th:field="*{fechaComen}" value=""></input>
+			<br>-->
 
 			<label for="texto">Ingrese Comentario</label>
 			<textarea class="form-control" id="texto" th:field="*{texto}" value=""></textarea>
-			<br>
 			<br>
 			<div class="mb-3">
 				<label for="valoracion" class="form-label">Valoracion</label>

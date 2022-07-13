@@ -4,6 +4,9 @@ import javax.validation.Valid;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,11 +35,18 @@ public class ComentarioValoracionController {
 	IPeliculaService peliculaservice;
 
 	@GetMapping("/cargarInfo")
-		public ModelAndView addInfo() {
+		public ModelAndView addInfo() throws NumberFormatException, Exception {
 		
 		ModelAndView view = new ModelAndView("cargarInfo");
 		view.addObject("unaInfo", comentarioValoracionService.nuevaInfo());
-		view.addObject("usuarios", usuarioservice.mostrarUsuarios());
+	//	view.addObject("usuarios", usuarioservice.mostrarUsuarios());
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+		System.out.println(userDetail.getUsername());
+		view.addObject("usuarioEnSesion",usuarioservice.buscarUsuario(Long.parseLong(userDetail.getUsername())));
+		System.out.println(usuarioservice.buscarUsuario(Long.parseLong(userDetail.getUsername())).getApellido());
 		view.addObject("peliculas", peliculaservice.listadoPelicula());
 		return view;
 		}
@@ -44,6 +54,10 @@ public class ComentarioValoracionController {
 	@PostMapping("/guardarInfo")
 	public ModelAndView saveResenia(@Valid @ModelAttribute("unaInfo") Info infoNueva, BindingResult resultado) {
 		ModelAndView view = new ModelAndView();
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
 		EMILIA.info("Entrandooo");
 		if(resultado.hasErrors()) {
 			EMILIA.info("Antes de entrar al error");
@@ -53,6 +67,7 @@ public class ComentarioValoracionController {
 		}
 		try {
 			EMILIA.info("entro al try");
+			infoNueva.setUsuario(usuarioservice.buscarUsuario(Long.parseLong(userDetail.getUsername())));
 			comentarioValoracionService.guardarInfo(infoNueva);
 			
 		}catch(Exception e) {
@@ -72,7 +87,7 @@ public class ComentarioValoracionController {
 	@GetMapping("/listadoComentario")	
 	public ModelAndView showCourses() {
 		ModelAndView vista = new ModelAndView("listadoComentario");		
-		vista.addObject("listaComentario", comentarioValoracionService.mostrarInfo());		
+		vista.addObject("listaComentarioValoracion", comentarioValoracionService.mostrarInfo());		
 		return vista;
 	}
 }
