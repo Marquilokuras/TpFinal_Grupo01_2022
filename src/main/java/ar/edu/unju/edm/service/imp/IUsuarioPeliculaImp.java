@@ -40,8 +40,7 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 		public void eliminarUsuarioCine(Integer id) throws Exception {
 			// TODO Auto-generated method stub
 			UsuarioPelicula auxiliar =new UsuarioPelicula();
-			auxiliar=buscarUsuarioCine(id);
-			auxiliar.setEstado(false);
+			auxiliar=buscarUsuarioCine(dni);
 			usuarioPelicularepository.save(auxiliar);
 		}
 
@@ -57,11 +56,6 @@ public class IUsuarioPeliculaImp implements IUsuarioPeliculaService{
 			List<UsuarioPelicula> auxiliar = new ArrayList<>();
 			List<UsuarioPelicula> auxiliar2 = new ArrayList<>();
 			auxiliar=(List<UsuarioPelicula>) usuarioPelicularepository.findAll();
-			for(int i = 0 ;i<auxiliar.size();i++) {
-				if (auxiliar.get(i).getEstado()==true) {
-					auxiliar2.add(auxiliar.get(i));
-				}
-			}	
 			return auxiliar2;
 		}
 

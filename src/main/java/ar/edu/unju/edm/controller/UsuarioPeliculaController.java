@@ -1,13 +1,11 @@
 package ar.edu.unju.edm.controller;
 
-import java.security.Principal;
 
 import javax.validation.Valid;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,47 +33,42 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	IPeliculaService peliculaservice;
 	
 	@GetMapping({"/nuevaCompra"})	
-	public ModelAndView addCompra(Authentication authentication)throws Exception {
-		Usuario existe=usuarioservice.encontrarConDni(authentication.getName()).
+	public ModelAndView addCompra(){
 				EMILIA.info("SALIENDO DEL METODO NUEVA COMPRAAA");
-		ModelAndView modelView = new ModelAndView("cargarCompra");
-		modelView.addObject("unaCompra", usuariopeliculaservice.nuevoUsuarioCine() );
-		modelView.addObject("usuarios", usuarioservice.mostrarUsuarios() );
-		modelView.addObject("usuarios", existe );
-		modelView.addObject("pelicula",peliculaservice.listadoPelicula());
+		ModelAndView vista1 = new ModelAndView("cargarCompra");
+		vista1.addObject("usuariopelicula", usuariopeliculaservice.nuevoUsuarioCine() );
+		vista1.addObject("usuarios", usuarioservice.mostrarUsuarios() );
+		vista1.addObject("peliculas", peliculaservice.listadoPelicula() );
+		vista1.addObject("editMode",false);
 		EMILIA.info("SALIENDO DEL METODO NUEVA COMPRAAA");
-		return modelView;	
+		return vista1;
+	
 		}
 	
 	
 	@PostMapping("/guardarCompra")
-	public ModelAndView saveCompra(@Valid @ModelAttribute ("unaCompra") UsuarioPelicula compraparaguardar, BindingResult result) {
+	public ModelAndView saveCompra(@Valid @ModelAttribute ("usuariopelicula") UsuarioPelicula compraparaguardar, BindingResult result){
 		EMILIA.fatal("INGRESANDO AL METODO GUARDAR COMPRAAAAAAAAA");
-		ModelAndView modelView=new ModelAndView ();
+		ModelAndView vista1=new ModelAndView ();
 		if(result.hasErrors()) {
 			EMILIA.fatal("Error EN METODO GUARDAR COMPRAAAAAAAAA");
-			modelView.setViewName("cargarCompra");
-			
-			modelView.addObject("unaCompra",compraparaguardar );
-			return modelView;
+			vista1.addObject("usuariopelicula", compraparaguardar);
+			vista1.addObject("editMode", false);
+			vista1.setViewName("cargarCompra");
+			return vista1;
 		}
 			try {
 				usuariopeliculaservice.guardarUsuarioCine(compraparaguardar);
 			} catch(Exception e) {
-				modelView.addObject("formUsuarioErrorMessage", e.getMessage());
-				modelView.addObject("unaCompra", usuariopeliculaservice.nuevoUsuarioCine());
-				EMILIA.error("saliendo del metodo: GUARDAR COMPRAAAAAAAAAAAAAAAA");
-				modelView.setViewName("cargarCompra");
-				return modelView;
+				vista1.addObject("formUsuarioErrorMessage", e.getMessage());
+				vista1.addObject("usuariopelicula", compraparaguardar);
+				EMILIA.error("saliendo del metodo:GUARDAR COMPRAAAAAAAAAAAAAAAAAA");
+				vista1.addObject("editMode", false);
+				vista1.setViewName("cargarCompra");
+				return vista1;
 			}
-		
-			modelView.addObject("formUsuarioErrorMessage", "COMPRAA GUARDADDA CORRECTAMENTEEEE");
-			modelView.addObject("unaCompra", usuariopeliculaservice.nuevoUsuarioCine());
-			modelView.addObject("listaCompra", usuariopeliculaservice.listadoUsuariosCine());
-			modelView.setViewName("listadoCompra");
-			return modelView;
-
-	}
+		return vista1;
+		}
 	
 	@GetMapping("/listadoCompra")	
 	public ModelAndView showCompra() {
