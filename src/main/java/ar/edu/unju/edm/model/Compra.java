@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -32,7 +35,21 @@ public class Compra {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDeCompra;
 	
+	@Min(value=1, message="Elija cantidad de entradas")
+	@Max(value=5, message="Elija cantidad de entradas")
+	@NotNull(message="Elija la cantidad de entradas")
+	private int cantidad;
 	
+	public int getCantidad() {
+		return cantidad;
+	}
+
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+
 	public Integer getIdCompra() {
 		return idCompra;
 	}

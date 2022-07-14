@@ -22,6 +22,16 @@
 	<header>
 		<div class="contenedor">
 			<h2 class="logotipo">GRUPO 01</h2>
+			<li class="nav-item">
+			<a class="btn btn-outline-danger" href="#" th:href="@{/logout}">
+			IdUsuario:
+			<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+			<br>
+			<span>Cerrar Sesion</span>
+			<span class="float-right"><i class="fas fa-sign-out-alt"></i></span>
+			
+			</a>
+		</li>
 		</div>
 	</header>
 		<main>

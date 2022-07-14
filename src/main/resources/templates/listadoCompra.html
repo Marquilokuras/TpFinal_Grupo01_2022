@@ -8,45 +8,51 @@
 	<meta name="viewport" content="width-device-width,initial-scale-1.0">
 	<link rel="shortcut icon"href="img/palomitas.png">
 	<title>Listado de Compra de Entradas</title>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
 	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
 	  <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-  <div class="container">
-		<div class="alert-primary text-center" th:if="${formCompraErrorMessage}" th:text="${formCompraErrorMessage}">Nombre Error</div>
+			<div class="container">
+
+
+		<a class="btn btn-danger my-2 my-sm-0 form-control" th:href="@{/index}">Volver</a>
 		
-		<section>
-		<div class="table-responsive">
-		<table class="table table-bordered border-primary">
-		<caption class="table-caption">No se realizaron compras</caption>
-			<thead> class="table-dark">
-			
-						<tr class="text-center">
-							<th scope="col">Usuario</th>
-							<th scope="col">Pelicula</th>
-							<th scope="col">Fecha de Compra</th>
-							<th scope="col">Cantidad de Tickets</th>
-							<th scope="col">Sala</th>
-							<th scope="col">Edicion</th>
-						</tr>
-			</thead>
-			
-			<tbody class="table-secondary">
-
-						<tr th:each="u :${listaCompra}" class="text-center">
-							<td th:text="${u.usuario.nombre}"></td>
-							<td th:text="${u.pelicula.nombrePelicula}"></td>
-							<td th:text="${u.fechaDeCompra}"></td>
-							<td th:text="${u.pelicula.sala}"></td>
-							<td><a class="btn btn-warning" href="#">Editar</a>
-							</td>
-						</tr>
+		<br> <br> <br> <br> <br>
+		
+		<div class="card mx-auto mt-5 border-dark" style="max-width: 540px;" th:each="u : ${listaCompra}">
+				<div class="row g-0">
 				
-			</tbody>
-		</table>
-
-	</div>
+					<div class="col-md-4">
+					<br>
+					<br>
+					<br>
+							<img class="img-fluid" src="/img/loog.jpg">
+							<h6>GRUPO01</h6>
+						</div>
+						<div class="col-md-8">
+						<h2>   ENTRADA  GENERAL</h2>
+							<div class="card-body">
+								<p>Nombre de pelicula:<b th:text="${u.pelicula.nombrePelicula}"></b></p>
+								<p >Dni:<b th:text="${u.usuario.dni}"></b></p>
+								<p>Nombre de comprador: <b class="card-text" th:text="${u.usuario.nombre}"></b></p>
+								
+								<p class="date">Fecha de Compra: 
+									<b th:text="${u.fechaDeCompra}"></b>
+									<p>Sala numero:<b class="card-text" th:text="${u.pelicula.sala}"></b>
+									<p>Cantidad de Entradas:<b class="card-text" th:text="${u.cantidad}"></b>
+								</p>
+							</div>
+						</div>
+					
+				</div>
+			</div>
+	
+		
+		<br> <br> <br> <br> <br>
+		</div>
+	
 </body>
 </html> 

@@ -47,6 +47,7 @@ public class Pelicula {
 	private Integer duracionPelicula;
   
 	@NotEmpty
+	@Column (name= "generoPelicula")
 	private String generoPelicula;
 	
 	@Column (name = "fechaestreno")
@@ -55,7 +56,7 @@ public class Pelicula {
 	
 	private Boolean estadoPelicula;
 	
-	private LocalTime horario;
+	//private LocalTime horario;
 	
 	@Min(value=1, message="Elija una sala")
 	@Max(value=7, message="Elija una sala")
@@ -129,12 +130,7 @@ public class Pelicula {
 		this.fechaEstreno = fechaEstreno;
 	}
 
-	public String getGeneroPelicula() {
-		return generoPelicula;
-	}
-	public void setGeneroPelicula(String generoPelicula) {
-		this.generoPelicula = generoPelicula;
-	}
+	
 	
 	/*public LocalTime getHorario1() {
 		return horario1;
@@ -155,14 +151,22 @@ public class Pelicula {
 		this.horario3 = horario3;
 	}*/
 
-	public LocalTime getHorario() {
+	public String getGeneroPelicula() {
+		return generoPelicula;
+	}
+
+	public void setGeneroPelicula(String generoPelicula) {
+		this.generoPelicula = generoPelicula;
+	}
+
+	/*public LocalTime getHorario() {
 		return horario;
 	}
 
 	public void setHorario(LocalTime horario) {
 		this.horario = horario;
 	}
-
+*/
 	public Boolean getEstadoPelicula() {
 		return estadoPelicula;
 	}

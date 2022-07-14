@@ -9,16 +9,35 @@ body{
 	padding:0;
 	box-sizing: border-box;
 }
-
+h2{
+	color:rgb(255, 255, 255);
+	
+	font-family: 'Bebas Neue', cursive;
+}
+h6{
+	color:white;
+	text-decoration:double;
+	text-align: center;
+		
+}
 .main-section-xd{
     margin:0 auto;
     margin-top:15%;
     padding: 0;
 }
-
+p{
+	color:white;
+}
 /*LOGIN*/
-
-
+.card-body bg-warning{
+	background-color:rgb(130,21,21)
+}
+.col-md-4{
+	background-color: rgb(130, 21, 21);
+}
+.col-md-8{
+	background-color: rgb(130, 21, 21);
+}
 .main-section{
     margin:0 auto;
     margin-top:25%;

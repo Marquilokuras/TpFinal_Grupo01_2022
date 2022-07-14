@@ -10,15 +10,28 @@
 <link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}"
 	rel="stylesheet" type="text/css">
 <link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
 	<div class="container">
 		<!--<div th:insert="/layouts/header0 :: header"></div>-->
-<div th:insert="/layouts/header0 :: header"></div>
+		<li class="nav-item">
+			<a class="btn btn-outline-danger form-control" href="#" th:href="@{/logout}">
+			IdUsuario:
+			<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+			<br>
+			<span>Cerrar Sesion</span>
+			<span class="float-right"><i class="fas fa-sign-out-alt"></i></span>
+			
+			</a>
+		</li>
+		
+	<br>
 		<div class="modal-dialog text-center">
 			<div class="col-sm-8 main-section">
 				<div class="modal-content">
+				
 				<h4>Compra de Entradas</h4>
 			
 
@@ -31,21 +44,32 @@
 				</select>
 			</div>
 			
-       <!-- <div class="mb-3">
+		
+		
+        <div class="form-group">
           <label for="birthdateID" class="form-label">Fecha de Compra</label>
           <input th:field="*{fechaDeCompra}" type="date" class="form-control" id="birthdateID"  placeholder="Ingrese fecha de compra">
-        </div>-->
+        </div>
+        
+        <div class="form-group">
+  			<label for="exampleFormControlSelect1">Cantidad de entradas</label>
+			    <select class="form-control" id="exampleFormControlSelect1" th:field="*{cantidad}">
+			      <option value="1">1</option>
+			      <option value="2">2</option>
+			      <option value="3">3</option>
+			      <option value="4">4</option>
+			      <option value="5">5</option>
+			      
+			    </select>
+			  		
+  		<div class="alert alert-danger" th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}"></div>
+  		</div>
 	
 		  <button type="submit" class="btn btn-primary">Realizar Compra</button>
 		  <a class="btn btn-light" th:href="@{/index}">Volver</a>
 		
 		</form>
-			<div class="col-md-1"></div>
-		<div class="portada col-md-4">
-			<tr th:each="p : ${peliculas}">
-				<td><img th:src="${'data:image/jpg;base64,'+p.imagen}" alt=""></td>
-			</tr>
-		</div>
+			
 	</div>
 				</div>
 			</div>
