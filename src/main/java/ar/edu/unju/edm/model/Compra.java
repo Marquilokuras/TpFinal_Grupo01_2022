@@ -1,6 +1,8 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,40 +16,37 @@ import org.springframework.stereotype.Component;
 
 @Component					//mapeo del modelo relacional hibernate
 @Entity
-public class UsuarioPelicula {
+public class Compra {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idUsuarioPelicula;
+	private Integer idCompra;
 	
-	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
-	@JoinColumn(name="dni")//parte comun de dos conjuntos
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id")
 	private Usuario usuario;
 	
-	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
-	@JoinColumn(name="idPelicula")//parte comun de dos conjuntos
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="idPelicula")
 	private Pelicula pelicula;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDeCompra;
 	
-	@JoinColumn(name="comentario")//parte comun de dos conjuntos
-	private String comentario;
 	
-	@JoinColumn(name="valoracion")//parte comun de dos conjuntos
-	private String valoracion;
-	
+	public Integer getIdCompra() {
+		return idCompra;
+	}
 
-	public UsuarioPelicula() {
+
+	public void setIdCompra(Integer idCompra) {
+		this.idCompra = idCompra;
+	}
+
+
+	public Compra() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getIdUsuarioPelicula() {
-		return idUsuarioPelicula;
-	}
-
-	public void setIdUsuarioPelicula(Integer idUsuarioPelicula) {
-		this.idUsuarioPelicula = idUsuarioPelicula;
-	}
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -72,4 +71,21 @@ public class UsuarioPelicula {
 	public void setFechaDeCompra (LocalDate fechaDeCompra) {
 		this.fechaDeCompra = fechaDeCompra;
 	}
+
+
+	public void save(Compra compra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public List<Compra> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+
+
 }

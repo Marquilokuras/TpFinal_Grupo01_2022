@@ -25,9 +25,7 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	@Override
 	public void guardarUsuario(Usuario usuarioparaguardar) {
 		// TODO Auto-generated method stub
-
 		usuarioparaguardar.setEstado(true);
-
 		String pw=usuarioparaguardar.getContrasena();
 		BCryptPasswordEncoder coder = new BCryptPasswordEncoder(4); //clase de codificadores para incriptar datos
 		usuarioparaguardar.setContrasena(coder.encode(pw));

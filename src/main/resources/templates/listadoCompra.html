@@ -15,32 +15,38 @@
 <body>
 
   <div class="container">
-		<!--<div th:insert="/layouts/header :: header"></div>-->
-		<br>
-		<div class="alert-primary text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">Nombre Error</div>
+		<div class="alert-primary text-center" th:if="${formCompraErrorMessage}" th:text="${formCompraErrorMessage}">Nombre Error</div>
+		
 		<section>
+		<div class="table-responsive">
 		<table class="table table-bordered border-primary">
-			<thead class="table-dark">
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Nombre de Pelicula</th>
-					<th scope="col">Nombre Cliente</th>
-					<th scope="col">Fecha de Compra</th>
-						<th scope="col"></th>
-			</tr>
+		<caption class="table-caption">No se realizaron compras</caption>
+			<thead> class="table-dark">
+			
+						<tr class="text-center">
+							<th scope="col">Usuario</th>
+							<th scope="col">Pelicula</th>
+							<th scope="col">Fecha de Compra</th>
+							<th scope="col">Cantidad de Tickets</th>
+							<th scope="col">Sala</th>
+							<th scope="col">Edicion</th>
+						</tr>
 			</thead>
+			
 			<tbody class="table-secondary">
-				<tr th:if="${listaCompra.empty}">
-					<td colspan="7">No se  ha realizado niguna compra</td>
-				</tr>
-				<tr th:each="c : ${listaCompra}">
-					<td th:text="${u.usuario.nombre}"></td>
-					<td th:text="${u.pelicula.nombre}"></td>
-					<td th:text="${u.fechaDeCompra}"></td>
-				</tr>
+
+						<tr th:each="u :${listaCompra}" class="text-center">
+							<td th:text="${u.usuario.nombre}"></td>
+							<td th:text="${u.pelicula.nombrePelicula}"></td>
+							<td th:text="${u.fechaDeCompra}"></td>
+							<td th:text="${u.pelicula.sala}"></td>
+							<td><a class="btn btn-warning" href="#">Editar</a>
+							</td>
+						</tr>
+				
 			</tbody>
 		</table>
-		</section>
+
 	</div>
 </body>
 </html> 

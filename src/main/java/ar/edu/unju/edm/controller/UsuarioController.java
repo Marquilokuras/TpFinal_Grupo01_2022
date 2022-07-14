@@ -1,4 +1,3 @@
-
 package ar.edu.unju.edm.controller;
 
 import javax.validation.Valid;
@@ -145,4 +144,3 @@ public class UsuarioController {
 		return vista1;
 	}
 }
-

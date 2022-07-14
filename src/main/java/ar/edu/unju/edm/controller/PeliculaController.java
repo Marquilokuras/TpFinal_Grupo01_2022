@@ -1,5 +1,7 @@
 package ar.edu.unju.edm.controller;
+
 import java.util.Base64;
+
 import javax.validation.Valid;
 
 import org.apache.commons.logging.Log;
@@ -57,7 +59,6 @@ public class PeliculaController {
 			byte[] content = file.getBytes();
 			String base64 = Base64.getEncoder().encodeToString(content);
 			peliculaparaguardar.setImagen(base64);
-			peliculaparaguardar.setDuracionPelicula(45);
 			peliculaService.guardarPelicula(peliculaparaguardar);
 		}catch(Exception error) {
 			model.addAttribute("formPeliculaErrorMessage", error.getMessage());
@@ -154,4 +155,4 @@ public class PeliculaController {
 				AGUSTINA.info("saliendo al metodo eliminar");
 			    return "redirect:/listadoPelicula";
 			}
-}
+	}
