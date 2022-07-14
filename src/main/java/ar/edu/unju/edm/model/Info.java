@@ -21,14 +21,21 @@ public class Info {
 	private Integer idComentario;
     @NotEmpty
 	private String texto;
+    
+    
 	@NotNull
 	private Integer valoracion;
+	
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Usuario usuario;
+	
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idPelicula")
 	private Pelicula pelicula;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaComen;
 	

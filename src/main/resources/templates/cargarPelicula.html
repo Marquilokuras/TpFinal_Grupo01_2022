@@ -85,17 +85,30 @@
 						  			</select>
 						     	</div>
 						     	
-						     	<div class="form-group">
+						     	<!--<div class="form-group">
 						     	  	<label for="horario" class="form-label">Horario</label>
 						          	<input type="time" class="form-control" id="horario" th:field="*{horario}" placeholder="Ingrese horario de la pelicula">
 						     	  	<div class="alert alert-danger" th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}"></div>
-						     	</div>
+						     	</div>-->
 						     	
 						     	<div class="form-group">
 						     	  <label for="actoresPelicula" class="form-label">Actores</label>
 						          <input type="text" class="form-control" id="actoresPelicula" th:field="*{actoresPelicula}" placeholder="Ingrese actores de la pelicula">
 						     	</div>
-
+<div class="form-group">
+  			<label for="exampleFormControlSelect1">Seleccione una sala ...</label>
+			    <select class="form-control" id="exampleFormControlSelect1" th:field="*{sala}">
+			      <option value="1">1</option>
+			      <option value="2">2</option>
+			      <option value="3">3</option>
+			      <option value="4">4</option>
+			      <option value="5">5</option>
+			      <option value="6">6</option>
+			      <option value="7">7</option>
+			    </select>
+			  		
+  		<div class="alert alert-danger" th:if="${#fields.hasErrors('sala')}" th:errors="*{sala}"></div>
+  		</div>
 								<button type="submit" class="btn btn-primary"><span
 										th:text="${editMode}? 'Modificar Pelicula' : 'Registrar Pelicula' "></span>
 								</button>

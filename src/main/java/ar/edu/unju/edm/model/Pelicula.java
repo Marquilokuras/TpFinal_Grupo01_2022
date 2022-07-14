@@ -13,6 +13,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -55,7 +56,20 @@ public class Pelicula {
 	
 	private Boolean estadoPelicula;
 	
-	private LocalTime horario;
+	//private LocalTime horario;
+	
+	@Min(value=1, message="Elija una sala")
+	@Max(value=7, message="Elija una sala")
+	@NotNull(message="Elija una sala")
+	private int sala;
+
+	public int getSala() {
+		return sala;
+	}
+
+	public void setSala(int sala) {
+		this.sala = sala;
+	}
 
 	//portada
 	@Lob
@@ -145,14 +159,14 @@ public class Pelicula {
 		this.generoPelicula = generoPelicula;
 	}
 
-	public LocalTime getHorario() {
+	/*public LocalTime getHorario() {
 		return horario;
 	}
 
 	public void setHorario(LocalTime horario) {
 		this.horario = horario;
 	}
-
+*/
 	public Boolean getEstadoPelicula() {
 		return estadoPelicula;
 	}
@@ -169,5 +183,6 @@ public class Pelicula {
 		this.actoresPelicula = actoresPelicula;
 	}
 	
+
 }
 

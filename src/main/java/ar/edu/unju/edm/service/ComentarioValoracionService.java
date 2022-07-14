@@ -12,4 +12,6 @@ public interface ComentarioValoracionService {
 	public void guardarInfo(Info info);
 	public Info buscarInfo(Integer idComentario) throws Exception;
 	public List<Info> mostrarInfo();
+	public void modificarComentario(Info comentario);
+	public Info buscarInfo(Integer idComentario) throws Exception;
 }

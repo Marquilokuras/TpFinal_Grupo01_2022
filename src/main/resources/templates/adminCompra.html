@@ -1,0 +1,57 @@
+<!---<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- Colocar icono en las pestañas -->
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width-device-width,initial-scale-1.0">
+	<link rel="shortcut icon" href="img/palomitas.png">
+	<title>Administracion de Compras</title>
+	<link th:href="@{/webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/css/miEstilo.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="alert-danger text-center" th:if="${formUsuarioErrorMessage}" th:text="${formUsuarioErrorMessage}">
+			Nombre Error</div>
+		<section>
+			<div class="table-responsive">
+				<table class="table table-sm table-dark table-hover">
+					
+					<thead>
+						<tr class="text-center">
+							<th scope="col">Usuario</th>
+							<th scope="col">Dni</th>
+							<th scope="col">Pelicula</th>
+							<th scope="col">Fecha de Compra</th>
+							<th scope="col">Sala de pelicula</th>
+							<th scope="col">Cantidda de Entradas</th>
+							
+						</tr>
+					</thead>
+					<tbody class="table-group-divider">
+						<tr th:if="${listaCompra.empty}">
+							<td colspan="10">No se relizaron compra todavia</td>
+						</tr>
+						<tr th:each="u :${listaCompra}" class="text-center">
+							<td th:text="${u.usuario.nombre}"></td>
+							<td th:text="${u.usuario.dni}"></td>
+							<td th:text="${u.pelicula.nombrePelicula}"></td>
+							<td th:text="${u.fechadeCompra}"></td>
+							<td th:text="${u.pelicula.sala}"></td>
+							<td th:text="${u.cantidad}"></td>
+							
+						</tr>
+					</tbody>
+				</table>
+				<a class="btn btn-primary" th:href="@{/registroAdmin}">Volver</a>
+			</div>
+		</section>
+	</div>
+
+</body>
+
+</html>-->

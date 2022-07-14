@@ -26,7 +26,7 @@ import ar.edu.unju.edm.service.IUsuarioService;
 
 @Controller
 public class ComentarioValoracionController {
-    private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.class);
+    private static final Log EMILIA = LogFactory.getLog(ComentarioValoracionController.class);
 
 	@Autowired
 	Info nuevaInfo;
@@ -90,6 +90,45 @@ public class ComentarioValoracionController {
 			view.setViewName("cargarInfo");
 			return view;
 	}
+	
+	
+	//modificar comentario
+		@RequestMapping("/editComentario/{idComentario}")
+		public ModelAndView editComentario(Model model,@PathVariable (name="idComentario") Integer idComentario)throws Exception {	
+			Info comentarioEncontrado = new Info();
+			comentarioEncontrado = comentarioValoracionService.buscarInfo(idComentario);		
+			ModelAndView modelView = new ModelAndView("cargarInfo");
+			modelView.addObject("comentario", comentarioEncontrado);
+			 EMILIA.info("saliendo del metodo: editComentario "+ comentarioEncontrado.getIdComentario());
+			modelView.addObject("editMode", true);
+			return modelView;
+		}
+		
+		//actualizar comentario
+		@PostMapping("/editComentario")
+		public ModelAndView saveEditComentario(@Valid @ModelAttribute ("unaInfo") Info comentarioparamodificar, BindingResult result) {  
+			if(result.hasErrors()) {
+				EMILIA.fatal("Error de validacion");
+				ModelAndView vista = new ModelAndView("cargarInfo");
+				vista.addObject("unaInfo", comentarioparamodificar);
+				vista.addObject("editMode",true);
+				return vista;
+			}
+			try {
+				comentarioValoracionService.modificarComentario(comentarioparamodificar);
+			}catch(Exception error){
+				ModelAndView vista = new ModelAndView("cargarInfo");
+				vista.addObject("formInfoErrorMessage", error.getMessage());
+				vista.addObject("unaInfo", comentarioparamodificar);
+				vista.addObject("editMode",true);
+				EMILIA.error("saliendo del metodo: editarComentario");
+				return vista;
+			}
+				ModelAndView vista = new ModelAndView("listadoComentario");
+				vista.addObject("listaPelicula", comentarioValoracionService.mostrarInfo());	
+				vista.addObject("formInfoErrorMessage","Comentario modificado Correctamente");
+			return vista;
+		}
 	
 	@GetMapping("/listadoComentario")	
 	public ModelAndView showCourses() {
