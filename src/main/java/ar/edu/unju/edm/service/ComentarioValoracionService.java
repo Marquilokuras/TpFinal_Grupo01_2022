@@ -8,9 +8,9 @@ import ar.edu.unju.edm.model.Pelicula;
 @Service
 public interface ComentarioValoracionService {
 	public Info nuevaInfo();
-	public void modificarComentario(Info comentario);
+	
 	public void guardarInfo(Info info);
-	public Info buscarInfo(Integer idComentario) throws Exception;
+	
 	public List<Info> mostrarInfo();
 	public void modificarComentario(Info comentario);
 	public Info buscarInfo(Integer idComentario) throws Exception;
