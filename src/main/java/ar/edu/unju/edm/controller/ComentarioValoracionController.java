@@ -8,10 +8,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.edm.model.Info;
 import ar.edu.unju.edm.service.ComentarioValoracionService;
@@ -83,6 +86,45 @@ public class ComentarioValoracionController {
 			view.setViewName("cargarInfo");
 			return view;
 	}
+	
+	
+	//modificar comentario
+		@RequestMapping("/editComentario/{idComentario}")
+		public ModelAndView editComentario(Model model,@PathVariable (name="idComentario") Integer idComentario)throws Exception {	
+			Info comentarioEncontrado = new Info();
+			comentarioEncontrado = comentarioValoracionService.buscarInfo(idComentario);		
+			ModelAndView modelView = new ModelAndView("cargarInfo");
+			modelView.addObject("comentario", comentarioEncontrado);
+			 EMILIA.info("saliendo del metodo: editComentario "+ comentarioEncontrado.getIdComentario());
+			modelView.addObject("editMode", true);
+			return modelView;
+		}
+		
+		//actualizar comentario
+		@PostMapping("/editComentario")
+		public ModelAndView saveEditComentario(@Valid @ModelAttribute ("unaInfo") Info comentarioparamodificar, BindingResult result) {  
+			if(result.hasErrors()) {
+				EMILIA.fatal("Error de validacion");
+				ModelAndView vista = new ModelAndView("cargarInfo");
+				vista.addObject("unaInfo", comentarioparamodificar);
+				vista.addObject("editMode",true);
+				return vista;
+			}
+			try {
+				comentarioValoracionService.modificarComentario(comentarioparamodificar);
+			}catch(Exception error){
+				ModelAndView vista = new ModelAndView("cargarInfo");
+				vista.addObject("formInfoErrorMessage", error.getMessage());
+				vista.addObject("unaInfo", comentarioparamodificar);
+				vista.addObject("editMode",true);
+				EMILIA.error("saliendo del metodo: editarComentario");
+				return vista;
+			}
+				ModelAndView vista = new ModelAndView("listadoComentario");
+				vista.addObject("listaPelicula", comentarioValoracionService.mostrarInfo());	
+				vista.addObject("formInfoErrorMessage","Comentario modificado Correctamente");
+			return vista;
+		}
 	
 	@GetMapping("/listadoComentario")	
 	public ModelAndView showCourses() {
