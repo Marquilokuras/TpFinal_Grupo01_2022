@@ -21,6 +21,7 @@ public class IPeliculaServiceImp implements IPeliculaService{
 	@Autowired
 	PeliculaRepository peliculaRepository;
 	
+
 	@Override
 	public void guardarPelicula(Pelicula peliculaparaguardar) {
 		// TODO Auto-generated method stub

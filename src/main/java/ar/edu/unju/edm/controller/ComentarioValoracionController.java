@@ -26,7 +26,7 @@ import ar.edu.unju.edm.service.IUsuarioService;
 
 @Controller
 public class ComentarioValoracionController {
-    private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.class);
+    private static final Log EMILIA = LogFactory.getLog(ComentarioValoracionController.class);
 
 	@Autowired
 	Info nuevaInfo;

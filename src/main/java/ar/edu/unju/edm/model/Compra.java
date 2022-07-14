@@ -1,6 +1,8 @@
 package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,47 +10,60 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component					//mapeo del modelo relacional hibernate
 @Entity
-public class UsuarioPelicula {
+public class Compra {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idUsuarioPelicula;
+	private Integer idCompra;
 	
-	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
-	@JoinColumn(name="dni")//parte comun de dos conjuntos
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id")
 	private Usuario usuario;
 	
-	@ManyToOne(fetch=FetchType.LAZY)//lazy trae solo una parte
-	@JoinColumn(name="id")//parte comun de dos conjuntos
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="idPelicula")
 	private Pelicula pelicula;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaDeCompra;
 	
-	@JoinColumn(name="comentario")//parte comun de dos conjuntos
-	private String comentario;
+	@Min(value=1, message="Elija cantidad de entradas")
+	@Max(value=5, message="Elija cantidad de entradas")
+	@NotNull(message="Elija la cantidad de entradas")
+	private int cantidad;
 	
-	@JoinColumn(name="valoracion")//parte comun de dos conjuntos
-	private String valoracion;
-	
-	private Integer Tickets; 
-	
-	public UsuarioPelicula() {
+	public int getCantidad() {
+		return cantidad;
+	}
+
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+
+	public Integer getIdCompra() {
+		return idCompra;
+	}
+
+
+	public void setIdCompra(Integer idCompra) {
+		this.idCompra = idCompra;
+	}
+
+
+	public Compra() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getIdUsuarioPelicula() {
-		return idUsuarioPelicula;
-	}
-
-	public void setIdUsuarioPelicula(Integer idUsuarioPelicula) {
-		this.idUsuarioPelicula = idUsuarioPelicula;
-	}
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -74,27 +89,20 @@ public class UsuarioPelicula {
 		this.fechaDeCompra = fechaDeCompra;
 	}
 
-	public String getComentario() {
-		return comentario;
+
+	public void save(Compra compra) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
+
+	public List<Compra> findAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public String getValoracion() {
-		return valoracion;
-	}
 
-	public void setValoracion(String valoracion) {
-		this.valoracion = valoracion;
-	}
+	
 
-	public Integer getTickets() {
-		return Tickets;
-	}
 
-	public void setTickets(Integer tickets) {
-		Tickets = tickets;
-	}
 }

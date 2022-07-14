@@ -33,8 +33,9 @@
 					<th scope="col">Imagen</th>
 					<th scope="col">Duración en min</th>
 					<th scope="col">Género</th>
-					<th scope="col">Horario</th>
+					<!--<th scope="col">Horario</th>-->
 					<th scope="col">Actor/es</th>
+					<th scope="col">Sala</th>
 						<th scope="col"></th>
 			</tr>
 			</thead>
@@ -50,8 +51,9 @@
 					<td><img th:src="${'data:image/png;base64,'+m.imagen}" alt="" class="imagen-listado-pelicula"></td>
 					<td th:text="${m.duracionPelicula}"></td>
 					<td th:text="${m.generoPelicula}"></td>
-					<td th:text="${m.horario}"></td>
+					<!--<td th:text="${m.horario}"></td>-->
 					<td th:text="${m.actoresPelicula}"></td>
+					<td th:text="${m.sala}"></td>
 					<td colspan="3"><a class="btn btn-warning" th:href="@{'/editPelicula/'+ ${m.idPelicula}}">Editar</a>
 					<a class="btn btn-danger fa fa-trash" th:onclick="'javascript:confirmarEliminar(\''+${m.idPelicula}+'\');'"	>Eliminar</a></td>  
 				</tr>
