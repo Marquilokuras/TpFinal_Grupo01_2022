@@ -88,6 +88,7 @@ public class ComentarioValoracionController {
 	public ModelAndView showCourses() {
 		ModelAndView vista = new ModelAndView("listadoComentario");		
 		vista.addObject("listaComentarioValoracion", comentarioValoracionService.mostrarInfo());		
+
 		return vista;
 	}
 }
