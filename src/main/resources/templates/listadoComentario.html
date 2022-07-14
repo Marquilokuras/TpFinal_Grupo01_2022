@@ -29,12 +29,12 @@
 							<!-- <th scope="col">Fecha de Comentario</th>-->
 							<th scope="col">Comentario</th>
 							<th scope="col">Valoracion</th>
-							<th scope="col">Edicion</th>
+							
 						</tr>
 					</thead>
 					<tbody class="table-group-divider">
 						<tr th:if="${listaComentarioValoracion.empty}">
-							<td colspan="6">No hay comentarios cargados</td>
+							<td colspan="5">No hay comentarios cargados</td>
 						</tr>
 						<tr th:each="u :${listaComentarioValoracion}" class="text-center">
 							<td th:text="${u.usuario.nombre}"></td>
@@ -43,8 +43,7 @@
 							<!-- <td th:text="${u.fechaComen}"></td> -->
 							<td th:text="${u.texto}"></td>
 							<td th:text="${u.valoracion}"></td>
-							<td colspan="3"><a class="btn btn-warning" th:href="@{'/editComentario/'+ ${u.idComentario}}">Editar</a>
-							</td>
+							
 						</tr>
 					</tbody>
 				</table>
@@ -53,7 +52,6 @@
 		</section>
 	</div>
 
-	<a class="btn btn-primary" th:href="@{/index}">Volver</a>
 	</body>
 
 </html>

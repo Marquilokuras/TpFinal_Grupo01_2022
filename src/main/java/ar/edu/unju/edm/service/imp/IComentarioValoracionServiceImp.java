@@ -25,22 +25,7 @@ public class IComentarioValoracionServiceImp implements ComentarioValoracionServ
 		comentarioValoracionRepository.save(info);
 	}
 
-	@Override
-	public void modificarComentario(Info comentario) {
-		// TODO Auto-generated method stub
-		comentario.setEstadoComentario(true);
-		  
-		comentarioValoracionRepository.save(comentario);
-	}
-	
-	@Override
-	public Info buscarInfo(Integer idComentario) throws Exception {
-		// TODO Auto-generated method stub
-		Info comentarioEncontrado = new Info();
-		
-		comentarioEncontrado=comentarioValoracionRepository.findById(idComentario).orElseThrow(()->new Exception("Comentario No Encontrado"));
-		return comentarioEncontrado;
-	}
+
 	
 	@Override
 	public List<Info> mostrarInfo() {

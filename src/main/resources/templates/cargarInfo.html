@@ -34,7 +34,7 @@
 					<h4>Registro de Comentario y Valoracion</h4>
 
 		<form class="form-group" th:object="${unaInfo}" 
-						th:action="${editMode} ? @{/editComentario} : @{/guardarInfo}" method="post">
+						th:action="@{/guardarInfo}" method="post">
 
 
 			<div class="form-group">
@@ -94,11 +94,9 @@
 				</div>
 			</div>-->
 
-			<!-- <button type="submit" class="button"><span>Publicar comentario y valoracion</span> </button>-->
-			<button type="submit" class="btn btn-primary"><span
-										th:text="${editMode}? 'Modificar Comentario y Valoración' : 'Registrar Comentario y Valoración' "></span>
-								</button>
-			<a class="button" th:href="@{/index}">Volver</a>
+			<button type="submit" class="button"><span>Publicar comentario y valoracion</span> </button>
+			
+			<a class="btn btn-primary" th:href="@{/index}">Volver</a>
 
 
 		</form>
