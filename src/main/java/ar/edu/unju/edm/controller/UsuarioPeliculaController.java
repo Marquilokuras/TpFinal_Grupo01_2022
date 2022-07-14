@@ -35,13 +35,13 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 	IPeliculaService peliculaservice;
 	
 	public ModelAndView addVenta(Principal principal) throws Exception {
-		Usuario existente = usuarioservice.buscarUsuario(principal.con);
+		//Usuario existente = usuarioservice.buscarUsuario(principal);
 		
 	EMILIA.info("ingresando al metodo: venta");
 		ModelAndView modelView = new ModelAndView("ticket");
 		modelView.addObject("unTicket", usuariopeliculaservice.nuevoUsuarioPelicula());
 		//modelView.addObject("usuarios", usuarioService.mostrarUsuario());
-		modelView.addObject("usuarios", existente);
+		//modelView.addObject("usuarios", existente);
 		modelView.addObject("pelicula", peliculaservice.listadoPelicula());
 		return modelView;
 	}
@@ -144,6 +144,7 @@ private static final Log EMILIA = LogFactory.getLog(UsuarioPeliculaController.cl
 				vista.setViewName("cargarComentario");
 				return vista;
 			}
+		return vista1;
 	}
 			
 

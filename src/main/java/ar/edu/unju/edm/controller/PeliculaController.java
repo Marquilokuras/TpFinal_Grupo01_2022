@@ -155,4 +155,5 @@ public class PeliculaController {
 				AGUSTINA.info("saliendo al metodo eliminar");
 			    return "redirect:/listadoPelicula";
 			}
+
 	}
