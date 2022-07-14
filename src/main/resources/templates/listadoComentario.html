@@ -24,30 +24,36 @@
 					<thead>
 						<tr class="text-center">
 							<th scope="col">Usuario</th>
+							<th scope="col">Apellido</th>
 							<th scope="col">Pelicula</th>
-							<!--<th scope="col">Fecha de Comentario</th>-->
+							<!-- <th scope="col">Fecha de Comentario</th>-->
 							<th scope="col">Comentario</th>
 							<th scope="col">Valoracion</th>
 							<th scope="col">Edicion</th>
 						</tr>
 					</thead>
 					<tbody class="table-group-divider">
-
+						<tr th:if="${listaComentarioValoracion.empty}">
+							<td colspan="6">No hay comentarios cargados</td>
+						</tr>
 						<tr th:each="u :${listaComentarioValoracion}" class="text-center">
 							<td th:text="${u.usuario.nombre}"></td>
+							<td th:text="${u.usuario.apellido}"></td>
 							<td th:text="${u.pelicula.nombrePelicula}"></td>
-							<!--<td th:text="${u.fechaComen}"></td>-->
+							<!-- <td th:text="${u.fechaComen}"></td> -->
 							<td th:text="${u.texto}"></td>
 							<td th:text="${u.valoracion}"></td>
-							<td><a class="btn btn-warning" href="#">Editar</a>
+							<td colspan="3"><a class="btn btn-warning" th:href="@{'/editComentario/'+ ${u.idComentario}}">Editar</a>
 							</td>
 						</tr>
 					</tbody>
 				</table>
+				<a class="btn btn-primary" th:href="@{/index}">Volver</a>
 			</div>
 		</section>
 	</div>
 	<a class="btn btn-primary" th:href="@{/index}">Volver</a>
+
 </body>
 
 </html>

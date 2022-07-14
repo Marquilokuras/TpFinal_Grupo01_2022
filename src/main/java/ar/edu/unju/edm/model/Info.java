@@ -32,6 +32,16 @@ public class Info {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaComen;
 	
+	private Boolean estadoComentario;
+	
+	public Boolean getEstadoComentario() {
+		return estadoComentario;
+	}
+
+	public void setEstadoComentario(Boolean estadoComentario) {
+		this.estadoComentario = estadoComentario;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -59,7 +69,7 @@ public class Info {
 	public LocalDate getFechaComen() {
 		return fechaComen;
 	}
-	public void setFechadeCom(LocalDate fechaComen) {
+	public void setFechaComen(LocalDate fechaComen) {
 		this.fechaComen = fechaComen;
 	}
 
